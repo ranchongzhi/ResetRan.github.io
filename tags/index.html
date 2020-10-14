@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 爬虫, Reset Ran&#39;s blog">
+    <meta name="keywords" content="标签, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 爬虫 | Reset Ran&#39;s blog</title>
+    <title>标签 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -337,7 +337,7 @@
                 
                 <a href="/tags/%E7%88%AC%E8%99%AB/" title="爬虫: 4">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             data-tagname="爬虫" style="background-color: #D5F5E3;">爬虫
                         <span class="tag-length">4</span>
                     </span>
@@ -349,127 +349,32 @@
 </div>
 
     
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="python, 爬虫" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2020/07/07/python-spyder-4/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="python爬虫（4）——XPath语法和lxml">
-                            
-                            <span class="card-title">python爬虫（4）——XPath语法和lxml</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Reset Ran
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="python, 爬虫" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2020/07/05/python-spyder-3/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="python爬虫（3）——cookie与requests库">
-                            
-                            <span class="card-title">python爬虫（3）——cookie与requests库</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Reset Ran
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="python, 爬虫" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2020/07/02/python-spyder-2/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="python爬虫（2）——urllib库">
-                            
-                            <span class="card-title">python爬虫（2）——urllib库</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Reset Ran
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="python, 爬虫" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2020/07/02/python-spyder-1/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="python爬虫（1）——前置知识">
-                            
-                            <span class="card-title">python爬虫（1）——前置知识</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Reset Ran
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"numpy","weight":2,"link":"/tags/numpy/"},{"text":"python","weight":6,"link":"/tags/python/"},{"text":"爬虫","weight":4,"link":"/tags/爬虫/"}], {
+        autoResize: true
+    });
+</script>
+
+    
+
 </main>
-
-
 
 
     <footer class="page-footer bg-color">
