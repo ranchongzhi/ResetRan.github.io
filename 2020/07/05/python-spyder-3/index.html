@@ -429,7 +429,40 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>在网站中，http请求是无状态的。也就是说即使第一次和服务器连接后并且登录成功后，第二次请求服务器依然不能知道当前请求是哪个用户。cookie 的出现就是为了解决这个问题，第一次登录后服务器返回一些数据（cookie）给浏览器，然后浏览器保存在本地，当该用户发送第二次请求的时候，就会自动的把上次请求存储的 cookie 数据自动的携带给服务器，服务器通过浏览器携带的数据就能判断当前用户是哪个了。cookie 存储的数据量有限，不同的浏览器有不同的存储大小，但一般不超过 4KB。因此使用 cookie 只能存储一些小量的数据。<br>cookie的一般格式如下：<br><code>Set-Cookie: NAME=VALUE；Expires/Max-age=DATE；Path=PATH；Domain=DOMAIN_NAME； SECURE</code><br>参数的描述如下表：<br>|参数名|参数描述|<br>|:-:|:-:|<br>|NAME|cookie的名字|<br>|VALUE|cookie的值|<br>|Expires|cookie的过期时间|<br>|Path|cookie作用的路径|<br>|Domain|cookie作用的域名|<br>|SECURE|是否只在https协议下起作用|<br>浏览器保存了cookie，后面每次访问时就方便，如果要用代码来向那些需要登录才能访问的（进行更多操作）网站，就需要把cookie信息传给目标服务器，登录说白了也就是要有cookie信息。要获取cookie信息，首先第一想法就是直接去网站上登录，然后按F12，就能找到cookie信息，以人人网（访问演员大鹏主页，需要登录才能访问）为例子：</p>
+                <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>在网站中，http请求是无状态的。也就是说即使第一次和服务器连接后并且登录成功后，第二次请求服务器依然不能知道当前请求是哪个用户。cookie 的出现就是为了解决这个问题，第一次登录后服务器返回一些数据（cookie）给浏览器，然后浏览器保存在本地，当该用户发送第二次请求的时候，就会自动的把上次请求存储的 cookie 数据自动的携带给服务器，服务器通过浏览器携带的数据就能判断当前用户是哪个了。cookie 存储的数据量有限，不同的浏览器有不同的存储大小，但一般不超过 4KB。因此使用 cookie 只能存储一些小量的数据。<br>cookie的一般格式如下：<br><code>Set-Cookie: NAME=VALUE；Expires/Max-age=DATE；Path=PATH；Domain=DOMAIN_NAME； SECURE</code><br>参数的描述如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">NAME</td>
+<td align="center">cookie的名字</td>
+</tr>
+<tr>
+<td align="center">VALUE</td>
+<td align="center">cookie的值</td>
+</tr>
+<tr>
+<td align="center">Expires</td>
+<td align="center">cookie的过期时间</td>
+</tr>
+<tr>
+<td align="center">Path</td>
+<td align="center">cookie作用的路径</td>
+</tr>
+<tr>
+<td align="center">Domain</td>
+<td align="center">cookie作用的域名</td>
+</tr>
+<tr>
+<td align="center">SECURE</td>
+<td align="center">是否只在https协议下起作用</td>
+</tr>
+</tbody></table>
+<p>浏览器保存了cookie，后面每次访问时就方便，如果要用代码来向那些需要登录才能访问的（进行更多操作）网站，就需要把cookie信息传给目标服务器，登录说白了也就是要有cookie信息。要获取cookie信息，首先第一想法就是直接去网站上登录，然后按F12，就能找到cookie信息，以人人网（访问演员大鹏主页，需要登录才能访问）为例子：</p>
 <pre class=" language-py"><code class="language-py">from urllib import request,parse
 #先注释掉cookie
 headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
@@ -443,7 +476,32 @@ resp = request.urlopen(req)
 with open('result.html','w',encoding = 'utf-8') as f:
     f.writelines(resp.read().decode('utf-8'))</code></pre>
 <p>运行代码，会生成一个html文件，我们用浏览器打开它，发现结果如下：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594010413908.jpg"><br>这并不是我们想要的页面，然后将上面的代码中cookie部分取消注释，再运行，打开result.html：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594010616018.jpg"><br>可以看到出现了我们想要的页面！这就很好的体现出cookie的作用。</p>
-<h2 id="http-cookiejar模块"><a href="#http-cookiejar模块" class="headerlink" title="http.cookiejar模块"></a>http.cookiejar模块</h2><p>上面介绍了一种可行的方法，不过我写爬虫不就是为了提高效率嘛，你还每次让我手动去复制粘贴cookie信息？再想想，我们能通过请求获得状态码之类的网站信息，cookie也能用同样的方式获得呀，那不就完事了。这里我们的http.cookiejar模块就闪亮登场了，该模块主要的类有 CookieJar、FileCookieJar、MozillaCookieJar、LWPCookieJar。这四个类的作用分别如下：<br>|类名|描述|<br>|:-:|:-:|<br>|CookieJar|管理 HTTP cookie 值、存储 HTTP 请求生成的 cookie、向传出的 HTTP 请求添加 cookie 的对象。整个 cookie 都存储在内存中，对 CookieJar 实例进行垃圾回收后 cookie也将丢失。|<br>|FileCookieJar (filename,delayload=None,policy=None)|从 CookieJar 派生而来，用创建 FileCookieJar 实例，检索 cookie 信息并将 cookie 存储到文件中。filename 是存储cookie的文件名。delayload 为 True 时支持延迟访问访问文件，即只有在需要时才读取文件或在文件中存储数据。|<br>|MozillaCookieJar (filename,delayload=None,policy=None)|从 FileCookieJar 派生而来，创建与 Mozilla 浏览器 cookies.txt 兼容的 FileCookieJar 实例。|<br>|LWPCookieJar (filename,delayload=None,policy=None)|从 FileCookieJar 派生而来，创建与 libwww-perl 标准的 Set-Cookie3 文件格式兼容的 FileCookieJar 实例。|<br>再用该模块实现访问人人网大鹏的主页：</p>
+<h2 id="http-cookiejar模块"><a href="#http-cookiejar模块" class="headerlink" title="http.cookiejar模块"></a>http.cookiejar模块</h2><p>上面介绍了一种可行的方法，不过我写爬虫不就是为了提高效率嘛，你还每次让我手动去复制粘贴cookie信息？再想想，我们能通过请求获得状态码之类的网站信息，cookie也能用同样的方式获得呀，那不就完事了。这里我们的http.cookiejar模块就闪亮登场了，该模块主要的类有 CookieJar、FileCookieJar、MozillaCookieJar、LWPCookieJar。这四个类的作用分别如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CookieJar</td>
+<td align="center">管理 HTTP cookie 值、存储 HTTP 请求生成的 cookie、向传出的 HTTP 请求添加 cookie 的对象。整个 cookie 都存储在内存中，对 CookieJar 实例进行垃圾回收后 cookie也将丢失。</td>
+</tr>
+<tr>
+<td align="center">FileCookieJar (filename,delayload=None,policy=None)</td>
+<td align="center">从 CookieJar 派生而来，用创建 FileCookieJar 实例，检索 cookie 信息并将 cookie 存储到文件中。filename 是存储cookie的文件名。delayload 为 True 时支持延迟访问访问文件，即只有在需要时才读取文件或在文件中存储数据。</td>
+</tr>
+<tr>
+<td align="center">MozillaCookieJar (filename,delayload=None,policy=None)</td>
+<td align="center">从 FileCookieJar 派生而来，创建与 Mozilla 浏览器 cookies.txt 兼容的 FileCookieJar 实例。</td>
+</tr>
+<tr>
+<td align="center">LWPCookieJar (filename,delayload=None,policy=None)</td>
+<td align="center">从 FileCookieJar 派生而来，创建与 libwww-perl 标准的 Set-Cookie3 文件格式兼容的 FileCookieJar 实例。</td>
+</tr>
+</tbody></table>
+<p>再用该模块实现访问人人网大鹏的主页：</p>
 <pre class=" language-py"><code class="language-py">from urllib import request,parse
 from http.cookiejar import CookieJar
 
