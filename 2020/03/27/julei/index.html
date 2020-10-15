@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python学习笔记——numpy（2）, Reset Ran&#39;s blog">
+    <meta name="keywords" content="常见聚类模型, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python学习笔记——numpy（2） | Reset Ran&#39;s blog</title>
+    <title>常见聚类模型 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python学习笔记——numpy（2）</h1>
+                    <h1 class="description center-align post-title">常见聚类模型</h1>
                 </div>
             </div>
         </div>
@@ -388,12 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/numpy/">
-                                <span class="chip bg-color">numpy</span>
-                            </a>
-                        
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                                <span class="chip bg-color">数模</span>
                             </a>
                         
                     </div>
@@ -408,7 +404,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-16
+                    2020-03-27
                 </div>
                 
 
@@ -417,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.3k
                 </div>
                 
 
@@ -429,260 +425,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>继续来学习numpy：</p>
-<h2 id="一、索引和切片"><a href="#一、索引和切片" class="headerlink" title="一、索引和切片"></a>一、索引和切片</h2><p>前面学了用numpy来创建各种各样的数组，这些数组都是<code>ndarray</code>对象，都支持索引和切片操作。<code>ndarray</code>对象的索引与python中的<code>list</code>基本一致：</p>
-<pre class=" language-py"><code class="language-py">>>> import numpy as np
->>> a=np.arange(1,6,1)
->>> a
-array([1, 2, 3, 4, 5])
->>> a[0]#也是从0开始索引
-1
->>> a[4]
-5
-#再看二维数组索引
->>> aa=np.array([[1,2,3],[4,5,6],[7,8,9]])
->>> aa
-array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]])
- >>> aa[0,0]
-1
->>> aa[2,2]
-9</code></pre>
-<p>更高维度数组元素的索引和上述方式大同小异，再来看切片，先用和列表一样的方法来试试：</p>
-<pre class=" language-py"><code class="language-py">>>> b=np.arange(0,10,1)
->>> b
-array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
->>> b[4:]
-array([4, 5, 6, 7, 8, 9])
->>> b[0:4]
-array([0, 1, 2, 3])
->>> b[5:-1]
-array([5, 6, 7, 8])
->>> b[0:5:2]
-array([0, 2, 4])</code></pre>
-<p>可以发现，这种方法是完全可行的，还可以利用python内置函数<code>slice</code>进行切片：</p>
-<pre class=" language-py"><code class="language-py">>>> b[slice(1,8,2)]#取出b中从索引1开始到索引8的元素，间隔为2
-array([1, 3, 5, 7])</code></pre>
-<p>看完了一维数组，再来看看二维数组元素的切片,二维数组里边我们经常有取一整列或者一整行的需求，可以使用<code>...</code>和<code>:</code>来进行切片，具体操作如下：</p>
-<pre class=" language-py"><code class="language-py">>>> bb=np.array([[1,2,3],[4,5,6],[7,8,9]])
->>> bb
-array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]])
->>> bb[...,0]#取数组bb里第一列元素
-array([1, 4, 7])
->>> bb[:,0]#跟bb[...,0]作用相同
-array([1, 4, 7])
->>> bb[1,...]#取数组bb里第一行元素
-array([4, 5, 6])
->>> bb[1,:]#跟bb[1,...]作用相同
-array([4, 5, 6])
-#还可以取几列或者几行元素
->>> bb[:,0:2]#取第0列和第1列全部元素
-array([[1, 2],
-       [4, 5],
-       [7, 8]])
->>> bb[0:2,:]#取第0行和第1行的全部元素
-array([[1, 2, 3],
-       [4, 5, 6]])
->>> bb[0:2,1:3]#取第0行和第1行上第1列和第2列的元素
-array([[2, 3],
-       [5, 6]])
->>> bb[:]#取全部元素
-array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]])</code></pre>
-<h2 id="二、数组变形"><a href="#二、数组变形" class="headerlink" title="二、数组变形"></a>二、数组变形</h2><p>numpy里面的数组，还可以进行变形操作，主要有以下几种操作：</p>
-<h3 id="1-改变数组形状"><a href="#1-改变数组形状" class="headerlink" title="1.改变数组形状"></a>1.改变数组形状</h3><p>在numpy中，封装了reshape函数来对数组进行变形操作，它一共接收三个参数：<code>numpy.reshape(arr, newshape, order=&#39;C&#39;)</code>，各个参数的描述如下：<br>|参数|描述|<br>|:-:|:-:|<br>|arr|需要修改形状的数组|<br>|reshape|修改后数组的形状，传入的应该是整数或者整数数组,而且总的元素数量应该与arr一致|<br>|order|’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’k’ – 元素在内存中的出现顺序|<br>来看一下例子：</p>
-<pre class=" language-py"><code class="language-py">>>> a1=np.arange(1,10,1)
->>> a1
-array([1, 2, 3, 4, 5, 6, 7, 8, 9])
->>> a2=np.reshape(a1,[3,3])
->>> a2
-array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]])
->>> a3=np.reshape(a1,[3,3],order='F')
->>> a3
-array([[1, 4, 7],
-       [2, 5, 8],
-       [3, 6, 9]])
->>> a4=np.reshape(a1,[3,3],order='A')
->>> a4
-array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]])</code></pre>
-<p>也可以使用a1.reshape()来进行数组变形，跟上面的效果一样</p>
-<pre class=" language-py"><code class="language-py">>>> a6=a1.reshape([3,3])
->>> a6
-array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]])</code></pre>
-<h3 id="2-转置"><a href="#2-转置" class="headerlink" title="2.转置"></a>2.转置</h3><p>矩阵转置有两种方法：</p>
-<ul>
-<li><strong>transpose函数</strong></li>
-<li><strong>ndarray.T</strong><br>二者基本上等价，来看个例子：<pre class=" language-py"><code class="language-py">>>> b1=np.arange(1,9,1).reshape([2,4])
->>> b1
-array([[1, 2, 3, 4],
-     [5, 6, 7, 8]])
->>> b2=np.transpose(b1)
->>> b2
-array([[1, 5],
-     [2, 6],
-     [3, 7],
-     [4, 8]])
->>> b3=b1.T
->>> b3
-array([[1, 5],
-     [2, 6],
-     [3, 7],
-     [4, 8]])</code></pre>
-<h3 id="3-广播（broadcost）"><a href="#3-广播（broadcost）" class="headerlink" title="3.广播（broadcost）"></a>3.广播（broadcost）</h3>我们知道，矩阵运算通常对矩阵的维度有要求，所以numpy里边用广播机制来使矩阵满足维度要求。当运算中的 2 个数组的形状不同时，numpy 将自动触发广播机制。如：<pre class=" language-py"><code class="language-py">>>> import numpy as np
->>> a=np.array([[0,0,0],[1,1,1],[2,2,2],[3,3,3]])
->>> a
-array([[0, 0, 0],
-     [1, 1, 1],
-     [2, 2, 2],
-     [3, 3, 3]])
->>> b=np.array([1,2,3])
->>> a+b
-array([[1, 2, 3],
-     [2, 3, 4],
-     [3, 4, 5],
-     [4, 5, 6]]</code></pre>
-广播机制内容较多，这里只简单介绍，详细学习可参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiaxin359/p/9021726.html">这篇博客</a><h2 id="三、通用函数"><a href="#三、通用函数" class="headerlink" title="三、通用函数"></a>三、通用函数</h2>通用函数，也可以称为ufunc，是一种在ndarray数据中进行<strong>逐元素操作</strong>的函数。某些简单函数接受一个或多个标量数值，并产生一个或多个标量数值，而通用函数就是对这些简单函数的向量化封装<h3 id="3-1一元通用函数"><a href="#3-1一元通用函数" class="headerlink" title="3.1一元通用函数"></a>3.1一元通用函数</h3>有很多ufunc是简单的逐元素转换，比如<code>sqrt</code>或者<code>exp</code>函数：<pre class=" language-py"><code class="language-py">>>> arr=np.arange(10)
->>> arr
-array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
->>> np.sqrt(arr)
-array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,
-     2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ])
->>> np.exp(arr)
-array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
-     5.45981500e+01, 1.48413159e+02, 4.03428793e+02, 1.09663316e+03,
-     2.98095799e+03, 8.10308393e+03])</code></pre>
-这类函数我们把它称为一元通用函数，在这里列举一些常见的一元通用函数：<table>
-<thead>
-<tr>
-<th align="center">函数名</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">abs、fabs</td>
-<td align="center">逐元素的计算整数、浮点数或者复数的绝对值</td>
-</tr>
-<tr>
-<td align="center">sqrt</td>
-<td align="center">计算每个元素的平方根（与$arr^{0.5}$等价）</td>
-</tr>
-<tr>
-<td align="center">square</td>
-<td align="center">计算每个元素的平方（与$arr^2$等价）</td>
-</tr>
-<tr>
-<td align="center">exp</td>
-<td align="center">计算每个元素的以自然底数为底的指数值$e^2$</td>
-</tr>
-<tr>
-<td align="center">log、log10、log2、log1p</td>
-<td align="center">分别对应：自然对数（e为底）、对数10为底、对数2为底、$log(1+x)$</td>
-</tr>
-<tr>
-<td align="center">sign</td>
-<td align="center">计算每个元素的符号值：1（表示正数）、0表示数字0、-1表示复数</td>
-</tr>
-<tr>
-<td align="center">ceil</td>
-<td align="center">计算每个元素的向上取整（大于等于给定数字的最小整数）</td>
-</tr>
-<tr>
-<td align="center">floor</td>
-<td align="center">计算每个元素的向下取整（小于等于给定数字的最大整数）</td>
-</tr>
-<tr>
-<td align="center">rint</td>
-<td align="center">将每个元素保留整数位，并保持dtype</td>
-</tr>
-<tr>
-<td align="center">modf</td>
-<td align="center">将每个元素的整数位和小数位分开，并按数组形式返回</td>
-</tr>
-<tr>
-<td align="center">isnan</td>
-<td align="center">判断各个元素是不是NAN（不是一个数值）并返回布尔值数组</td>
-</tr>
-<tr>
-<td align="center">isfinite、isinf</td>
-<td align="center">判断数组中各元素是否有限、是否无限，并返回布尔值数组</td>
-</tr>
-<tr>
-<td align="center">cos、cosh、sin、sinh、tan、tanh</td>
-<td align="center">常规的双曲三角函数</td>
-</tr>
-<tr>
-<td align="center">arccos、arccosh、arcsin、arcsinh、arctan、arctanh</td>
-<td align="center">反三角函数</td>
-</tr>
-<tr>
-<td align="center">logical_not</td>
-<td align="center">对数组的元素按位取反（与-arr等价）</td>
-</tr>
-</tbody></table>
-<h3 id="3-2二元通用函数"><a href="#3-2二元通用函数" class="headerlink" title="3.2二元通用函数"></a>3.2二元通用函数</h3>还有一些通用函数，比如add或者maximum则会接收两个数组并返回一个数组作为结果，因此成为二元通用函数，在这列举一些：<table>
-<thead>
-<tr>
-<th align="center">函数名</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">add</td>
-<td align="center">将数组的对应元素相加</td>
-</tr>
-<tr>
-<td align="center">subtract</td>
-<td align="center">在第二个数组中，将第一个数组中包含的元素去除</td>
-</tr>
-<tr>
-<td align="center">multiply</td>
-<td align="center">将数组的对应元素相乘</td>
-</tr>
-<tr>
-<td align="center">devide、floor_devide</td>
-<td align="center">除或整除（放弃余数）</td>
-</tr>
-<tr>
-<td align="center">power</td>
-<td align="center">将第二个数组的元素作为第一个数组对应元素的幂次方</td>
-</tr>
-<tr>
-<td align="center">maximum、fmax</td>
-<td align="center">逐个元素计算最大值，fmax会忽略NaN</td>
-</tr>
-<tr>
-<td align="center">minimum、fmin</td>
-<td align="center">逐个元素计算最小值，fmin会忽略NaN</td>
-</tr>
-<tr>
-<td align="center">mod</td>
-<td align="center">按元素的求模计算（即求除法的余数）</td>
-</tr>
-<tr>
-<td align="center">copysign</td>
-<td align="center">将第一个数组的符号值改为第二个数组的符号值</td>
-</tr>
-<tr>
-<td align="center">greater、greater_equal、less、less_equal、equal、not_equal</td>
-<td align="center">进行逐个元素的比较，返回布尔值数组（分别与数学操作符<code>&gt;,&gt;=,&lt;,&lt;=,==,!=</code>对应效果一致）</td>
-</tr>
-<tr>
-<td align="center">logical_and、logical_or、logical_xor</td>
-<td align="center">进行逐个元素的逻辑操作，与逻辑操作`&amp;,</td>
-</tr>
-</tbody></table>
-</li>
+                <p>今天来写写数学建模中的聚类模型，还是分为几个版块来写</p>
+<h2 id="1-聚类模型简介"><a href="#1-聚类模型简介" class="headerlink" title="1.聚类模型简介"></a>1.聚类模型简介</h2><p>俗话说：“物以类聚，人以群分”，所谓的聚类，就是将样本划分为由类似的对象组成的多个类的过程。聚类之后，我们可以更加准确地在每个类中单独使用统计模型进行估计，分析或者预测；也可以研究不同类之间的差异。聚类算法常见的有<strong>K-means聚类算法，系统聚类算法，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DBSCAN/4864716?fr=aladdin">DBSCAN</a>算法</strong></p>
+<h2 id="2-K-means聚类算法"><a href="#2-K-means聚类算法" class="headerlink" title="2.K-means聚类算法"></a>2.K-means聚类算法</h2><h4 id="a-算法流程："><a href="#a-算法流程：" class="headerlink" title="a.算法流程："></a>a.算法流程：</h4><ul>
+<li>指定需要划分的簇的个数，即K值（类的个数）；</li>
+<li>随机的选择K个数据对象作为初始的聚类中心；</li>
+<li>计算其余的各个数据对象到这K个聚类中心的距离，把数据对象划分到距离它最近的那个中心所在的簇中；</li>
+<li>调整新类并计算出新的聚类中心；</li>
+<li>循环第三和第四步，直到聚类中心不再发生变化，聚类结束。</li>
 </ul>
+<h4 id="b-算法评价与改进："><a href="#b-算法评价与改进：" class="headerlink" title="b.算法评价与改进："></a>b.算法评价与改进：</h4><ul>
+<li>优点：算法简单迅速，处理大量数据的时候，该算法效率较高；</li>
+<li>缺点：要求提前给出要分成的类数K；对初值、孤立点数据敏感；</li>
+<li>解决办法：使用K-means++算法可以解决K均值算法对初值和孤立数据敏感的问题；</li>
+<li>K-means++算法基本原则：选择初始聚类中心时要保证聚类中心之间的距离尽可能远；</li>
+<li>K-means++算法的实现：对原K-means算法的第一步进行优化，先随机选择一个聚类中心，然后计算各个数据点到这个聚类中心的距离，距离越远被选做聚类中心的概率越大，最后用轮盘法（依据概率大小抽选）来选取下一个聚类中心，然后重复这一操作，直至选出K个聚类中心。</li>
+</ul>
+<h4 id="c-举例实现"><a href="#c-举例实现" class="headerlink" title="c.举例实现"></a>c.举例实现</h4><p>在这我们使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/spss/2351375?fr=aladdin">SPSS</a>软件来实现K均值聚类，SPSS默认使用K-means++算法：</p>
+<ol>
+<li>打开<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/spss/2351375?fr=aladdin">SPSS</a>，导入要用于聚类的数据，我这里是直接选择的500组数据（数据是我2020美赛c题对评论文本进行情感提取得到的，分别为消极词得分、中性词得分、积极词得分、复合词得分）粘贴进去<br><img src="https://img-blog.csdnimg.cn/20200326190637565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>接下来操作如下：<br><img src="https://img-blog.csdnimg.cn/20200326191149603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>然后设置如下，设置完毕后点击<strong>确定</strong>，系统就开始聚类了：<br><img src="https://img-blog.csdnimg.cn/20200326192324788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>聚类结果：<br><img src="https://img-blog.csdnimg.cn/20200326192942116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200326192830192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h4 id="d-注意事项："><a href="#d-注意事项：" class="headerlink" title="d.注意事项："></a>d.注意事项：</h4><p>如果数据的量纲不一致，那么计算距离就没有意义了，我们得先将数据进行标准化，操作如下：<br><img src="https://img-blog.csdnimg.cn/20200326200856623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200326200915398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-系统（层次）聚类算法："><a href="#3-系统（层次）聚类算法：" class="headerlink" title="3.系统（层次）聚类算法："></a>3.系统（层次）聚类算法：</h2><h4 id="a-算法流程"><a href="#a-算法流程" class="headerlink" title="a.算法流程"></a>a.算法流程</h4><ul>
+<li>将每个对象看作一类，计算两两之间的最小距离；</li>
+<li>将距离最小的两个类合并成一个新类；</li>
+<li>重新计算新类与所有类之间的距离；</li>
+<li>重复二三两步，直到所有类最后合并成一类，聚类结束。</li>
+</ul>
+<h4 id="b-SPSS实现："><a href="#b-SPSS实现：" class="headerlink" title="b.SPSS实现："></a>b.<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/spss/2351375?fr=aladdin">SPSS</a>实现：</h4><p><img src="https://img-blog.csdnimg.cn/20200326203721645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结果会得到一张谱系图，由于图片太长我就不展示了，根据谱系图我们可以自己决定将数据分为几类。</p>
+<h2 id="4-DBSCAN算法："><a href="#4-DBSCAN算法：" class="headerlink" title="4.DBSCAN算法："></a>4.<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DBSCAN/4864716?fr=aladdin">DBSCAN</a>算法：</h2><p>该算法是一种基于密度的聚类算法，聚类前不需要预先指定聚类的个数，生成簇的个数不定（由数据决定）。该算法利用基于密度的聚类的概念，即要求聚类空间中的一定区域内所包含对象（点或其他空间对象）的数目不小于某一给定阈值。该方法能在具有噪声的空间数据库中发现任意形状的簇，可将密度足够大的相邻区域连接，能有效处理异常数据。（说白了就是：挨我近的就是我的兄弟，我兄弟的兄弟，就是我的兄弟）</p>
+<h4 id="a-基本概念："><a href="#a-基本概念：" class="headerlink" title="a.基本概念："></a>a.基本概念：</h4><p>DBSCAN算法将数据分为以下三类：</p>
+<ul>
+<li>核心点：在半径Eps内含有不少于MinPts数目的点；</li>
+<li>边界点：在半径Eps内点的数量小于MinPts，但是落在核心点的邻域内；</li>
+<li>噪音点：既不是核心点也不是边界点的点。</li>
+</ul>
+<h4 id="b-优缺点："><a href="#b-优缺点：" class="headerlink" title="b.优缺点："></a>b.优缺点：</h4><p> <strong>1. 优点：</strong></p>
+<ul>
+<li>基于密度定义，能够处理任意形状和大小的簇；</li>
+<li>可在聚类的同时发现异常点；</li>
+<li>不需要指定要划分的簇的个数</li>
+</ul>
+<p> <strong>2.</strong> </p>
+<ul>
+<li>对于输入参数$\xi$和MinPts敏感，确定参数困难；</li>
+<li>在该算法中，变量$\xi$和MinPts是全局唯一的，当聚类的密度不均匀时，聚类距离相差很大时，聚类质量差；</li>
+<li>当数据量大时，计算密度单元的计算复杂度大</li>
+</ul>
+<h2 id="4-可视化："><a href="#4-可视化：" class="headerlink" title="4.可视化："></a>4.可视化：</h2><ol>
+<li>K-means聚类算法可视化，<a target="_blank" rel="noopener" href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">戳我</a></li>
+<li>DBSCAN算法可视化，<a target="_blank" rel="noopener" href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/">戳我</a></li>
+</ol>
+<h2 id="5-总结："><a href="#5-总结：" class="headerlink" title="5.总结："></a>5.总结：</h2><p>聚类算法在数学建模中应用比较广泛，这次2020美赛我们队伍还用到了系统聚类算法来对评论进行分类评级，这几种算法的优缺点都很明显，尽量根据实际情况来合理使用，效果会更好。</p>
 
             </div>
             <hr/>
@@ -708,7 +505,7 @@ array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.github.io/2020/06/16/numpy-2/">http://ranchongzhi.github.io/2020/06/16/numpy-2/</a>
+                    <a href="http://ranchongzhi.github.io/2020/03/27/julei/">http://ranchongzhi.github.io/2020/03/27/julei/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -746,12 +543,8 @@ array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/numpy/">
-                                    <span class="chip bg-color">numpy</span>
-                                </a>
-                            
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                                    <span class="chip bg-color">数模</span>
                                 </a>
                             
                         </div>
@@ -1186,55 +979,6 @@ array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/02/python-spyder-1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="python爬虫（1）——前置知识">
-                        
-                        <span class="card-title">python爬虫（1）——前置知识</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Reset Ran
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2020/06/14/numpy-1/">
                     <div class="card-image">
                         
@@ -1251,9 +995,9 @@ array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1271,6 +1015,52 @@ array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/27/julei/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="常见聚类模型">
+                        
+                        <span class="card-title">常见聚类模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Reset Ran
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                        <span class="chip bg-color">数模</span>
                     </a>
                     
                 </div>
