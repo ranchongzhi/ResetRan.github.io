@@ -417,7 +417,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.2k
+                    7.1k
                 </div>
                 
 
@@ -469,7 +469,7 @@
 </ul>
 <ul>
 <li><p>降到二维的最佳投影方向${\omega}^*$:</p>
-<p>$$<br>S_{w}^{-1}S_{b}\omega^*=\lambda\omega^*                              （9）<br>$$</p>
+<p>$$<br>S_{w}^{-1}S_{b}\omega^*=\lambda\omega^*<br>$$</p>
 <p>根据式子(9)计算出特征值$\lambda$，取最大的前两个特征值所对应的特征向量，将其组合在一起，即为所求的最佳投影方向，式(9)中的$S_b$由式(5)计算得来</p>
 </li>
 </ul>
@@ -513,14 +513,7 @@
 <p>iris数据集为一个三分类问题</p>
 <ul>
 <li><p>方案一：可以将其转化为三个二分类问题进行分类，具体分类思路如下：</p>
-<pre class=" language-mermaid"><code class="language-mermaid">graph TB
-       start[测试样本] --通过第1,2类样本的决策函数--> input[样本全被标记为0或者1]
-       input --通过第1,3类样本的决策函数--> conditionA&#123;样本是否被标记为0&#125;
-       conditionA -- YES --> printA[将标记为0的样本分为第一类]
-       conditionA -- NO --> inputB[二三两类数据]
-       inputB --通过第2,3类样本的决策函数--> conditionB&#123;样本是否被标记为1&#125;
-       conditionB --YES--> printB[将标记为1的样本分为第二类]
-       conditionB --NO--> printC[将标记为2的样本分为第三类] </code></pre>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-10-17_01-04-19.jpg"></p>
 </li>
 <li><p>方案二：将样本降到二维，再通过KNN算法进行分类</p>
 </li>
@@ -540,13 +533,11 @@
 <ul>
 <li>sonar：</li>
 </ul>
-<img src="k_OA_sonar.jpg"  />
-
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/k_OA_sonar.jpg"></p>
 <ul>
 <li>iris：</li>
 </ul>
-<img src="k_OA.jpg"  />
-
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/k_OA.jpg"></p>
 <p>由上图可知，两数据集都取<strong>k=5</strong>分类效果最好</p>
 <h3 id="分类结果展示"><a href="#分类结果展示" class="headerlink" title="分类结果展示"></a>分类结果展示</h3><h4 id="sonar数据集"><a href="#sonar数据集" class="headerlink" title="sonar数据集"></a>sonar数据集</h4><ol>
 <li><p><strong>分类方案1：</strong></p>
@@ -2207,7 +2198,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.github.io/2020/03/27/fisher/">http://ranchongzhi.github.io/2020/03/27/fisher/</a>
+                    <a href="http://ranchongzhi.gitee.io/2020/03/27/fisher/">http://ranchongzhi.gitee.io/2020/03/27/fisher/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2697,7 +2688,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            简单介绍一下常用的聚类算法
                         
                     </div>
                     <div class="publish-info">

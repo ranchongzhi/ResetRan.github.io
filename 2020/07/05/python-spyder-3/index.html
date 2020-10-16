@@ -463,19 +463,19 @@
 </tr>
 </tbody></table>
 <p>浏览器保存了cookie，后面每次访问时就方便，如果要用代码来向那些需要登录才能访问的（进行更多操作）网站，就需要把cookie信息传给目标服务器，登录说白了也就是要有cookie信息。要获取cookie信息，首先第一想法就是直接去网站上登录，然后按F12，就能找到cookie信息，以人人网（访问演员大鹏主页，需要登录才能访问）为例子：</p>
-<pre class=" language-py"><code class="language-py">from urllib import request,parse
-#先注释掉cookie
-headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-         AppleWebKit/537.36 (KHTML, like Gecko) \
-         Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.58',
-         # 'Cookie': 'ick_login=0ddad9f3-7fa0-4787-b916-5248ea8bb154; anonymid=kca04u42-rmbvi0; depovince=GW; _r01_=1; JSESSIONID=abchsJm52fkNjfdE5xImx; taihe_bi_sdk_uid=15a8a286885699bb6771e6212cc23aa5; taihe_bi_sdk_session=d83833b4a0fb72a6a466205c9329e993; ick=07bea91b-c6d1-4955-ad33-0980db50a672; t=c2a3a8d10309229b0555eb589c8482575; societyguester=c2a3a8d10309229b0555eb589c8482575; id=974715915; xnsid=dd9ddee7; XNESSESSIONID=6c76a75ff812; WebOnLineNotice_974715915=1; ver=7.0; loginfrom=null; jebe_key=060c174f-c2df-4669-9a2c-584b47a0e4a8%7C032338e00e79b21248aaa07a19d3e44d%7C1594009812653%7C1%7C1594009810029; jebe_key=060c174f-c2df-4669-9a2c-584b47a0e4a8%7C032338e00e79b21248aaa07a19d3e44d%7C1594009812653%7C1%7C1594009810031; wp_fold=0; jebecookies=ba0612a2-0ce7-4a4d-95d1-1f71f38ee8ce|||||'
-    &#125;
-url="http://www.renren.com/880151247/profile"
-req = request.Request(url ,headers=headers)
-resp = request.urlopen(req)
-with open('result.html','w',encoding = 'utf-8') as f:
-    f.writelines(resp.read().decode('utf-8'))</code></pre>
-<p>运行代码，会生成一个html文件，我们用浏览器打开它，发现结果如下：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594010413908.jpg"><br>这并不是我们想要的页面，然后将上面的代码中cookie部分取消注释，再运行，打开result.html：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594010616018.jpg"><br>可以看到出现了我们想要的页面！这就很好的体现出cookie的作用。</p>
+<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token number">1594010413908</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1594010413908.</span>jpg<span class="token punctuation">)</span><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+<span class="token comment" spellcheck="true">#先注释掉cookie</span>
+headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+         AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
+         Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'<span class="token punctuation">,</span>
+         <span class="token comment" spellcheck="true"># 'Cookie': 'ick_login=0ddad9f3-7fa0-4787-b916-5248ea8bb154; anonymid=kca04u42-rmbvi0; depovince=GW; _r01_=1; JSESSIONID=abchsJm52fkNjfdE5xImx; taihe_bi_sdk_uid=15a8a286885699bb6771e6212cc23aa5; taihe_bi_sdk_session=d83833b4a0fb72a6a466205c9329e993; ick=07bea91b-c6d1-4955-ad33-0980db50a672; t=c2a3a8d10309229b0555eb589c8482575; societyguester=c2a3a8d10309229b0555eb589c8482575; id=974715915; xnsid=dd9ddee7; XNESSESSIONID=6c76a75ff812; WebOnLineNotice_974715915=1; ver=7.0; loginfrom=null; jebe_key=060c174f-c2df-4669-9a2c-584b47a0e4a8%7C032338e00e79b21248aaa07a19d3e44d%7C1594009812653%7C1%7C1594009810029; jebe_key=060c174f-c2df-4669-9a2c-584b47a0e4a8%7C032338e00e79b21248aaa07a19d3e44d%7C1594009812653%7C1%7C1594009810031; wp_fold=0; jebecookies=ba0612a2-0ce7-4a4d-95d1-1f71f38ee8ce|||||'</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+url<span class="token operator">=</span><span class="token string">"http://www.renren.com/880151247/profile"</span>
+req <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url <span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'result.html'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span>encoding <span class="token operator">=</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>运行代码，会生成一个html文件，我们用浏览器打开它，发现结果如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594010413908.jpg"><br>这并不是我们想要的页面，然后将上面的代码中cookie部分取消注释，再运行，打开result.html：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594010616018.jpg"><br>可以看到出现了我们想要的页面！这就很好的体现出cookie的作用。</p>
 <h2 id="http-cookiejar模块"><a href="#http-cookiejar模块" class="headerlink" title="http.cookiejar模块"></a>http.cookiejar模块</h2><p>上面介绍了一种可行的方法，不过我写爬虫不就是为了提高效率嘛，你还每次让我手动去复制粘贴cookie信息？再想想，我们能通过请求获得状态码之类的网站信息，cookie也能用同样的方式获得呀，那不就完事了。这里我们的http.cookiejar模块就闪亮登场了，该模块主要的类有 CookieJar、FileCookieJar、MozillaCookieJar、LWPCookieJar。这四个类的作用分别如下：</p>
 <table>
 <thead>
@@ -502,65 +502,65 @@ with open('result.html','w',encoding = 'utf-8') as f:
 </tr>
 </tbody></table>
 <p>再用该模块实现访问人人网大鹏的主页：</p>
-<pre class=" language-py"><code class="language-py">from urllib import request,parse
-from http.cookiejar import CookieJar
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+<span class="token keyword">from</span> http<span class="token punctuation">.</span>cookiejar <span class="token keyword">import</span> CookieJar
 
-headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-         AppleWebKit/537.36 (KHTML, like Gecko) \
-         Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.58'
-    &#125;
-#创造一个opener
-def get_opener():
-    cookjar=CookieJar()
-    handler=request.HTTPCookieProcessor(cookjar)
-    opener=request.build_opener(handler)
-    return opener
+headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+         AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
+         Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+<span class="token comment" spellcheck="true">#创造一个opener</span>
+<span class="token keyword">def</span> <span class="token function">get_opener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    cookjar<span class="token operator">=</span>CookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    handler<span class="token operator">=</span>request<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cookjar<span class="token punctuation">)</span>
+    opener<span class="token operator">=</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> opener
 
-#利用创造好的opener发送请求，请求返回的数据中就有cookie信息，他会保存到cookiejar类中
-def save_cookie(opener):
-    login_url="http://www.renren.com/PLogin.do"
-    #账号密码不能泄露啊😂😂😂
-    data=&#123;"email":"##########",
-          'password':"##########"
-        &#125;
-    res = request.Request(login_url,data= parse.urlencode(data).encode('utf8'),method='POST',headers=headers)
-    opener.open(res)
+<span class="token comment" spellcheck="true">#利用创造好的opener发送请求，请求返回的数据中就有cookie信息，他会保存到cookiejar类中</span>
+<span class="token keyword">def</span> <span class="token function">save_cookie</span><span class="token punctuation">(</span>opener<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    login_url<span class="token operator">=</span><span class="token string">"http://www.renren.com/PLogin.do"</span>
+    <span class="token comment" spellcheck="true">#账号密码不能泄露啊😂😂😂</span>
+    data<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"email":"##########",</span>
+          <span class="token string">'password'</span><span class="token punctuation">:</span><span class="token string">"##########"</span>
+        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+    res <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>login_url<span class="token punctuation">,</span>data<span class="token operator">=</span> parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>method<span class="token operator">=</span><span class="token string">'POST'</span><span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
 
-#访问大鹏主页
-def get_profile(opener):
-    url="http://www.renren.com/880151247/profile"
-    res=request.Request(url,headers=headers)
-    resp=opener.open(res)
-    with open('result2.html','w',encoding = 'utf-8') as f:
-        f.writelines(resp.read().decode('utf-8'))
+<span class="token comment" spellcheck="true">#访问大鹏主页</span>
+<span class="token keyword">def</span> <span class="token function">get_profile</span><span class="token punctuation">(</span>opener<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url<span class="token operator">=</span><span class="token string">"http://www.renren.com/880151247/profile"</span>
+    res<span class="token operator">=</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    resp<span class="token operator">=</span>opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'result2.html'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span>encoding <span class="token operator">=</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-if __name__=='__main__':
-    opener=get_opener()
-    save_cookie(opener)
-    get_profile(opener)</code></pre>
-<p>结果如下：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594037026162.jpg"></p>
-<h2 id="cookie的保存与加载"><a href="#cookie的保存与加载" class="headerlink" title="cookie的保存与加载"></a>cookie的保存与加载</h2><h3 id="保存到本地"><a href="#保存到本地" class="headerlink" title="保存到本地"></a>保存到本地</h3><p>保存 cookie 到本地，可以使用 MozillaCookieJar 的 save 方法，并且需要指定一个文件名。这里我们再用<strong><a target="_blank" rel="noopener" href="http://httpbin.org/">http://httpbin.org</a></strong>这个网站来演示，该网站可以让我们自定义该网站的cookie信息，话不多说，先上图；<br>主页是这样的，先点击cookie选项:<br><img src="https://zmlzvt.coding-pages.com//post-images/1594041407808.jpg"><br>跟着步骤来：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594041429670.jpg"><br>设置好后是这样：<img src="https://zmlzvt.coding-pages.com//post-images/1594041443340.jpg"><br>如果想重新设置，可以先清除该网站的cookie数据哦，怎么清除点<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/09ea3ede592a34c0afde394e.html">它</a></p>
-<pre class=" language-py"><code class="language-py">from urllib import request,parse
-from http.cookiejar import MozillaCookieJar
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    opener<span class="token operator">=</span>get_opener<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    save_cookie<span class="token punctuation">(</span>opener<span class="token punctuation">)</span>
+    get_profile<span class="token punctuation">(</span>opener<span class="token punctuation">)</span></code></pre>
+<p>结果如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594037026162.jpg"></p>
+<h2 id="cookie的保存与加载"><a href="#cookie的保存与加载" class="headerlink" title="cookie的保存与加载"></a>cookie的保存与加载</h2><h3 id="保存到本地"><a href="#保存到本地" class="headerlink" title="保存到本地"></a>保存到本地</h3><p>保存 cookie 到本地，可以使用 MozillaCookieJar 的 save 方法，并且需要指定一个文件名。这里我们再用<strong><a target="_blank" rel="noopener" href="http://httpbin.org/">http://httpbin.org</a></strong>这个网站来演示，该网站可以让我们自定义该网站的cookie信息，话不多说，先上图；<br>主页是这样的，先点击cookie选项:<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041407808.jpg"><br>跟着步骤来：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041429670.jpg"><br>设置好后是这样：<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041443340.jpg"><br>如果想重新设置，可以先清除该网站的cookie数据哦，怎么清除点<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/09ea3ede592a34c0afde394e.html">它</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+<span class="token keyword">from</span> http<span class="token punctuation">.</span>cookiejar <span class="token keyword">import</span> MozillaCookieJar
 
-headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-         AppleWebKit/537.36 (KHTML, like Gecko) \
-         Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.58'
-&#125;
-url="http://httpbin.org/cookies/set/python/spyder"
+headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+         AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
+         Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+url<span class="token operator">=</span><span class="token string">"http://httpbin.org/cookies/set/python/spyder"</span>
 
-cookiejar=MozillaCookieJar()
-handler=request.HTTPCookieProcessor(cookiejar)    
-opener=request.build_opener(handler)
-req=request.Request(url,headers=headers)
-opener.open(req)
-cookiejar.save('cookie.txt',ignore_discard=True,ignore_expires=True)
-#由于该网站的cookie不会可能会过期或者被丢弃，所以这里得设置一下参数
-#ignore_discard 的意思是即使 cookies 将被丢弃也将它保存下来
-#ignore_expires 的意思是如果 cookies 已经过期也将它保存并且文件已存在时将覆盖
-with open('cookie.txt','r') as f:
-    print(f.read())</code></pre>
-<p>可以看到已经生成了cookie.txt文件，里边就存储着cookie信息，结果如下（出现这种格式应该是save方法的问题）：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594041878454.jpg"></p>
+cookiejar<span class="token operator">=</span>MozillaCookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+handler<span class="token operator">=</span>request<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cookiejar<span class="token punctuation">)</span>    
+opener<span class="token operator">=</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+req<span class="token operator">=</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+cookiejar<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'cookie.txt'</span><span class="token punctuation">,</span>ignore_discard<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>ignore_expires<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#由于该网站的cookie不会可能会过期或者被丢弃，所以这里得设置一下参数</span>
+<span class="token comment" spellcheck="true">#ignore_discard 的意思是即使 cookies 将被丢弃也将它保存下来</span>
+<span class="token comment" spellcheck="true">#ignore_expires 的意思是如果 cookies 已经过期也将它保存并且文件已存在时将覆盖</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'cookie.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>可以看到已经生成了cookie.txt文件，里边就存储着cookie信息，结果如下（出现这种格式应该是save方法的问题）：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041878454.jpg"></p>
 <h3 id="加载cookie信息"><a href="#加载cookie信息" class="headerlink" title="加载cookie信息"></a>加载cookie信息</h3><p>然后再来看看加载cookie信息，跟上边很类似：</p>
 <pre class=" language-py"><code class="language-py">headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
          AppleWebKit/537.36 (KHTML, like Gecko) \
@@ -574,68 +574,68 @@ opener=request.build_opener(handler)
 req=request.Request(url,headers=headers)
 resp=opener.open(req)
 print(resp.read().decode())</code></pre>
-<p>输出：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594043291139.jpg"></p>
+<p>输出：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594043291139.jpg"></p>
 <h2 id="Requests库"><a href="#Requests库" class="headerlink" title="Requests库"></a>Requests库</h2><p>虽然 Python 的标准库中 urllib 模块已经包含了平常我们使用的大多数功能，但是它的 API使用起来让人感觉不太好，而 Requests 宣传是 “HTTP for Humans”，说明使用更简洁方便。接下来我们就用requests库来实现和urllib同样的功能</p>
 <h3 id="发送get请求"><a href="#发送get请求" class="headerlink" title="发送get请求"></a>发送get请求</h3><p>requests库发送get请求直接使用get方法即可，返回的是一个response对象，如果想添加 headers，可以传入 headers 参数来增加请求头中的 headers 信息。如果要将参数放在 url 中传递，可以利用params 参数</p>
-<pre class=" language-py"><code class="language-py">import requests
-url="https://www.baidu.com"
-headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-         AppleWebKit/537.36 (KHTML, like Gecko) \
-         Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.58'
-&#125;
-kw=&#123;'wd':'高考'&#125;
-# params 是一个字典或者字符串的查询参数，字典自动转换为 url 编码，不需要urlencode()
-response = requests.get(url, params = kw, headers = hea
-ders)
-# 查看响应内容，response.text 返回的是 Unicode 格式的数据(python 会利用自己猜测的编码方式解码，可能会产生乱码的问题)
-print(response.text)
-# 查看响应头部字符编码
-print(response.encoding)
-# python 会根据网页内容来得到一个字符编码
-print(response.apparent_encoding)
-# 如果 response.text 乱码了，可以先设置
-response.encoding= response.apparent_encoding
-# 查看响应内容，response.content 返回的字节流 bytes 数据
-print(response.content)
-print(response.content .decode('utf-8'))
-# 查看完整 url 地址
-print(response.url)
-# 查看响应码
-print(response.status_code)
-#如果网页返回的是 json，那么可以通过 response.json()转换为 dict 或者 list
-print(response.json())</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+url<span class="token operator">=</span><span class="token string">"https://www.baidu.com"</span>
+headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+         AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
+         Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+kw<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'wd':'高考'&amp;#125;</span>
+<span class="token comment" spellcheck="true"># params 是一个字典或者字符串的查询参数，字典自动转换为 url 编码，不需要urlencode()</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params <span class="token operator">=</span> kw<span class="token punctuation">,</span> headers <span class="token operator">=</span> hea
+ders<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查看响应内容，response.text 返回的是 Unicode 格式的数据(python 会利用自己猜测的编码方式解码，可能会产生乱码的问题)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查看响应头部字符编码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>encoding<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># python 会根据网页内容来得到一个字符编码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>apparent_encoding<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 如果 response.text 乱码了，可以先设置</span>
+response<span class="token punctuation">.</span>encoding<span class="token operator">=</span> response<span class="token punctuation">.</span>apparent_encoding
+<span class="token comment" spellcheck="true"># 查看响应内容，response.content 返回的字节流 bytes 数据</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>content <span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查看完整 url 地址</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查看响应码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#如果网页返回的是 json，那么可以通过 response.json()转换为 dict 或者 list</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h3 id="发送-POST-请求"><a href="#发送-POST-请求" class="headerlink" title="发送 POST 请求"></a>发送 POST 请求</h3><p>最基本的 POST 请求可以使用 post 方法，传入 data 数据（这时候就不要再使用 urlencode 进行编码了，直接传入一个字典进去就可以了）。返回的也是response对象，可以进行的操作同上。比如请求拉勾网的数据的代码：</p>
-<pre class=" language-py"><code class="language-py">import requests
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-params = &#123;'px': 'default',
-          'city': '北京',
-          'needAddtionalResult': 'false'&#125;
-data = &#123;'first': 'true',
-        'pn': 1,
-        'kd': 'python'&#125;
-headers = &#123;'Referer': "https://www.lagou.com/jobs/list_python",
-           'Cookie': 'JSEIONID=ABAAABA9B2BCC46',
-           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'&#125;
-url = 'https://www.lagou.com/jobs/list_python#filterBox'
-response = requests.post(url,
-                         params=params,
-                         headers=headers,
-                         data=data,
-                         timeout=5)
-response.encoding = 'UTF-8'
-print(response.text)</code></pre>
+params <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'px': 'default',</span>
+          <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'北京'</span><span class="token punctuation">,</span>
+          <span class="token string">'needAddtionalResult'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'first': 'true',</span>
+        <span class="token string">'pn'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token string">'kd'</span><span class="token punctuation">:</span> <span class="token string">'python'</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'Referer': "https://www.lagou.com/jobs/list_python",</span>
+           <span class="token string">'Cookie'</span><span class="token punctuation">:</span> <span class="token string">'JSEIONID=ABAAABA9B2BCC46'</span><span class="token punctuation">,</span>
+           <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.lagou.com/jobs/list_python#filterBox'</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>
+                         params<span class="token operator">=</span>params<span class="token punctuation">,</span>
+                         headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>
+                         data<span class="token operator">=</span>data<span class="token punctuation">,</span>
+                         timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+response<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">'UTF-8'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span></code></pre>
 <h3 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h3><p>使用 requests 添加代理也非常简单，只要在请求的方法中（比如 get 或者 post）传递 proxies参数即可（挂了科学上网软件的最好先关一下，我就因为没关被坑惨了）：</p>
-<pre class=" language-py"><code class="language-py">import requests
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-url = 'http://www.httpbin.org/ip'
-proxy = &#123;
-    'http': '161.35.110.112:3128'
-&#125;
-resp_1 = requests.get(url, timeout=5)
-print(resp_1.text)
-resp_2 = requests.get(url, proxies=proxy, timeout=5)
-print(resp_2.text)</code></pre>
-<p>输出如下：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594091758109.jpg"></p>
+url <span class="token operator">=</span> <span class="token string">'http://www.httpbin.org/ip'</span>
+proxy <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    <span class="token string">'http'</span><span class="token punctuation">:</span> <span class="token string">'161.35.110.112:3128'</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+resp_1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp_1<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+resp_2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxy<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp_2<span class="token punctuation">.</span>text<span class="token punctuation">)</span></code></pre>
+<p>输出如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594091758109.jpg"></p>
 <h3 id="使用requests-session保存cookie"><a href="#使用requests-session保存cookie" class="headerlink" title="使用requests.session保存cookie"></a>使用requests.session保存cookie</h3><p>之前使用 urllib 库，是可以使用 opener 发送多个请求，多个请求之间是可以共享 cookie 的。那么如果使用 requests，也要达到共享 cookie 的目的，那么可以使用 requests 库给我们提供的 session 对象。注意，这里的 session 不是 web 开发中的那个 session，这个地方只是一个会话的对象而已。还是以登录人人网为例，使用 requests 来实现。示例代码如下：</p>
 <pre class=" language-py"><code class="language-py">import requests
 
@@ -678,7 +678,7 @@ print(resp.status_code)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.github.io/2020/07/05/python-spyder-3/">http://ranchongzhi.github.io/2020/07/05/python-spyder-3/</a>
+                    <a href="http://ranchongzhi.gitee.io/2020/07/05/python-spyder-3/">http://ranchongzhi.gitee.io/2020/07/05/python-spyder-3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1168,7 +1168,7 @@ print(resp.status_code)
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            记录xpath语法的学习，以及利用lxml库进行豆瓣电影信息爬取的小爬虫项目
                         
                     </div>
                     <div class="publish-info">
@@ -1217,7 +1217,7 @@ print(resp.status_code)
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            python中著名的网络请求库——urllib库，本篇文章为学习urllib过程中的笔记与总结
                         
                     </div>
                     <div class="publish-info">
