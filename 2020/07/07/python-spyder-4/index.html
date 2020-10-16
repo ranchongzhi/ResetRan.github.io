@@ -465,7 +465,39 @@
 <td align="center">选取属性</td>
 </tr>
 </tbody></table>
-<h3 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h3><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点，被嵌在方括号中。在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：<br>|路径表达式 |描述|<br>|:-:|:-:|<br>|/bookstore/book[1] |选取 bookstore 下的第一个子元素|<br>|/bookstore/book[last()] |选取 bookstore 下的倒数第二个 book 元素。|<br>|bookstore/book[position()&lt;<strong>3</strong>]| 选取 bookstore 下前面两个子元素。|<br>|//book[@price] |选取拥有 price 属性的 book 元素|<br>|//book[@price=10] |选取所有属性 price 等于 10 的 book 元素|<br>|//div[contains(@id,’1234’)] |选取所以属性 id 中含有 1234 的 div 元素|</p>
+<h3 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h3><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点，被嵌在方括号中。在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：</p>
+<table>
+<thead>
+<tr>
+<th align="center">路径表达式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/bookstore/book[1]</td>
+<td align="center">选取 bookstore 下的第一个子元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[last()]</td>
+<td align="center">选取 bookstore 下的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td align="center">bookstore/book[position()&lt;3]</td>
+<td align="center">选取 bookstore 下前面两个子元素。</td>
+</tr>
+<tr>
+<td align="center">//book[@price]</td>
+<td align="center">选取拥有 price 属性的 book 元素</td>
+</tr>
+<tr>
+<td align="center">//book[@price=10]</td>
+<td align="center">选取所有属性 price 等于 10 的 book 元素</td>
+</tr>
+<tr>
+<td align="center">//div[contains(@id,’1234’)]</td>
+<td align="center">选取所以属性 id 中含有 1234 的 div 元素</td>
+</tr>
+</tbody></table>
 <h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><table>
 <thead>
 <tr>
@@ -585,8 +617,8 @@
 </tbody></table>
 <h1 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h1><h2 id="什么是lxml"><a href="#什么是lxml" class="headerlink" title="什么是lxml"></a>什么是lxml</h2><p>lxml 是 一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据。lxml 和正则一样，也是用 C 实现的，是一款高性能的 Python HTML/XML 解析器，我们可以利用之前学习的 XPath 语法，来快速的定位特定元素以及节点信息。这里附上<a target="_blank" rel="noopener" href="http://lxml.de/index.html">官方文档</a></p>
 <h3 id="先来说一个坑"><a href="#先来说一个坑" class="headerlink" title="先来说一个坑"></a>先来说一个坑</h3><p>我们一般使用lxml库里的etree方法，我第一次使用lxml库的时候被坑的蛮惨，由于我装的是版本较新的lxml库（4.4.1），老版本的导入方法是<code>from lxml import etree</code>，嗯，果不其然报错了。然后就是去找答案，最后发现在比较新的版本里，etree被封装到lxml下的html库里边了，所以可以这样导入：</p>
-<pre class=" language-py"><code class="language-py">from lxml import html
-etree = html.etree</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
 <h2 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h2><p>使用requests库和lxml库进行爬虫一般分为以下几个步骤：</p>
 <ol>
 <li><p>导库，设置请求头，利用requests库向网页发送请求，并得到一个response对象</p>
@@ -599,69 +631,75 @@ etree = html.etree</code></pre>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>这里利用requests库和lxml库来爬取豆瓣网经典的电影排名前10的电影信息：</p>
 </li>
 <li><p>导入相关模块：</p>
-<pre class=" language-py"><code class="language-py">import requests
-from lxml import html
-etree = html.etree</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
 </li>
 <li><p>设置一些参数</p>
-<pre class=" language-py"><code class="language-py">headers = &#123;
- "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-               "(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"
-&#125;#请求头
-url = "https://movie.douban.com/chart"#目标链接
-movies = []#用于保存电影信息</code></pre>
+<pre class=" language-python"><code class="language-python">headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+ <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
+               <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;#请求头</span>
+url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span><span class="token comment" spellcheck="true">#目标链接</span>
+movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#用于保存电影信息</span></code></pre>
 </li>
 <li><p>requests库请求</p>
-<pre class=" language-py"><code class="language-py"># 向指定页数发起请求，并返回resopnse对象
-response = requests.get(url, headers=headers)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 向指定页数发起请求，并返回resopnse对象</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span></code></pre>
 </li>
 <li><p>etree对response对象进行解析</p>
-<pre class=" language-py"><code class="language-py">html = etree.HTML(response.text)
-tables = html.xpath("//table")</code></pre>
+<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+tables <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//table"</span><span class="token punctuation">)</span></code></pre>
 </li>
 <li><p>用xpath提取信息并保存</p>
-<pre class=" language-py"><code class="language-py">for table in tables:
- detail_herf = table.xpath('.//a[@class="nbg"]/@href')[0]
- name = table.xpath(".//a[@class='nbg']/@title")[0]
- post_url = table.xpath(".//img/@src")[0]
- nums = table.xpath(".//span[@class='rating_nums']/text()")[0]
+<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> table <span class="token keyword">in</span> tables<span class="token punctuation">:</span>
+ detail_herf <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//a[@class="nbg"]/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ name <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//a[@class='nbg']/@title"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 
- movie = &#123;
-     "href": detail_herf,#详情链接
-     "name": name,#电影名
-     "post_url": post_url,#海报链接
-     "nums": nums#评分
- &#125;
- print(movie)
- movies.append(movie)</code></pre>
+ movie <span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+     <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#详情链接</span>
+     <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#电影名</span>
+     <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#海报链接</span>
+     <span class="token string">"nums"</span><span class="token punctuation">:</span> nums<span class="token comment" spellcheck="true">#评分</span>
+ <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
+ movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
 <p>运行，结果如下图：<br><img src="https://zmlzvt.coding-pages.com//post-images/1594696787504.jpg"><br>最后，再贴一下完整代码：</p>
-<pre class=" language-py"><code class="language-py"># 爬取豆瓣电影经典影片排名
-import requests
-from lxml import html
-</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 爬取豆瓣电影经典影片排名</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree
+headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+ <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
+               <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span>
+movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+n <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment" spellcheck="true"># 向指定页数发起请求，并返回resopnse对象</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+tables <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//table"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> table <span class="token keyword">in</span> tables<span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#这个地方可以借助前面介绍的谷歌浏览器插件来检查匹配是否正确</span>
+ detail_herf <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//a[@class="nbg"]/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ name <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//a[@class='nbg']/@title"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+ movie <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+     <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span>
+     <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
+     <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span>
+     <span class="token string">"nums"</span><span class="token punctuation">:</span> nums
+ <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
+ movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
+<h1 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h1><p>嗯，总的看来，写个小爬虫其实是很简单的，xpath语法也很好理解，但仅掌握这些是不够的，无法写出很diao的爬虫，还有蛮多东西要学习！</p>
 </li>
 </ol>
-<p>etree = html.etree</p>
-<p>headers = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 “<br>                  “(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36”<br>}<br>url = “<a target="_blank" rel="noopener" href="https://movie.douban.com/chart&quot;">https://movie.douban.com/chart&quot;</a><br>movies = []<br>n = 1</p>
-<h1 id="向指定页数发起请求，并返回resopnse对象"><a href="#向指定页数发起请求，并返回resopnse对象" class="headerlink" title="向指定页数发起请求，并返回resopnse对象"></a>向指定页数发起请求，并返回resopnse对象</h1><p>response = requests.get(url, headers=headers)</p>
-<p>html = etree.HTML(response.text)<br>tables = html.xpath(“//table”)</p>
-<p>for table in tables:<br>#这个地方可以借助前面介绍的谷歌浏览器插件来检查匹配是否正确<br>    detail_herf = table.xpath(‘.//a[@class=”nbg”]/@href’)[0]<br>    name = table.xpath(“.//a[@class=’nbg’]/@title”)[0]<br>    post_url = table.xpath(“.//img/@src”)[0]<br>    nums = table.xpath(“.//span[@class=’rating_nums’]/text()”)[0]</p>
-<pre><code>movie = &#123;
-    &quot;href&quot;: detail_herf,
-    &quot;name&quot;: name,
-    &quot;post_url&quot;: post_url,
-    &quot;nums&quot;: nums
-&#125;
-print(movie)
-movies.append(movie)</code></pre>
-<pre><code># 总结一下
-嗯，总的看来，写个小爬虫其实是很简单的，xpath语法也很好理解，但仅掌握这些是不够的，无法写出很diao的爬虫，还有蛮多东西要学习！
-
-
-
-
-
-</code></pre>
 
             </div>
             <hr/>
