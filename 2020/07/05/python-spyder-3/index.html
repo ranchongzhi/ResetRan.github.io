@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -424,7 +424,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    10 分
                 </div>
                 
 
@@ -434,7 +434,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>在网站中，http请求是无状态的。也就是说即使第一次和服务器连接后并且登录成功后，第二次请求服务器依然不能知道当前请求是哪个用户。cookie 的出现就是为了解决这个问题，第一次登录后服务器返回一些数据（cookie）给浏览器，然后浏览器保存在本地，当该用户发送第二次请求的时候，就会自动的把上次请求存储的 cookie 数据自动的携带给服务器，服务器通过浏览器携带的数据就能判断当前用户是哪个了。cookie 存储的数据量有限，不同的浏览器有不同的存储大小，但一般不超过 4KB。因此使用 cookie 只能存储一些小量的数据。<br>cookie的一般格式如下：<br><code>Set-Cookie: NAME=VALUE；Expires/Max-age=DATE；Path=PATH；Domain=DOMAIN_NAME； SECURE</code><br>参数的描述如下表：</p>
+                <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>在网站中，http请求是无状态的。也就是说即使第一次和服务器连接后并且登录成功后，第二次请求服务器依然不能知道当前请求是哪个用户。cookie 的出现就是为了解决这个问题，第一次登录后服务器返回一些数据（cookie）给浏览器，然后浏览器保存在本地，当该用户发送第二次请求的时候，就会自动的把上次请求存储的 cookie 数据自动的携带给服务器，服务器通过浏览器携带的数据就能判断当前用户是哪个了。cookie 存储的数据量有限，不同的浏览器有不同的存储大小，但一般不超过 4KB。因此使用 cookie 只能存储一些小量的数据。<br>cookie的一般格式如下：<br><code>Set-Cookie: NAME=VALUE；Expires/Max-age=DATE；Path=PATH；Domain=DOMAIN_NAME；SECURE</code><br>参数的描述如下表：</p>
 <table>
 <thead>
 <tr>
@@ -470,11 +470,11 @@
 <p>浏览器保存了cookie，后面每次访问时就方便，如果要用代码来向那些需要登录才能访问的（进行更多操作）网站，就需要把cookie信息传给目标服务器，登录说白了也就是要有cookie信息。要获取cookie信息，首先第一想法就是直接去网站上登录，然后按F12，就能找到cookie信息，以人人网（访问演员大鹏主页，需要登录才能访问）为例子：</p>
 <pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token number">1594010413908</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1594010413908.</span>jpg<span class="token punctuation">)</span><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
 <span class="token comment" spellcheck="true">#先注释掉cookie</span>
-headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'user-agent'</span><span class="token punctuation">:</span> 'Mozilla<span class="token operator">/</span><span class="token number">5.0</span> <span class="token punctuation">(</span>Windows NT <span class="token number">10.0</span><span class="token punctuation">;</span> Win64<span class="token punctuation">;</span> x64<span class="token punctuation">)</span>\
          AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
          Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'<span class="token punctuation">,</span>
          <span class="token comment" spellcheck="true"># 'Cookie': 'ick_login=0ddad9f3-7fa0-4787-b916-5248ea8bb154; anonymid=kca04u42-rmbvi0; depovince=GW; _r01_=1; JSESSIONID=abchsJm52fkNjfdE5xImx; taihe_bi_sdk_uid=15a8a286885699bb6771e6212cc23aa5; taihe_bi_sdk_session=d83833b4a0fb72a6a466205c9329e993; ick=07bea91b-c6d1-4955-ad33-0980db50a672; t=c2a3a8d10309229b0555eb589c8482575; societyguester=c2a3a8d10309229b0555eb589c8482575; id=974715915; xnsid=dd9ddee7; XNESSESSIONID=6c76a75ff812; WebOnLineNotice_974715915=1; ver=7.0; loginfrom=null; jebe_key=060c174f-c2df-4669-9a2c-584b47a0e4a8%7C032338e00e79b21248aaa07a19d3e44d%7C1594009812653%7C1%7C1594009810029; jebe_key=060c174f-c2df-4669-9a2c-584b47a0e4a8%7C032338e00e79b21248aaa07a19d3e44d%7C1594009812653%7C1%7C1594009810031; wp_fold=0; jebecookies=ba0612a2-0ce7-4a4d-95d1-1f71f38ee8ce|||||'</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+    <span class="token punctuation">}</span>
 url<span class="token operator">=</span><span class="token string">"http://www.renren.com/880151247/profile"</span>
 req <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url <span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
 resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
@@ -510,10 +510,10 @@ resp <span class="token operator">=</span> request<span class="token punctuation
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
 <span class="token keyword">from</span> http<span class="token punctuation">.</span>cookiejar <span class="token keyword">import</span> CookieJar
 
-headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'user-agent'</span><span class="token punctuation">:</span> 'Mozilla<span class="token operator">/</span><span class="token number">5.0</span> <span class="token punctuation">(</span>Windows NT <span class="token number">10.0</span><span class="token punctuation">;</span> Win64<span class="token punctuation">;</span> x64<span class="token punctuation">)</span>\
          AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
          Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+    <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">#创造一个opener</span>
 <span class="token keyword">def</span> <span class="token function">get_opener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     cookjar<span class="token operator">=</span>CookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -525,9 +525,9 @@ headers<span class="token operator">=</span><span class="token operator">&amp;</
 <span class="token keyword">def</span> <span class="token function">save_cookie</span><span class="token punctuation">(</span>opener<span class="token punctuation">)</span><span class="token punctuation">:</span>
     login_url<span class="token operator">=</span><span class="token string">"http://www.renren.com/PLogin.do"</span>
     <span class="token comment" spellcheck="true">#账号密码不能泄露啊😂😂😂</span>
-    data<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"email":"##########",</span>
+    data<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"email"</span><span class="token punctuation">:</span><span class="token string">"##########"</span><span class="token punctuation">,</span>
           <span class="token string">'password'</span><span class="token punctuation">:</span><span class="token string">"##########"</span>
-        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+        <span class="token punctuation">}</span>
     res <span class="token operator">=</span> request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>login_url<span class="token punctuation">,</span>data<span class="token operator">=</span> parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>method<span class="token operator">=</span><span class="token string">'POST'</span><span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
     opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
 
@@ -544,14 +544,14 @@ headers<span class="token operator">=</span><span class="token operator">&amp;</
     save_cookie<span class="token punctuation">(</span>opener<span class="token punctuation">)</span>
     get_profile<span class="token punctuation">(</span>opener<span class="token punctuation">)</span></code></pre>
 <p>结果如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594037026162.jpg"></p>
-<h2 id="cookie的保存与加载"><a href="#cookie的保存与加载" class="headerlink" title="cookie的保存与加载"></a>cookie的保存与加载</h2><h3 id="保存到本地"><a href="#保存到本地" class="headerlink" title="保存到本地"></a>保存到本地</h3><p>保存 cookie 到本地，可以使用 MozillaCookieJar 的 save 方法，并且需要指定一个文件名。这里我们再用<strong><a target="_blank" rel="noopener" href="http://httpbin.org/">http://httpbin.org</a></strong>这个网站来演示，该网站可以让我们自定义该网站的cookie信息，话不多说，先上图；<br>主页是这样的，先点击cookie选项:<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041407808.jpg"><br>跟着步骤来：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041429670.jpg"><br>设置好后是这样：<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041443340.jpg"><br>如果想重新设置，可以先清除该网站的cookie数据哦，怎么清除点<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/09ea3ede592a34c0afde394e.html">它</a></p>
+<h2 id="cookie的保存与加载"><a href="#cookie的保存与加载" class="headerlink" title="cookie的保存与加载"></a>cookie的保存与加载</h2><h3 id="保存到本地"><a href="#保存到本地" class="headerlink" title="保存到本地"></a>保存到本地</h3><p>保存 cookie 到本地，可以使用 MozillaCookieJar 的 save 方法，并且需要指定一个文件名。这里我们再用<strong><a href="http://httpbin.org/" target="_blank" rel="noopener">http://httpbin.org</a></strong>这个网站来演示，该网站可以让我们自定义该网站的cookie信息，话不多说，先上图；<br>主页是这样的，先点击cookie选项:<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041407808.jpg"><br>跟着步骤来：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041429670.jpg"><br>设置好后是这样：<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041443340.jpg"><br>如果想重新设置，可以先清除该网站的cookie数据哦，怎么清除点<a href="https://jingyan.baidu.com/article/09ea3ede592a34c0afde394e.html" target="_blank" rel="noopener">它</a></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
 <span class="token keyword">from</span> http<span class="token punctuation">.</span>cookiejar <span class="token keyword">import</span> MozillaCookieJar
 
-headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'user-agent'</span><span class="token punctuation">:</span> 'Mozilla<span class="token operator">/</span><span class="token number">5.0</span> <span class="token punctuation">(</span>Windows NT <span class="token number">10.0</span><span class="token punctuation">;</span> Win64<span class="token punctuation">;</span> x64<span class="token punctuation">)</span>\
          AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
          Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+<span class="token punctuation">}</span>
 url<span class="token operator">=</span><span class="token string">"http://httpbin.org/cookies/set/python/spyder"</span>
 
 cookiejar<span class="token operator">=</span>MozillaCookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -567,28 +567,28 @@ cookiejar<span class="token punctuation">.</span>save<span class="token punctuat
     <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>可以看到已经生成了cookie.txt文件，里边就存储着cookie信息，结果如下（出现这种格式应该是save方法的问题）：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594041878454.jpg"></p>
 <h3 id="加载cookie信息"><a href="#加载cookie信息" class="headerlink" title="加载cookie信息"></a>加载cookie信息</h3><p>然后再来看看加载cookie信息，跟上边很类似：</p>
-<pre class=" language-py"><code class="language-py">headers=&#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-         AppleWebKit/537.36 (KHTML, like Gecko) \
-         Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.58'
-&#125;
-url="http://httpbin.org/cookies"
-cookiejar=MozillaCookieJar()
-cookiejar.load('cookie.txt',ignore_discard=True,ignore_expires=True)
-handler=request.HTTPCookieProcessor(cookiejar)    
-opener=request.build_opener(handler)
-req=request.Request(url,headers=headers)
-resp=opener.open(req)
-print(resp.read().decode())</code></pre>
+<pre class=" language-python"><code class="language-python">headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'user-agent'</span><span class="token punctuation">:</span> 'Mozilla<span class="token operator">/</span><span class="token number">5.0</span> <span class="token punctuation">(</span>Windows NT <span class="token number">10.0</span><span class="token punctuation">;</span> Win64<span class="token punctuation">;</span> x64<span class="token punctuation">)</span>\
+         AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
+         Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
+<span class="token punctuation">}</span>
+url<span class="token operator">=</span><span class="token string">"http://httpbin.org/cookies"</span>
+cookiejar<span class="token operator">=</span>MozillaCookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cookiejar<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">'cookie.txt'</span><span class="token punctuation">,</span>ignore_discard<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>ignore_expires<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+handler<span class="token operator">=</span>request<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cookiejar<span class="token punctuation">)</span>    
+opener<span class="token operator">=</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+req<span class="token operator">=</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+resp<span class="token operator">=</span>opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>req<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594043291139.jpg"></p>
 <h2 id="Requests库"><a href="#Requests库" class="headerlink" title="Requests库"></a>Requests库</h2><p>虽然 Python 的标准库中 urllib 模块已经包含了平常我们使用的大多数功能，但是它的 API使用起来让人感觉不太好，而 Requests 宣传是 “HTTP for Humans”，说明使用更简洁方便。接下来我们就用requests库来实现和urllib同样的功能</p>
 <h3 id="发送get请求"><a href="#发送get请求" class="headerlink" title="发送get请求"></a>发送get请求</h3><p>requests库发送get请求直接使用get方法即可，返回的是一个response对象，如果想添加 headers，可以传入 headers 参数来增加请求头中的 headers 信息。如果要将参数放在 url 中传递，可以利用params 参数</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 url<span class="token operator">=</span><span class="token string">"https://www.baidu.com"</span>
-headers<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span>
+headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'user-agent'</span><span class="token punctuation">:</span> 'Mozilla<span class="token operator">/</span><span class="token number">5.0</span> <span class="token punctuation">(</span>Windows NT <span class="token number">10.0</span><span class="token punctuation">;</span> Win64<span class="token punctuation">;</span> x64<span class="token punctuation">)</span>\
          AppleWebKit<span class="token operator">/</span><span class="token number">537.36</span> <span class="token punctuation">(</span>KHTML<span class="token punctuation">,</span> like Gecko<span class="token punctuation">)</span> \
          Chrome<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">4103.116</span> Safari<span class="token operator">/</span><span class="token number">537.36</span> Edg<span class="token operator">/</span><span class="token number">83.0</span><span class="token punctuation">.</span><span class="token number">478.58</span>'
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-kw<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'wd':'高考'&amp;#125;</span>
+<span class="token punctuation">}</span>
+kw<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'wd'</span><span class="token punctuation">:</span><span class="token string">'高考'</span><span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true"># params 是一个字典或者字符串的查询参数，字典自动转换为 url 编码，不需要urlencode()</span>
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params <span class="token operator">=</span> kw<span class="token punctuation">,</span> headers <span class="token operator">=</span> hea
 ders<span class="token punctuation">)</span>
@@ -612,15 +612,15 @@ response<span class="token punctuation">.</span>encoding<span class="token opera
 <h3 id="发送-POST-请求"><a href="#发送-POST-请求" class="headerlink" title="发送 POST 请求"></a>发送 POST 请求</h3><p>最基本的 POST 请求可以使用 post 方法，传入 data 数据（这时候就不要再使用 urlencode 进行编码了，直接传入一个字典进去就可以了）。返回的也是response对象，可以进行的操作同上。比如请求拉勾网的数据的代码：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-params <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'px': 'default',</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'px'</span><span class="token punctuation">:</span> <span class="token string">'default'</span><span class="token punctuation">,</span>
           <span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'北京'</span><span class="token punctuation">,</span>
-          <span class="token string">'needAddtionalResult'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'first': 'true',</span>
+          <span class="token string">'needAddtionalResult'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">}</span>
+data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token string">'true'</span><span class="token punctuation">,</span>
         <span class="token string">'pn'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-        <span class="token string">'kd'</span><span class="token punctuation">:</span> <span class="token string">'python'</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'Referer': "https://www.lagou.com/jobs/list_python",</span>
+        <span class="token string">'kd'</span><span class="token punctuation">:</span> <span class="token string">'python'</span><span class="token punctuation">}</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">"https://www.lagou.com/jobs/list_python"</span><span class="token punctuation">,</span>
            <span class="token string">'Cookie'</span><span class="token punctuation">:</span> <span class="token string">'JSEIONID=ABAAABA9B2BCC46'</span><span class="token punctuation">,</span>
-           <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+           <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'</span><span class="token punctuation">}</span>
 url <span class="token operator">=</span> <span class="token string">'https://www.lagou.com/jobs/list_python#filterBox'</span>
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>
                          params<span class="token operator">=</span>params<span class="token punctuation">,</span>
@@ -633,30 +633,30 @@ response<span class="token punctuation">.</span>encoding <span class="token oper
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
 url <span class="token operator">=</span> <span class="token string">'http://www.httpbin.org/ip'</span>
-proxy <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+proxy <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'http'</span><span class="token punctuation">:</span> <span class="token string">'161.35.110.112:3128'</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+<span class="token punctuation">}</span>
 resp_1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp_1<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
 resp_2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxy<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>resp_2<span class="token punctuation">.</span>text<span class="token punctuation">)</span></code></pre>
 <p>输出如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594091758109.jpg"></p>
 <h3 id="使用requests-session保存cookie"><a href="#使用requests-session保存cookie" class="headerlink" title="使用requests.session保存cookie"></a>使用requests.session保存cookie</h3><p>之前使用 urllib 库，是可以使用 opener 发送多个请求，多个请求之间是可以共享 cookie 的。那么如果使用 requests，也要达到共享 cookie 的目的，那么可以使用 requests 库给我们提供的 session 对象。注意，这里的 session 不是 web 开发中的那个 session，这个地方只是一个会话的对象而已。还是以登录人人网为例，使用 requests 来实现。示例代码如下：</p>
-<pre class=" language-py"><code class="language-py">import requests
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-url = "http://www.renren.com/PLogin.do"
-data = &#123;"email": "970138074@qq.com", 'password': "pythonspider"&#125;
-headers = &#123;
-    'UserAgent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"
-&#125;
-# 登录
-session = requests.session()
-session.post(url, data=data, headers=headers)
-# 访问大鹏个人中心
-resp = session.get('http://www.renren.com/880151247/profile')
-print(resp.status_code)
-#输出：
-200</code></pre>
+url <span class="token operator">=</span> <span class="token string">"http://www.renren.com/PLogin.do"</span>
+data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"email"</span><span class="token punctuation">:</span> <span class="token string">"970138074@qq.com"</span><span class="token punctuation">,</span> <span class="token string">'password'</span><span class="token punctuation">:</span> <span class="token string">"pythonspider"</span><span class="token punctuation">}</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'UserAgent'</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 登录</span>
+session <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 访问大鹏个人中心</span>
+resp <span class="token operator">=</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.renren.com/880151247/profile'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出：</span>
+<span class="token number">200</span></code></pre>
 <h2 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h2><p>个人感觉使用方面确实requests库比起urllib的API接口要舒适许多，所以以后能用requests俺就不用urllib🤣🤣🤣</p>
 
             </div>
@@ -1452,7 +1452,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.8k</span>&nbsp;字
+                class="white-color">18.7k</span>&nbsp;字
             
             
             
@@ -1545,6 +1545,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
 
 </div>
     </div>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -620,7 +620,7 @@
 <td align="center">1</td>
 </tr>
 </tbody></table>
-<h1 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h1><h2 id="什么是lxml"><a href="#什么是lxml" class="headerlink" title="什么是lxml"></a>什么是lxml</h2><p>lxml 是 一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据。lxml 和正则一样，也是用 C 实现的，是一款高性能的 Python HTML/XML 解析器，我们可以利用之前学习的 XPath 语法，来快速的定位特定元素以及节点信息。这里附上<a target="_blank" rel="noopener" href="http://lxml.de/index.html">官方文档</a></p>
+<h1 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h1><h2 id="什么是lxml"><a href="#什么是lxml" class="headerlink" title="什么是lxml"></a>什么是lxml</h2><p>lxml 是 一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据。lxml 和正则一样，也是用 C 实现的，是一款高性能的 Python HTML/XML 解析器，我们可以利用之前学习的 XPath 语法，来快速的定位特定元素以及节点信息。这里附上<a href="http://lxml.de/index.html" target="_blank" rel="noopener">官方文档</a></p>
 <h3 id="先来说一个坑"><a href="#先来说一个坑" class="headerlink" title="先来说一个坑"></a>先来说一个坑</h3><p>我们一般使用lxml库里的etree方法，我第一次使用lxml库的时候被坑的蛮惨，由于我装的是版本较新的lxml库（4.4.1），老版本的导入方法是<code>from lxml import etree</code>，嗯，果不其然报错了。然后就是去找答案，最后发现在比较新的版本里，etree被封装到lxml下的html库里边了，所以可以这样导入：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
 etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
@@ -641,10 +641,10 @@ etree <span class="token operator">=</span> html<span class="token punctuation">
 etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
 </li>
 <li><p>设置一些参数</p>
-<pre class=" language-python"><code class="language-python">headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<pre class=" language-python"><code class="language-python">headers <span class="token operator">=</span> <span class="token punctuation">{</span>
  <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
                <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;#请求头</span>
+<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#请求头</span>
 url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span><span class="token comment" spellcheck="true">#目标链接</span>
 movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#用于保存电影信息</span></code></pre>
 </li>
@@ -663,12 +663,12 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
  post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
  nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 
- movie <span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+ movie <span class="token operator">=</span><span class="token punctuation">{</span>
      <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#详情链接</span>
      <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#电影名</span>
      <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#海报链接</span>
      <span class="token string">"nums"</span><span class="token punctuation">:</span> nums<span class="token comment" spellcheck="true">#评分</span>
- <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+ <span class="token punctuation">}</span>
  <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
  movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
 <p>运行，结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594696787504.jpg"><br>最后，再贴一下完整代码：</p>
@@ -676,10 +676,10 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
 <span class="token keyword">import</span> requests
 <span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
 etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree
-headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
  <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
                <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+<span class="token punctuation">}</span>
 url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span>
 movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 n <span class="token operator">=</span> <span class="token number">1</span>
@@ -694,12 +694,12 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
  post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
  nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 
- movie <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+ movie <span class="token operator">=</span> <span class="token punctuation">{</span>
      <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span>
      <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
      <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span>
      <span class="token string">"nums"</span><span class="token punctuation">:</span> nums
- <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+ <span class="token punctuation">}</span>
  <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
  movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
 <h1 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h1><p>嗯，总的看来，写个小爬虫其实是很简单的，xpath语法也很好理解，但仅掌握这些是不够的，无法写出很diao的爬虫，还有蛮多东西要学习！</p>
@@ -1238,12 +1238,12 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/numpy/">
-                        <span class="chip bg-color">numpy</span>
-                    </a>
-                    
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/numpy/">
+                        <span class="chip bg-color">numpy</span>
                     </a>
                     
                 </div>
@@ -1499,7 +1499,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.8k</span>&nbsp;字
+                class="white-color">18.7k</span>&nbsp;字
             
             
             
@@ -1592,6 +1592,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
 
 </div>
     </div>

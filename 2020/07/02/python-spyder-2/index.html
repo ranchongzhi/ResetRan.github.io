@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -471,68 +471,68 @@ url<span class="token operator">=</span><span class="token string">"https://ss2.
 request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">"韩信.jpg"</span><span class="token punctuation">)</span></code></pre>
 <p>运行后，我们就能看到所下载的图片：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685278665.png"><br>打开看一下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685038035.jpg"></p>
 <h2 id="parse-urlencode函数和parse-parse-qs函数"><a href="#parse-urlencode函数和parse-parse-qs函数" class="headerlink" title="parse.urlencode函数和parse.parse_qs函数"></a>parse.urlencode函数和parse.parse_qs函数</h2><p>用浏览器发送请求的时候，如果 url 中包含了中文或者其他特殊字符，那么浏览器会自动的给我们进行编码。而如果使用代码发送请求，那么就必须手动的进行编码，这时候就应该使用 urlencode 函数来实现。urlencode 可以把字典数据转换为 URL 编码的数据。示例代码如下：</p>
-<pre class=" language-py"><code class="language-py">from urllib import parse
-dic1 = &#123;'name': '张三','age' : '18','slogan' : "Hello world"&#125;
-dic2=parse.urlencode(dic1)
-print(dic2)
-#输出如下：
-name=%E5%BC%A0%E4%B8%89&age=18&slogan=Hello+world</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
+dic1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'slogan'</span> <span class="token punctuation">:</span> <span class="token string">"Hello world"</span><span class="token punctuation">}</span>
+dic2<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>dic1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dic2<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+name<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span>BC<span class="token operator">%</span>A0<span class="token operator">%</span>E4<span class="token operator">%</span>B8<span class="token operator">%</span><span class="token number">89</span><span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token operator">&amp;</span>slogan<span class="token operator">=</span>Hello<span class="token operator">+</span>world</code></pre>
 <p>如果不经过编码，就用urlopen方法的话，会报错：</p>
-<pre class=" language-py"><code class="language-py">from urllib import request,parse
-resp = request.urlopen('http://www.baidu.com/s?wd=刘德华')
-#报错如下：
-UnicodeEncodeError: 'ascii' codec can't encode characters in position 30-32: ordinal not in range(128)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com/s?wd=刘德华'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#报错如下：</span>
+UnicodeEncodeError<span class="token punctuation">:</span> <span class="token string">'ascii'</span> codec can't encode characters <span class="token keyword">in</span> position <span class="token number">30</span><span class="token operator">-</span><span class="token number">32</span><span class="token punctuation">:</span> ordinal <span class="token operator">not</span> <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span></code></pre>
 <p>编码之后就可以了：</p>
-<pre class=" language-py"><code class="language-py">from urllib import request,parse
-parms = &#123;'wd':'刘德华'&#125;
-url = 'http://www.baidu.com/s'
-query_string = parse.urlencode(parms)
-print(query_string)
-url = url+'?'+query_string
-resp = request.urlopen(url)
-print(resp.getcode())
-#输出如下：
-wd=%E5%88%98%E5%BE%B7%E5%8D%8E
-200</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+parms <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'wd'</span><span class="token punctuation">:</span><span class="token string">'刘德华'</span><span class="token punctuation">}</span>
+url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s'</span>
+query_string <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>parms<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>query_string<span class="token punctuation">)</span>
+url <span class="token operator">=</span> url<span class="token operator">+</span><span class="token string">'?'</span><span class="token operator">+</span>query_string
+resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>getcode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+wd<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span><span class="token number">88</span><span class="token operator">%</span><span class="token number">98</span><span class="token operator">%</span>E5<span class="token operator">%</span>BE<span class="token operator">%</span>B7<span class="token operator">%</span>E5<span class="token operator">%</span><span class="token number">8D</span><span class="token operator">%</span><span class="token number">8E</span>
+<span class="token number">200</span></code></pre>
 <p>parse.parse_qs函数就是将编码后的数据再转变回来的函数：</p>
-<pre class=" language-py"><code class="language-py">from urllib import parse
-dic1 = &#123;'name': '张三','age' : '18','slogan' : "Hello world"&#125;
-dic2=parse.urlencode(dic1)
-print(dic2)
-print(parse.parse_qs(dic2))
-#输出如下：
-name=%E5%BC%A0%E4%B8%89&age=18&slogan=Hello+world
-&#123;'name': ['张三'], 'age': ['18'], 'slogan': ['Hello world']&#125;#注意返回的数据类型</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
+dic1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'slogan'</span> <span class="token punctuation">:</span> <span class="token string">"Hello world"</span><span class="token punctuation">}</span>
+dic2<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>dic1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dic2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>parse<span class="token punctuation">.</span>parse_qs<span class="token punctuation">(</span>dic2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+name<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span>BC<span class="token operator">%</span>A0<span class="token operator">%</span>E4<span class="token operator">%</span>B8<span class="token operator">%</span><span class="token number">89</span><span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token operator">&amp;</span>slogan<span class="token operator">=</span>Hello<span class="token operator">+</span>world
+<span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'18'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'slogan'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Hello world'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">#注意返回的数据类型</span></code></pre>
 <h2 id="parse-urlparse-和-parse-urlsplit-函数"><a href="#parse-urlparse-和-parse-urlsplit-函数" class="headerlink" title="parse.urlparse 和 parse.urlsplit 函数"></a>parse.urlparse 和 parse.urlsplit 函数</h2><p>有时候拿到一个 url，想要对这个 url 中的各个组成部分进行分割，那么这时候就可以使用<br>urlparse 或者是 urlsplit 来进行分割。示例代码如下：</p>
-<pre class=" language-py"><code class="language-py">from urllib import request,parse
-url = 'http://www.baidu.com/s?username=zhiliao'
-result1 = parse.urlsplit(url)
-result2 = parse.urlparse(url)
-print(result1)
-print(result2)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?username=zhiliao'</span>
+result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
 <p>结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593771183471.jpg"><br>从图中可以看出：urlparse 和 urlsplit 基本上是一模一样的。唯一不一样的地方是，urlparse 里面多了一个 params 属性，而 urlsplit 没有这个 params 属性。如果将上面代码的url换一下就能看出区别：</p>
-<pre class=" language-py"><code class="language-py">![1593773675938](E:%5CGridea%5Cpost-images%5C1593773675938.jpg)![1593773675938](E:%5CGridea%5Cpost-images%5C1593773675938.jpg)from urllib import request,parse
-url = 'http://www.baidu.com/s;hello?wd=python&username=abc#1'
-result1 = parse.urlsplit(url)
-result2 = parse.urlparse(url)
-print(result1)
-print(result2)</code></pre>
+<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span>!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s;hello?wd=python&amp;username=abc#1'</span>
+result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
 <p>结果：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593773675938.jpg"><br>不过params属性很少用到，所以这两种方法基本可以视为相同</p>
 <h2 id="ProxyHandler-处理器（代理设置）"><a href="#ProxyHandler-处理器（代理设置）" class="headerlink" title="ProxyHandler 处理器（代理设置）"></a>ProxyHandler 处理器（代理设置）</h2><p>很多网站会检测某一段时间某个 IP 的访问次数(通过流量统计，系统日志等)，如果访问次数多的不像正常人，它会禁止这个 IP 的访问。所以我们可以设置一些代理服务器，每隔一段时间换一个代理，就算 IP 被禁止，依然可以换个 IP 继续爬取。urllib 中通过 ProxyHandler 来设置使用代理服务器，下面代码说明如何使用自定义 opener来使用代理：</p>
-<pre class=" language-py"><code class="language-py">import urllib
-url = 'http://httpbin.org/ip'
-headers = &#123;'User-Agent':"Mozilla/5.0 (Macintosh; U; Mac OS X Mach-O; enUS; rv:2.0a) Gecko/20040614 Firefox/3.0.0 "&#125;
-req = urllib.request.Request(url,headers=headers)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib
+url <span class="token operator">=</span> <span class="token string">'http://httpbin.org/ip'</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">"Mozilla/5.0 (Macintosh; U; Mac OS X Mach-O; enUS; rv:2.0a) Gecko/20040614 Firefox/3.0.0 "</span><span class="token punctuation">}</span>
+req <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
 
-resp = urllib.request.urlopen(req,timeout = 5)
-print(resp.read().decode())
-handler = urllib.request.ProxyHandler(&#123;'http':'163.204.240.95:9999'&#125;)
-opener = urllib.request.build_opener(handler)
-resp = opener.open(url)
-print(resp.read().decode())</code></pre>
+resp <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">,</span>timeout <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+handler <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'http'</span><span class="token punctuation">:</span><span class="token string">'163.204.240.95:9999'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+resp <span class="token operator">=</span> opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>运行结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593787948833.jpg"><br>可以看出，我们的向目标服务器发送请求的ip地址已经变了，这样就能有效防止目标服务器封我们ip而导致爬虫无法完整运行。</p>
 <blockquote>
-<p>ps:这个网址：<a target="_blank" rel="noopener" href="http://httpbin.org/ip%EF%BC%8C%E8%83%BD%E5%B8%AE%E6%88%91%E4%BB%AC%E5%BF%AB%E9%80%9F%E6%9F%A5%E8%AF%A2%E6%88%91%E4%BB%AC%E7%9A%84ip%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E4%B8%8B%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%93%A6">http://httpbin.org/ip，能帮我们快速查询我们的ip地址，可以保存下来使用哦</a><br>常见的代理获取可以点<a target="_blank" rel="noopener" href="http://www.kuaidaili.com/">这里</a>去看看，可以使用免费的代理，当然体验肯定没有付费的代理来得好。</p>
+<p>ps:这个网址：<a href="http://httpbin.org/ip%EF%BC%8C%E8%83%BD%E5%B8%AE%E6%88%91%E4%BB%AC%E5%BF%AB%E9%80%9F%E6%9F%A5%E8%AF%A2%E6%88%91%E4%BB%AC%E7%9A%84ip%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E4%B8%8B%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%93%A6" target="_blank" rel="noopener">http://httpbin.org/ip，能帮我们快速查询我们的ip地址，可以保存下来使用哦</a><br>常见的代理获取可以点<a href="http://www.kuaidaili.com/" target="_blank" rel="noopener">这里</a>去看看，可以使用免费的代理，当然体验肯定没有付费的代理来得好。</p>
 </blockquote>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>小总结一下，用urllib库基本上就可以写一些比较简单的爬虫了，但这里我们想象中的那种强大的爬虫还是有些差距，所以还需要继续学习呀！</p>
 
@@ -1329,7 +1329,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.8k</span>&nbsp;字
+                class="white-color">18.7k</span>&nbsp;字
             
             
             
@@ -1422,6 +1422,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
 
 </div>
     </div>
