@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Reset Ran&#39;s blog</title>
+  
+  <subtitle>在我遇见你以前，也拥有过完整的睡眠~</subtitle>
+  <link href="http://ranchongzhi.gitee.io/atom.xml" rel="self"/>
+  
+  <link href="http://ranchongzhi.gitee.io/"/>
+  <updated>2020-10-18T13:30:10.634Z</updated>
+  <id>http://ranchongzhi.gitee.io/</id>
+  
+  <author>
+    <name>Reset Ran</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fisher线性判别+KNN分类</title>
+    <link href="http://ranchongzhi.gitee.io/2020/09/27/fisher/"/>
+    <id>http://ranchongzhi.gitee.io/2020/09/27/fisher/</id>
+    <published>2020-09-27T04:37:43.000Z</published>
+    <updated>2020-10-18T13:30:10.634Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫（4）——XPath语法和lxml</title>
+    <link href="http://ranchongzhi.gitee.io/2020/07/07/python-spyder-4/"/>
+    <id>http://ranchongzhi.gitee.io/2020/07/07/python-spyder-4/</id>
+    <published>2020-07-07T12:17:26.000Z</published>
+    <updated>2020-10-18T13:28:04.464Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫（3）——cookie与requests库</title>
+    <link href="http://ranchongzhi.gitee.io/2020/07/05/python-spyder-3/"/>
+    <id>http://ranchongzhi.gitee.io/2020/07/05/python-spyder-3/</id>
+    <published>2020-07-05T03:50:25.000Z</published>
+    <updated>2020-10-18T13:27:14.186Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;cookie&quot;&gt;&lt;a href=&quot;#cookie&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫（2）——urllib库</title>
+    <link href="http://ranchongzhi.gitee.io/2020/07/02/python-spyder-2/"/>
+    <id>http://ranchongzhi.gitee.io/2020/07/02/python-spyder-2/</id>
+    <published>2020-07-02T10:15:26.000Z</published>
+    <updated>2020-10-18T13:25:04.760Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;urllib库简介&quot;&gt;&lt;a href=&quot;#urllib库简介&quot; class=&quot;headerlink&quot; title=&quot;urllib库简介&quot;&gt;&lt;/a&gt;urllib库简介&lt;/h2&gt;&lt;p&gt;urllib 库是 Python</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫（1）——前置知识</title>
+    <link href="http://ranchongzhi.gitee.io/2020/07/02/python-spyder-1/"/>
+    <id>http://ranchongzhi.gitee.io/2020/07/02/python-spyder-1/</id>
+    <published>2020-07-02T08:35:41.000Z</published>
+    <updated>2020-10-18T13:23:09.947Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;什么是爬虫&quot;&gt;&lt;a href=&quot;#什么是爬虫&quot; class=&quot;headerlink&quot; title=&quot;什么是爬虫&quot;&gt;&lt;/a&gt;什么是爬虫&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;通俗理解：爬虫是一个模拟人类请求网站行为的程序。可以自动请求网页、并数据抓取</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python学习笔记——numpy（2）</title>
+    <link href="http://ranchongzhi.gitee.io/2020/06/16/numpy-2/"/>
+    <id>http://ranchongzhi.gitee.io/2020/06/16/numpy-2/</id>
+    <published>2020-06-16T11:37:26.000Z</published>
+    <updated>2020-10-18T13:17:16.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;继续来学习numpy：&lt;/p&gt;
+&lt;h2 id=&quot;一、索引和切片&quot;&gt;&lt;a href=&quot;#一、索引和切片&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python学习笔记——numpy（1）</title>
+    <link href="http://ranchongzhi.gitee.io/2020/06/14/numpy-1/"/>
+    <id>http://ranchongzhi.gitee.io/2020/06/14/numpy-1/</id>
+    <published>2020-06-14T12:50:20.000Z</published>
+    <updated>2020-10-18T13:16:33.461Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;学过python的人应该都接触过&lt;a href=&quot;https://baike.baidu.com/item/numpy/5678437?fr=aladdin&quot; target=&quot;_blank&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见聚类模型</title>
+    <link href="http://ranchongzhi.gitee.io/2020/03/27/julei/"/>
+    <id>http://ranchongzhi.gitee.io/2020/03/27/julei/</id>
+    <published>2020-03-27T04:37:43.000Z</published>
+    <updated>2020-10-16T16:19:10.650Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天来写写数学建模中的聚类模型，还是分为几个版块来写&lt;/p&gt;
+&lt;h2 id=&quot;1-聚类模型简介&quot;&gt;&lt;a href=&quot;#1-聚类模型简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="数模" scheme="http://ranchongzhi.gitee.io/tags/%E6%95%B0%E6%A8%A1/"/>
+    
+  </entry>
+  
+</feed>
