@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python爬虫（2）——urllib库, Reset Ran&#39;s blog">
+    <meta name="keywords" content="利用hexo+Gitee搭建个人网站, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python爬虫（2）——urllib库 | Reset Ran&#39;s blog</title>
+    <title>利用hexo+Gitee搭建个人网站 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python爬虫（2）——urllib库</h1>
+                    <h1 class="description center-align post-title">利用hexo+Gitee搭建个人网站</h1>
                 </div>
             </div>
         </div>
@@ -389,12 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
                             </a>
                         
-                            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                <span class="chip bg-color">爬虫</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                                <span class="chip bg-color">博客搭建</span>
                             </a>
                         
                     </div>
@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-02
+                    2020-10-21
                 </div>
                 
 
@@ -418,14 +418,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -435,107 +435,133 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="urllib库简介"><a href="#urllib库简介" class="headerlink" title="urllib库简介"></a>urllib库简介</h2><p>urllib 库是 Python 中一个最基本的网络请求库。可以模拟浏览器的行为，向指定的服务器发 送一个请求，并可以保存服务器返回的数据。</p>
-<h2 id="urlopen函数"><a href="#urlopen函数" class="headerlink" title="urlopen函数"></a>urlopen函数</h2><p>在python3的<code>urllib</code>库中，所有和网络请求相关的方法，都被集成到<code>urllib.request</code>模块下了，该函数的使用格式如下：</p>
-<p><code>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)</code></p>
-<p>其中：</p>
-<p><code>cafile、capath、cadefault</code> 参数：用于实现可信任的 CA 证书的 HTTP 请求。（基本上很少用）</p>
-<p><code>context</code> 参数：实现 SSL 加密传输。（基本上很少用）</p>
-<p>所以我们一般关注前面几个参数就可以了：</p>
+                <h2 id="为什么要搭建个人网站"><a href="#为什么要搭建个人网站" class="headerlink" title="为什么要搭建个人网站"></a>为什么要搭建个人网站</h2><p>个人网站用处有很多，可以写博客来记录学习过程中的各种事，不管是新知识还是踩坑记录，写完就丢在网站上，方便日后复习，也可以共享给他人，让其他人避免踩雷。</p>
+<p>当然也不仅限于技术性的文章，生活中有什么感想，都可以记录在博客中，记录一次出行、聊一聊美好的爱情，统统不在话下。</p>
+<p>个人感觉，搭建个人网站还有一个不错的好处，就是可以锻炼我们解决问题的能力，博客搭建肯定不是一帆风顺，会遇到各种各样的小问题，有很多细节需要自己去打磨，在打磨的过程中，咱们解决问题的能力总会有提升。如果你觉得很麻烦，也可以选择现有的技术交流平台写博客，比如csdn、博客园等。但是我个人感觉，使用这些平台相比起搭建个人网站就少了很多个性，功能比较局限，不像个人网站，可拓展性很高，比如可以加入外链播放器、天气挂件等等。</p>
+<p>所以，我还是推荐大家搭建一个属于自己的个人网站。</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1603013081576.jpg"></p>
+<h2 id="搭建方案选择"><a href="#搭建方案选择" class="headerlink" title="搭建方案选择"></a>搭建方案选择</h2><ul>
+<li>Hexo框架+GitHub  page、Gitee  page、coding  page（推荐选择）</li>
+<li>Gridea软件+GitHub  page、Gitee  page、coding  page</li>
+<li>其他框架：<a href="http://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a>，<a href="https://cn.wordpress.org/" target="_blank" rel="noopener">WordPress</a>。。。。。。</li>
+</ul>
+<p>本文主要介绍第一种方案，第二种方案也可以选取，后边会做简单介绍。</p>
+<h2 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h2><ul>
+<li>如果使用hexo框架的话，需要提前安装Git和node.js，安装过程很简单，百度就有很多教程，这里顺便贴一下下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="noopener">Git下载地址</a>、<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">node.js下载地址</a>，安装好之后在cmd中输入<code>npm -v</code>和<code>node -v</code>，如果顺利打印出版本号，则说明node.js安装成功。回到桌面，单击鼠标右键，如果出现下图红框中的选项，则说明Git也安装成功了</li>
+</ul>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201017165530712.png"></p>
 <ul>
-<li>URL：所请求的URL</li>
-<li>data：请求的data，如果设置了这个参数，请求会变为post请求</li>
-<li>返回值：返回值是一个http.client.HTTPResponse对象，这是一个类文件句柄对象，它主要有以下几种方法：<ol>
-<li>read(size):返回指定字节的数目，默认为全部 </li>
-<li>readline()：返回一行 </li>
-<li>readlines()：用列表返回全部行 </li>
-<li>getcode()：返回状态码，<code>resp.getcode()</code>等价于 <code>resp.status</code> </li>
-<li>getheaders()：返回响应头</li>
+<li><p>安装好之后还要安装hexo框架，具体步骤如下：</p>
+<ol>
+<li><p>找一个你想存放自己博客的位置，随便哪儿都行，新建一个文件夹，名字随便起，”myblogs”、”Blog_by_hexo”之类的，啥啥啥都行，自由发挥，这里以myblogs为例。</p>
+</li>
+<li><p>然后进入你刚才新建的文件夹，单机鼠标右键，选择<code>Git Bash Here</code>选项，然后在弹出的窗口中依次输入下面的命令：</p>
+<pre class=" language-bash"><code class="language-bash">//第一条   安装hexo的基础框架，如果很慢的话，可以考虑挂下梯子，或者换个源
+<span class="token function">npm</span> <span class="token function">install</span> -g hexo
+
+//第二条   初始化hexo框架 这个可能会比较慢
+hexo init
+
+//第三条 安装所需要的组件
+<span class="token function">npm</span> <span class="token function">install</span>
+
+//第四条 编译生成静态页面
+hexo g
+
+//第五条 启动本地服务
+hexo s</code></pre>
+</li>
+<li><p>上述指令执行完之后，会看到显示如下：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018174735603.png"></p>
+<p>此时本地的博客框架就搭好了，在浏览器中打开上图中的网址即可看到如下界面</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/18313053-7deab09a58f4396a.png"></p>
+</li>
 </ol>
 </li>
 </ul>
-<p>下面来看一个例子：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
-url<span class="token operator">=</span><span class="token string">"http://www.baidu.com"</span>
-resp<span class="token operator">=</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>运行上面的程序，就会打印出百度首页的html源代码，见下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685333801.png"></p>
-<h2 id="request-urlretrieve函数"><a href="#request-urlretrieve函数" class="headerlink" title="request.urlretrieve函数"></a>request.urlretrieve函数</h2><p>这个文件可以很方便的将网页上的文件保存到本地，就比如保存百度首页：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
+<h2 id="博客的部署"><a href="#博客的部署" class="headerlink" title="博客的部署"></a>博客的部署</h2><h3 id="为什么选择Gitee"><a href="#为什么选择Gitee" class="headerlink" title="为什么选择Gitee"></a>为什么选择Gitee</h3><p>博客肯定不能只丢在本地，我们得将它部署到GitHub上或者Gitee上，达到可多终端访问的目的。这里以部署到Gitee为例子，因为我用的梯子不是很稳定，怕到时候现场示范会垮掉，所以就用Gitee来做示范吧😂，况且它服务器在国内，访问速度快啊，国产版GitHub也挺好用的。进入正题：</p>
+<h3 id="建立代码托管仓库"><a href="#建立代码托管仓库" class="headerlink" title="建立代码托管仓库"></a>建立代码托管仓库</h3><ol>
+<li><p>首先进入码云的官网，注册一个账号，其他信息如实填写即可，注意这个个人空间地址，不要随便填，可以参考下图中的提示，自己精心想一个，想不出来就像我一样直接用名字的拼音吧哈哈哈，这个地址后续也可以修改的，大家想好了可以去个人设置里边进行修改。</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018180841209.png"></p>
+</li>
+<li><p>注册好之后，就登录进去，然后点击右上角头像左边的那个加号(对我知道你肯定看到了)，然后选择新建仓库，然后各项填写如下：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018184919287.png"></p>
+<p>上图中归属和路径处显示不一致，嗯我猜是码云的问题😂，没关系，只要下边仓库地址处是一样的就行</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018185856107.png"></p>
+</li>
+<li><p>然后页面会自动跳转到刚才新建的仓库界面，选择<strong>服务</strong>选项，然后选择<code>Gitee pages</code>，如图：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018190255742.png"></p>
+<p>然后在跳转到的页面中，勾选上<strong>强制使用Https</strong>选项，然后点击<strong>启动</strong></p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018190546294.png"></p>
+</li>
+<li><p>然后耐心的等它部署，部署完了之后可以点击他给出的网址进行访问了：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018191339605.png"></p>
+</li>
+</ol>
+<h3 id="向仓库推送文件"><a href="#向仓库推送文件" class="headerlink" title="向仓库推送文件"></a>向仓库推送文件</h3><p>仓库那边整好了，现在再回到本地来，通过<code>Git Bash</code>向仓库进行文件推送，打开你创建好的存放博客的文件夹，我的是<code>myblogs</code>，现在里边应该有这些东西</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201020183210217.png" alt="" style="zoom:80%;" />
 
-url<span class="token operator">=</span><span class="token string">"http://www.baidu.com"</span>
-request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">'baidu.html'</span><span class="token punctuation">)</span></code></pre>
-<p>运行代码后，就会在代码文件同目录下生成我们所命名的文件，如图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685309150.png"><br>同理，也可以用此方法下载图片，以下载一张王者荣耀韩信的图片为例：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
-<span class="token comment" spellcheck="true">#图片链接只需在网页中鼠标右键选择复制图像链接即可</span>
-url<span class="token operator">=</span><span class="token string">"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1107967462,1249145194&amp;fm=26&amp;gp=0.jpg"</span>
-request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">"韩信.jpg"</span><span class="token punctuation">)</span></code></pre>
-<p>运行后，我们就能看到所下载的图片：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685278665.png"><br>打开看一下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685038035.jpg"></p>
-<h2 id="parse-urlencode函数和parse-parse-qs函数"><a href="#parse-urlencode函数和parse-parse-qs函数" class="headerlink" title="parse.urlencode函数和parse.parse_qs函数"></a>parse.urlencode函数和parse.parse_qs函数</h2><p>用浏览器发送请求的时候，如果 url 中包含了中文或者其他特殊字符，那么浏览器会自动的给我们进行编码。而如果使用代码发送请求，那么就必须手动的进行编码，这时候就应该使用 urlencode 函数来实现。urlencode 可以把字典数据转换为 URL 编码的数据。示例代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
-dic1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'slogan'</span> <span class="token punctuation">:</span> <span class="token string">"Hello world"</span><span class="token punctuation">}</span>
-dic2<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>dic1<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>dic2<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#输出如下：</span>
-name<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span>BC<span class="token operator">%</span>A0<span class="token operator">%</span>E4<span class="token operator">%</span>B8<span class="token operator">%</span><span class="token number">89</span><span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token operator">&amp;</span>slogan<span class="token operator">=</span>Hello<span class="token operator">+</span>world</code></pre>
-<p>如果不经过编码，就用urlopen方法的话，会报错：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
-resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com/s?wd=刘德华'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#报错如下：</span>
-UnicodeEncodeError<span class="token punctuation">:</span> <span class="token string">'ascii'</span> codec can't encode characters <span class="token keyword">in</span> position <span class="token number">30</span><span class="token operator">-</span><span class="token number">32</span><span class="token punctuation">:</span> ordinal <span class="token operator">not</span> <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span></code></pre>
-<p>编码之后就可以了：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
-parms <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'wd'</span><span class="token punctuation">:</span><span class="token string">'刘德华'</span><span class="token punctuation">}</span>
-url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s'</span>
-query_string <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>parms<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>query_string<span class="token punctuation">)</span>
-url <span class="token operator">=</span> url<span class="token operator">+</span><span class="token string">'?'</span><span class="token operator">+</span>query_string
-resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>getcode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#输出如下：</span>
-wd<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span><span class="token number">88</span><span class="token operator">%</span><span class="token number">98</span><span class="token operator">%</span>E5<span class="token operator">%</span>BE<span class="token operator">%</span>B7<span class="token operator">%</span>E5<span class="token operator">%</span><span class="token number">8D</span><span class="token operator">%</span><span class="token number">8E</span>
-<span class="token number">200</span></code></pre>
-<p>parse.parse_qs函数就是将编码后的数据再转变回来的函数：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
-dic1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'slogan'</span> <span class="token punctuation">:</span> <span class="token string">"Hello world"</span><span class="token punctuation">}</span>
-dic2<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>dic1<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>dic2<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>parse<span class="token punctuation">.</span>parse_qs<span class="token punctuation">(</span>dic2<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#输出如下：</span>
-name<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span>BC<span class="token operator">%</span>A0<span class="token operator">%</span>E4<span class="token operator">%</span>B8<span class="token operator">%</span><span class="token number">89</span><span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token operator">&amp;</span>slogan<span class="token operator">=</span>Hello<span class="token operator">+</span>world
-<span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'18'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'slogan'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Hello world'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">#注意返回的数据类型</span></code></pre>
-<h2 id="parse-urlparse-和-parse-urlsplit-函数"><a href="#parse-urlparse-和-parse-urlsplit-函数" class="headerlink" title="parse.urlparse 和 parse.urlsplit 函数"></a>parse.urlparse 和 parse.urlsplit 函数</h2><p>有时候拿到一个 url，想要对这个 url 中的各个组成部分进行分割，那么这时候就可以使用<br>urlparse 或者是 urlsplit 来进行分割。示例代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
-url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?username=zhiliao'</span>
-result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
-<p>结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593771183471.jpg"><br>从图中可以看出：urlparse 和 urlsplit 基本上是一模一样的。唯一不一样的地方是，urlparse 里面多了一个 params 属性，而 urlsplit 没有这个 params 属性。如果将上面代码的url换一下就能看出区别：</p>
-<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span>!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
-url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s;hello?wd=python&amp;username=abc#1'</span>
-result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
-<p>结果：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593773675938.jpg"><br>不过params属性很少用到，所以这两种方法基本可以视为相同</p>
-<h2 id="ProxyHandler-处理器（代理设置）"><a href="#ProxyHandler-处理器（代理设置）" class="headerlink" title="ProxyHandler 处理器（代理设置）"></a>ProxyHandler 处理器（代理设置）</h2><p>很多网站会检测某一段时间某个 IP 的访问次数(通过流量统计，系统日志等)，如果访问次数多的不像正常人，它会禁止这个 IP 的访问。所以我们可以设置一些代理服务器，每隔一段时间换一个代理，就算 IP 被禁止，依然可以换个 IP 继续爬取。urllib 中通过 ProxyHandler 来设置使用代理服务器，下面代码说明如何使用自定义 opener来使用代理：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib
-url <span class="token operator">=</span> <span class="token string">'http://httpbin.org/ip'</span>
-headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">"Mozilla/5.0 (Macintosh; U; Mac OS X Mach-O; enUS; rv:2.0a) Gecko/20040614 Firefox/3.0.0 "</span><span class="token punctuation">}</span>
-req <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<ol>
+<li><p>在编辑站点配置文件之前，我们还要安装一个插件，配合该插件我们才能使用<code>deploy</code>进行部署，插件名为<code> hexo-deployer-git</code>，在<code>myblogs</code>文件下打开<code>Git Bash</code>，输入命令<code>npm install hexo-deployer-git --save</code>即可安装。</p>
+</li>
+<li><p>安装好插件之后我们要生成SSH添加到Gitee，还是在<code>Git Bash</code>中操作：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"用户名"</span>
+// 设置提交文件时的用户名
+<span class="token function">git</span> config --global user.email <span class="token string">"邮箱"</span>
+// 设置提交文件时的邮箱
 
-resp <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">,</span>timeout <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-handler <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'http'</span><span class="token punctuation">:</span><span class="token string">'163.204.240.95:9999'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
-resp <span class="token operator">=</span> opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>运行结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593787948833.jpg"><br>可以看出，我们的向目标服务器发送请求的ip地址已经变了，这样就能有效防止目标服务器封我们ip而导致爬虫无法完整运行。</p>
-<blockquote>
-<p>ps:这个网址：<a href="http://httpbin.org/ip%EF%BC%8C%E8%83%BD%E5%B8%AE%E6%88%91%E4%BB%AC%E5%BF%AB%E9%80%9F%E6%9F%A5%E8%AF%A2%E6%88%91%E4%BB%AC%E7%9A%84ip%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E4%B8%8B%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%93%A6" target="_blank" rel="noopener">http://httpbin.org/ip，能帮我们快速查询我们的ip地址，可以保存下来使用哦</a><br>常见的代理获取可以点<a href="http://www.kuaidaili.com/" target="_blank" rel="noopener">这里</a>去看看，可以使用免费的代理，当然体验肯定没有付费的代理来得好。</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>小总结一下，用urllib库基本上就可以写一些比较简单的爬虫了，但这里我们想象中的那种强大的爬虫还是有些差距，所以还需要继续学习呀！</p>
+//设置好之后，可用如下命令查看是否有误
+<span class="token function">git</span> config user.name
+<span class="token function">git</span> config user.email</code></pre>
+<p>只有如上设置，你推送文件的时候，Gitee才知道是谁推送的文件，然后来生成SSH，添加到Gitee</p>
+<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮箱"</span></code></pre>
+<p>执行之后，一路回车，出现如下界面就表示成功生成了SSH<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021152832960.png" alt=""  /></p>
+<p>然后打开上图中框出的<code>.ssh</code>文件夹，可以看到有两个文件夹，<code>id_rsa</code>和<code>id_rsa.pub</code>，前者是私有的，自个保存好就行，后者就是SSH公钥，用<code>notepad++</code>打开<code>id_rsa.pub</code>文件，将里边的内容全复制到剪贴板。（在这里推荐大家安装<code>notepad++</code>这款软件，体积很小，能打开的文件格式超级多，具体的安装没啥复杂的，大家可以百度。）</p>
+<p>紧接着来到Gitee的登陆界面，点击右上角头像，选择设置，在安全设置中选择<code>SSH公钥</code>，然后选择添加公钥，标题随便写一个，公钥部分就把你刚才复制的内容给贴进去，然后点击确定即可<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021155906876.png"></p>
+<p>添加好之后，可以使用命令<code>ssh -T git@gitee.com</code>来验证本机是否与Gitee服务器连接成功，出现下图则表示成功了</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021160453096.png" alt="" style="zoom:80%;" />
+</li>
+<li><p>前两步成功之后打开<code>_config.yml</code>，直接拉到最底下，找到<code>deploy</code>，这里就是我们设置推送到哪个仓库的地方。</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201020184957151.png"></p>
+<p>修改<code>deploy</code>选项如下：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
+  <span class="token key atrule">repo</span><span class="token punctuation">:</span> git@gitee.com<span class="token punctuation">:</span>inspur<span class="token punctuation">-</span>club/inspur<span class="token punctuation">-</span>club.git
+  <span class="token key atrule">branch</span><span class="token punctuation">:</span> master
+//注意，冒号后边要有一个空格，这是yaml语法</code></pre>
+<p>填写repo的时候，有个小技巧，我们只需要选择克隆或下载仓库，选择<code>SSH</code>，将内容复制下来粘贴到repo选项后即可，如下图所示：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021163002580.png" alt="" style="zoom:80%;" />
+</li>
+<li><p>修改好配置文件后，<code>ctrl+s</code>保存，然后就可以利用<code>Git Bash</code>向仓库推送文件啦，还是在<code>myblogs</code>文件夹下打开<code>Git Bash</code>，执行以下命令</p>
+<pre class=" language-bash"><code class="language-bash">// 清除缓存，每次修改配置文件后都要执行该命令
+hexo clean
+
+// 生成静态页面文件，每次clean后也要重新生成
+hexo g
+
+// 向仓库推送文件
+hexo d</code></pre>
+</li>
+</ol>
+<p>执行完如果出现如下界面则表示推送文件成功：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021164439172.png" alt="" style="zoom:80%;" />
+
+<p>也可以去仓库刷新一下，如果多了很多文件，最近提交时间为刚刚，也可以说明推送文件成功：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021164753537.png" alt="" style="zoom:80%;" />
+
+<h2 id="更新Gitee-pages"><a href="#更新Gitee-pages" class="headerlink" title="更新Gitee pages"></a>更新Gitee pages</h2><p>如果你是部署到GitHub或者coding上的话，请忽略这一步，它们俩会自动更新网站内容，只有Gitee pages需要手动更新：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021165604810.png" alt="" style="zoom:80%;" />
+
+<p>更新完之后再次访问网站地址，如下：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021170921703.png" alt="" style="zoom:80%;" />
+
+<p>如果你选购了Gitee pages pro，他是支持自动更新的，也可以忽略这一步，但白嫖党怎么能就此屈服，我找到了一点资料，大伙有兴趣可以去看看，<a href="https://cjh0613.com/20200511GiteePageAuto.html" target="_blank" rel="noopener">戳我查看</a>。</p>
+<p>其实我每次都是手动更新的，主要是因为我比较懒，没有经常写博客的习惯，啥时候兴致来了就写，所以每次都去点一下更新就我个人而言也还能接受😂😂😂。</p>
+<h2 id="如何写文章"><a href="#如何写文章" class="headerlink" title="如何写文章"></a>如何写文章</h2><p>写文章要用到<code>markdown</code>，这是一种轻量的标记型语言，语法超级简单，在这里就不细讲了，给大家推荐学习<code>markdown</code>的网站是<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>，这个网站有超级多其他教程，大家可以收藏，以后也许能用到。</p>
+<h2 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h2><p>嗯，到这基本上博客的搭建已经接近尾声了，你已经拥有属于自己的个人网站了。</p>
+<p>但其实这才刚刚开始，更重要的是丰富博客的内容，更改一些基本配置，就比如换个主题啊，给自己的网站取个名字、换个背景图等等。总之，还有很多细节需要不断去发现，不断去优化，如果你很注重细节，你会发现优化博客还是需要做蛮多事的。网上教程资源很多，希望大家善于利用。</p>
+<p>另外说一下，GitHub是支持绑定域名的，Gitee pages就不支持（坑爹啊），域名一般不贵，我很推荐大家买一个域名，逼格瞬间上来了有木有？</p>
+<p>最后希望大家能在这次的分享中有所收获，回去了也可以用hexo+GitHub再搭一次，跟Gitee很类似，算是再练练手。</p>
 
             </div>
             <hr/>
@@ -561,7 +587,7 @@ resp <span class="token operator">=</span> opener<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.gitee.io/2020/07/02/python-spyder-2/">http://ranchongzhi.gitee.io/2020/07/02/python-spyder-2/</a>
+                    <a href="http://ranchongzhi.gitee.io/2020/10/21/built-blog-1/">http://ranchongzhi.gitee.io/2020/10/21/built-blog-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,12 +625,12 @@ resp <span class="token operator">=</span> opener<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
                                 </a>
                             
-                                <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                    <span class="chip bg-color">爬虫</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                                    <span class="chip bg-color">博客搭建</span>
                                 </a>
                             
                         </div>
@@ -1035,29 +1061,30 @@ resp <span class="token operator">=</span> opener<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/05/python-spyder-3/">
+                <a href="/2020/10/21/built-blog-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="python爬虫（3）——cookie与requests库">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="利用hexo+Gitee搭建个人网站">
                         
-                        <span class="card-title">python爬虫（3）——cookie与requests库</span>
+                        <span class="card-title">利用hexo+Gitee搭建个人网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要是学习cookie和python中另外一个网络请求库——requests库的记录
+                            超详细！！！保姆级教程！
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1066,15 +1093,16 @@ resp <span class="token operator">=</span> opener<span class="token punctuation"
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">博客搭建</span>
                     </a>
                     
                 </div>
@@ -1088,24 +1116,24 @@ resp <span class="token operator">=</span> opener<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/02/python-spyder-1/">
+                <a href="/2020/09/27/fisher/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="python爬虫（1）——前置知识">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Fisher线性判别+KNN分类">
                         
-                        <span class="card-title">python爬虫（1）——前置知识</span>
+                        <span class="card-title">Fisher线性判别+KNN分类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习爬虫之前，先来了解一下爬虫的前置知识
+                            大三模式识别课程大作业~
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
                             </span>
                         <span class="publish-author">
                             
@@ -1122,8 +1150,12 @@ resp <span class="token operator">=</span> opener<span class="token punctuation"
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/numpy/">
+                        <span class="chip bg-color">numpy</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
+                        <span class="chip bg-color">模式识别</span>
                     </a>
                     
                 </div>
