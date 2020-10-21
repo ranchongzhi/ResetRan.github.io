@@ -418,14 +418,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -514,7 +514,10 @@ hexo s</code></pre>
 <span class="token function">git</span> config user.name
 <span class="token function">git</span> config user.email</code></pre>
 <p>只有如上设置，你推送文件的时候，Gitee才知道是谁推送的文件，然后来生成SSH，添加到Gitee</p>
-<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮箱"</span></code></pre>
+<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮箱"</span>
+
+// 如果想自定义ssh的名字，可以这样生成一个名为test的密钥
+ssh-keygen -t rsa -C <span class="token string">"邮箱"</span> -f ~/.ssh/test</code></pre>
 <p>执行之后，一路回车，出现如下界面就表示成功生成了SSH<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021152832960.png" alt=""  /></p>
 <p>然后打开上图中框出的<code>.ssh</code>文件夹，可以看到有两个文件夹，<code>id_rsa</code>和<code>id_rsa.pub</code>，前者是私有的，自个保存好就行，后者就是SSH公钥，用<code>notepad++</code>打开<code>id_rsa.pub</code>文件，将里边的内容全复制到剪贴板。（在这里推荐大家安装<code>notepad++</code>这款软件，体积很小，能打开的文件格式超级多，具体的安装没啥复杂的，大家可以百度。）</p>
 <p>紧接着来到Gitee的登陆界面，点击右上角头像，选择设置，在安全设置中选择<code>SSH公钥</code>，然后选择添加公钥，标题随便写一个，公钥部分就把你刚才复制的内容给贴进去，然后点击确定即可<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021155906876.png"></p>
@@ -533,7 +536,7 @@ hexo s</code></pre>
 <img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021163002580.png" alt="" style="zoom:80%;" />
 </li>
 <li><p>修改好配置文件后，<code>ctrl+s</code>保存，然后就可以利用<code>Git Bash</code>向仓库推送文件啦，还是在<code>myblogs</code>文件夹下打开<code>Git Bash</code>，执行以下命令</p>
-<pre class=" language-bash"><code class="language-bash">// 清除缓存，每次修改配置文件后都要执行该命令
+<pre class=" language-bash"><code class="language-bash">// 清除缓存以及public文件夹，public文件夹里的东西就是真正被推送到仓库里的东西，每次修改配置文件后都要执行该命令
 hexo clean
 
 // 生成静态页面文件，每次clean后也要重新生成
@@ -560,7 +563,7 @@ hexo d</code></pre>
 <h2 id="如何写文章"><a href="#如何写文章" class="headerlink" title="如何写文章"></a>如何写文章</h2><p>写文章要用到<code>markdown</code>，这是一种轻量的标记型语言，语法超级简单，在这里就不细讲了，给大家推荐学习<code>markdown</code>的网站是<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>，这个网站有超级多其他教程，大家可以收藏，以后也许能用到。</p>
 <h2 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h2><p>嗯，到这基本上博客的搭建已经接近尾声了，你已经拥有属于自己的个人网站了。</p>
 <p>但其实这才刚刚开始，更重要的是丰富博客的内容，更改一些基本配置，就比如换个主题啊，给自己的网站取个名字、换个背景图等等。总之，还有很多细节需要不断去发现，不断去优化，如果你很注重细节，你会发现优化博客还是需要做蛮多事的。网上教程资源很多，希望大家善于利用。</p>
-<p>另外说一下，GitHub是支持绑定域名的，Gitee pages就不支持（坑爹啊），域名一般不贵，我很推荐大家买一个域名，逼格瞬间上来了有木有？</p>
+<p>另外说一下，GitHub是支持绑定域名的，Gitee pages就不支持（坑爹啊），新域名(.top，.club，.xyz)一般不贵，我很推荐大家买一个域名，逼格瞬间上来了有木有？</p>
 <p>最后希望大家能在这次的分享中有所收获，回去了也可以用hexo+GitHub再搭一次，跟Gitee很类似，算是再练练手。</p>
 
             </div>
