@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="常见聚类模型, Reset Ran&#39;s blog">
+    <meta name="keywords" content="python爬虫（1）——前置知识, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>常见聚类模型 | Reset Ran&#39;s blog</title>
+    <title>python爬虫（1）——前置知识 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">常见聚类模型</h1>
+                    <h1 class="description center-align post-title">python爬虫（1）——前置知识</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%A8%A1/">
-                                <span class="chip bg-color">数模</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                <span class="chip bg-color">爬虫</span>
                             </a>
                         
                     </div>
@@ -405,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-27
+                    2020-07-02
                 </div>
                 
 
@@ -414,7 +418,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
@@ -431,61 +435,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>今天来写写数学建模中的聚类模型，还是分为几个版块来写</p>
-<h2 id="1-聚类模型简介"><a href="#1-聚类模型简介" class="headerlink" title="1.聚类模型简介"></a>1.聚类模型简介</h2><p>俗话说：“物以类聚，人以群分”，所谓的聚类，就是将样本划分为由类似的对象组成的多个类的过程。聚类之后，我们可以更加准确地在每个类中单独使用统计模型进行估计，分析或者预测；也可以研究不同类之间的差异。聚类算法常见的有<strong>K-means聚类算法，系统聚类算法，<a href="https://baike.baidu.com/item/DBSCAN/4864716?fr=aladdin" target="_blank" rel="noopener">DBSCAN</a>算法</strong></p>
-<h2 id="2-K-means聚类算法"><a href="#2-K-means聚类算法" class="headerlink" title="2.K-means聚类算法"></a>2.K-means聚类算法</h2><h4 id="a-算法流程："><a href="#a-算法流程：" class="headerlink" title="a.算法流程："></a>a.算法流程：</h4><ul>
-<li>指定需要划分的簇的个数，即K值（类的个数）；</li>
-<li>随机的选择K个数据对象作为初始的聚类中心；</li>
-<li>计算其余的各个数据对象到这K个聚类中心的距离，把数据对象划分到距离它最近的那个中心所在的簇中；</li>
-<li>调整新类并计算出新的聚类中心；</li>
-<li>循环第三和第四步，直到聚类中心不再发生变化，聚类结束。</li>
+                <h3 id="什么是爬虫"><a href="#什么是爬虫" class="headerlink" title="什么是爬虫"></a>什么是爬虫</h3><ul>
+<li>通俗理解：爬虫是一个模拟人类请求网站行为的程序。可以自动请求网页、并数据抓取 下来，然后使用一定的规则提取有价值的数据。</li>
+<li>专业介绍可参考：<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711?fr=aladdin" target="_blank" rel="noopener">百度百科</a><h3 id="什么是-http-和-https-协议"><a href="#什么是-http-和-https-协议" class="headerlink" title="什么是 http 和 https 协议"></a>什么是 http 和 https 协议</h3></li>
+<li>HTTP 协议：全称是 HyperText Transfer Protocol，中文意思是超文本传输协议， 是一种发布和接收 HTML 页面的方法。服务器端口号是 80 端口。</li>
+<li>HTTPS 协议：是 HTTP 协议的加密版本，在 HTTP 下加入了 SSL 层。（数据传输更加安 全）服务器端口号是 443 端口。<h3 id="在浏览器中发送一个-http-请求的过程"><a href="#在浏览器中发送一个-http-请求的过程" class="headerlink" title="在浏览器中发送一个 http 请求的过程"></a>在浏览器中发送一个 http 请求的过程</h3></li>
 </ul>
-<h4 id="b-算法评价与改进："><a href="#b-算法评价与改进：" class="headerlink" title="b.算法评价与改进："></a>b.算法评价与改进：</h4><ul>
-<li>优点：算法简单迅速，处理大量数据的时候，该算法效率较高；</li>
-<li>缺点：要求提前给出要分成的类数K；对初值、孤立点数据敏感；</li>
-<li>解决办法：使用K-means++算法可以解决K均值算法对初值和孤立数据敏感的问题；</li>
-<li>K-means++算法基本原则：选择初始聚类中心时要保证聚类中心之间的距离尽可能远；</li>
-<li>K-means++算法的实现：对原K-means算法的第一步进行优化，先随机选择一个聚类中心，然后计算各个数据点到这个聚类中心的距离，距离越远被选做聚类中心的概率越大，最后用轮盘法（依据概率大小抽选）来选取下一个聚类中心，然后重复这一操作，直至选出K个聚类中心。</li>
-</ul>
-<h4 id="c-举例实现"><a href="#c-举例实现" class="headerlink" title="c.举例实现"></a>c.举例实现</h4><p>在这我们使用<a href="https://baike.baidu.com/item/spss/2351375?fr=aladdin" target="_blank" rel="noopener">SPSS</a>软件来实现K均值聚类，SPSS默认使用K-means++算法：</p>
 <ol>
-<li>打开<a href="https://baike.baidu.com/item/spss/2351375?fr=aladdin" target="_blank" rel="noopener">SPSS</a>，导入要用于聚类的数据，我这里是直接选择的500组数据（数据是我2020美赛c题对评论文本进行情感提取得到的，分别为消极词得分、中性词得分、积极词得分、复合词得分）粘贴进去<br><img src="https://img-blog.csdnimg.cn/20200326190637565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-<li>接下来操作如下：<br><img src="https://img-blog.csdnimg.cn/20200326191149603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-<li>然后设置如下，设置完毕后点击<strong>确定</strong>，系统就开始聚类了：<br><img src="https://img-blog.csdnimg.cn/20200326192324788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-<li>聚类结果：<br><img src="https://img-blog.csdnimg.cn/20200326192942116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200326192830192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>当用户在浏览器的地址栏中输入一个 URL 并按回车键之后，浏览器会向 HTTP 服务器 发送 HTTP 请求。HTTP 请求主要分为“Get”和“Post”两种方法。 </li>
+<li>当我们在浏览器输入 URL <a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com</a> 的时候，浏览器发送一个 Request 请 求去获取 <a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com</a> 的 html 文件，服务器把 Response 文件对象发送回给 浏览器。</li>
+<li>浏览器分析 Response 中的 HTML，发现其中引用了很多其他文件，比如 Images 文件， CSS 文件，JS 文件。 浏览器会自动再次发送 Request 去获取图片，CSS 文件，或者 JS 文件。 </li>
+<li>当所有的文件都下载成功后，网页会根据 HTML 语法结构，完整的显示出来了。<h3 id="url-详解"><a href="#url-详解" class="headerlink" title="url 详解"></a>url 详解</h3>URL 是 Uniform Resource Locator 的简写，统一资源定位符。一个 URL 由以下几部分组成： scheme://host:port/path/?query-string=xxx&amp;query-string=xxx#anchor </li>
 </ol>
-<h4 id="d-注意事项："><a href="#d-注意事项：" class="headerlink" title="d.注意事项："></a>d.注意事项：</h4><p>如果数据的量纲不一致，那么计算距离就没有意义了，我们得先将数据进行标准化，操作如下：<br><img src="https://img-blog.csdnimg.cn/20200326200856623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200326200915398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-系统（层次）聚类算法："><a href="#3-系统（层次）聚类算法：" class="headerlink" title="3.系统（层次）聚类算法："></a>3.系统（层次）聚类算法：</h2><h4 id="a-算法流程"><a href="#a-算法流程" class="headerlink" title="a.算法流程"></a>a.算法流程</h4><ul>
-<li>将每个对象看作一类，计算两两之间的最小距离；</li>
-<li>将距离最小的两个类合并成一个新类；</li>
-<li>重新计算新类与所有类之间的距离；</li>
-<li>重复二三两步，直到所有类最后合并成一类，聚类结束。</li>
-</ul>
-<h4 id="b-SPSS实现："><a href="#b-SPSS实现：" class="headerlink" title="b.SPSS实现："></a>b.<a href="https://baike.baidu.com/item/spss/2351375?fr=aladdin" target="_blank" rel="noopener">SPSS</a>实现：</h4><p><img src="https://img-blog.csdnimg.cn/20200326203721645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结果会得到一张谱系图，由于图片太长我就不展示了，根据谱系图我们可以自己决定将数据分为几类。</p>
-<h2 id="4-DBSCAN算法："><a href="#4-DBSCAN算法：" class="headerlink" title="4.DBSCAN算法："></a>4.<a href="https://baike.baidu.com/item/DBSCAN/4864716?fr=aladdin" target="_blank" rel="noopener">DBSCAN</a>算法：</h2><p>该算法是一种基于密度的聚类算法，聚类前不需要预先指定聚类的个数，生成簇的个数不定（由数据决定）。该算法利用基于密度的聚类的概念，即要求聚类空间中的一定区域内所包含对象（点或其他空间对象）的数目不小于某一给定阈值。该方法能在具有噪声的空间数据库中发现任意形状的簇，可将密度足够大的相邻区域连接，能有效处理异常数据。（说白了就是：挨我近的就是我的兄弟，我兄弟的兄弟，就是我的兄弟）</p>
-<h4 id="a-基本概念："><a href="#a-基本概念：" class="headerlink" title="a.基本概念："></a>a.基本概念：</h4><p>DBSCAN算法将数据分为以下三类：</p>
 <ul>
-<li>核心点：在半径Eps内含有不少于MinPts数目的点；</li>
-<li>边界点：在半径Eps内点的数量小于MinPts，但是落在核心点的邻域内；</li>
-<li>噪音点：既不是核心点也不是边界点的点。</li>
+<li><strong>scheme</strong>：代表的是访问的协议，一般为 http 或者 https 以及 ftp 等。 </li>
+<li><strong>host</strong>：主机名，域名，比如 <a href="http://www.baidu.com./" target="_blank" rel="noopener">www.baidu.com。</a> </li>
+<li><strong>port</strong>：端口号。当你访问一个网站的时候，浏览器默认使用 80 端口。 </li>
+<li><strong>path</strong>：查找路径。比如：<a href="http://www.jianshu.com/trending/now%EF%BC%8C%E5%90%8E%E9%9D%A2%E7%9A%84" target="_blank" rel="noopener">www.jianshu.com/trending/now，后面的</a> trending/now 就是 path。 </li>
+<li><strong>query-string</strong>：查询字符串，比如：<a href="http://www.baidu.com/s?wd=python%EF%BC%8C%E5%90%8E%E9%9D%A2%E7%9A%84" target="_blank" rel="noopener">www.baidu.com/s?wd=python，后面的</a> wd=python 就是查询字符串。 </li>
+<li><strong>anchor</strong>：锚点，后台一般不用管，前端用来做页面定位的。(就相当于一个页面中有目 录，目录的跳转就是锚点的作用) 在浏览器中请求一个 url，浏览器会对这个 url 进行一个编码。除英文字母，数字和部分符号 外，其他的全部使用百分号+十六进制码值进行编码。<h3 id="常见请求方法"><a href="#常见请求方法" class="headerlink" title="常见请求方法"></a>常见请求方法</h3>在 Http 协议中，定义了八种请求方法。这里介绍两种常用的请求方法，分别是 get 请求和 post 请求。 </li>
+<li><strong>get 请求</strong>：一般情况下，只从服务器获取数据下来，并不会对服务器资源产生任何影响 的时候会使用 get 请求。 </li>
+<li><strong>post 请求</strong>：向服务器发送数据（登录）、上传文件等，会对服务器资源产生影响的时候 会使用 post 请求。 以上是在网站开发中常用的两种方法。并且一般情况下都会遵循使用的原则。但是有的 网站和服务器为了做反爬虫机制，也经常会不按常理出牌，有可能一个应该使用 get 方 法的请求就一定要改成 post 请求，这个要视情况而定。</li>
+<li>更多的请求，可以参考：<a href="https://www.runoob.com/http/http-methods.html" target="_blank" rel="noopener">菜鸟教程</a><h3 id="常见响应状态码"><a href="#常见响应状态码" class="headerlink" title="常见响应状态码"></a>常见响应状态码</h3></li>
+<li>200：请求正常，服务器正常的返回数据。 </li>
+<li>301：永久重定向。比如在访问 <a href="http://www.jingdong.com/" target="_blank" rel="noopener">www.jingdong.com</a> 的时候会重定向到 <a href="http://www.jd.com./" target="_blank" rel="noopener">www.jd.com。</a></li>
+<li>302：临时重定向。比如在访问一个需要登录的页面的时候，而此时没有登录，那么就 会重定向到登录页面。 </li>
+<li>400：请求的 url 在服务器上找不到。换句话说就是请求 url 错误。 </li>
+<li>403：服务器拒绝访问，权限不够。 </li>
+<li>500：服务器内部错误。可能是服务器出现 bug 了。<h3 id="请求头常见参数"><a href="#请求头常见参数" class="headerlink" title="请求头常见参数"></a>请求头常见参数</h3>在 http 协议中，向服务器发送一个请求，数据分为三部分，第一个是把数据放在 url 中，第 二个是把数据放在 body 中（在 post 请求中），第三个就是把数据放在 head 中。 这里介绍在网络爬虫中经常会用到的一些请求头参数： </li>
+<li><strong>User-Agent</strong>：浏览器名称。这个在网络爬虫中经常会被使用到。请求一个网页的时候， 服务器通过这个参数就可以知道这个请求是由哪种浏览器发送的。如果我们是通过爬虫 发送请求，那么我们的 User-Agent 就是 Python，这对于那些有反爬虫机制的网站来说， 可以轻易的判断你这个请求是爬虫。因此我们要经常设置这个值为一些浏览器的值，来 伪装我们的爬虫。 </li>
+<li><strong>Referer</strong>：表明当前这个请求是从哪个 url 过来的。这个一般也可以用来做反爬虫技术。 如果不是从指定页面过来的，那么就不做相关的响应。 </li>
+<li><strong>Cookie</strong>：http 协议是无状态的。也就是同一个人发送了两次请求，服务器没有能力知道 这两个请求是否来自同一个人。因此这时候就用 cookie 来做标识。一般如果想要做登 录后才能访问的网站，那么就需要发送 cookie 信息了。</li>
 </ul>
-<h4 id="b-优缺点："><a href="#b-优缺点：" class="headerlink" title="b.优缺点："></a>b.优缺点：</h4><p> <strong>1. 优点：</strong></p>
-<ul>
-<li>基于密度定义，能够处理任意形状和大小的簇；</li>
-<li>可在聚类的同时发现异常点；</li>
-<li>不需要指定要划分的簇的个数</li>
-</ul>
-<p> <strong>2.</strong> </p>
-<ul>
-<li>对于输入参数$\xi$和MinPts敏感，确定参数困难；</li>
-<li>在该算法中，变量$\xi$和MinPts是全局唯一的，当聚类的密度不均匀时，聚类距离相差很大时，聚类质量差；</li>
-<li>当数据量大时，计算密度单元的计算复杂度大</li>
-</ul>
-<h2 id="4-可视化："><a href="#4-可视化：" class="headerlink" title="4.可视化："></a>4.可视化：</h2><ol>
-<li>K-means聚类算法可视化，<a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/" target="_blank" rel="noopener">戳我</a></li>
-<li>DBSCAN算法可视化，<a href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/" target="_blank" rel="noopener">戳我</a></li>
-</ol>
-<h2 id="5-总结："><a href="#5-总结：" class="headerlink" title="5.总结："></a>5.总结：</h2><p>聚类算法在数学建模中应用比较广泛，这次2020美赛我们队伍还用到了系统聚类算法来对评论进行分类评级，这几种算法的优缺点都很明显，尽量根据实际情况来合理使用，效果会更好。</p>
 
             </div>
             <hr/>
@@ -511,7 +492,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.gitee.io/2020/03/27/julei/">http://ranchongzhi.gitee.io/2020/03/27/julei/</a>
+                    <a href="http://ranchongzhi.gitee.io/python-spyder-1/">http://ranchongzhi.gitee.io/python-spyder-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,8 +530,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%A8%A1/">
-                                    <span class="chip bg-color">数模</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%88%AC%E8%99%AB/">
+                                    <span class="chip bg-color">爬虫</span>
                                 </a>
                             
                         </div>
@@ -985,25 +970,74 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/14/numpy-1/">
+                <a href="/python-spyder-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="python学习笔记——numpy（1）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="python爬虫（2）——urllib库">
                         
-                        <span class="card-title">python学习笔记——numpy（1）</span>
+                        <span class="card-title">python爬虫（2）——urllib库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习python中著名的numpy库，第一部分
+                            python中著名的网络请求库——urllib库，本篇文章为学习urllib过程中的笔记与总结
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Reset Ran
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/numpy-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="python学习笔记——numpy（2）">
+                        
+                        <span class="card-title">python学习笔记——numpy（2）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            继续来学习numpy~~~
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1021,52 +1055,6 @@
                     
                     <a href="/tags/numpy/">
                         <span class="chip bg-color">numpy</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/27/julei/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="常见聚类模型">
-                        
-                        <span class="card-title">常见聚类模型</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            简单介绍一下常用的聚类算法
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Reset Ran
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%A8%A1/">
-                        <span class="chip bg-color">数模</span>
                     </a>
                     
                 </div>
@@ -1219,7 +1207,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             

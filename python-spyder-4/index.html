@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python爬虫（1）——前置知识, Reset Ran&#39;s blog">
+    <meta name="keywords" content="python爬虫（4）——XPath语法和lxml, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python爬虫（1）——前置知识 | Reset Ran&#39;s blog</title>
+    <title>python爬虫（4）——XPath语法和lxml | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python爬虫（1）——前置知识</h1>
+                    <h1 class="description center-align post-title">python爬虫（4）——XPath语法和lxml</h1>
                 </div>
             </div>
         </div>
@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-02
+                    2020-07-07
                 </div>
                 
 
@@ -418,14 +418,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    7 分
                 </div>
                 
 
@@ -435,38 +435,277 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="什么是爬虫"><a href="#什么是爬虫" class="headerlink" title="什么是爬虫"></a>什么是爬虫</h3><ul>
-<li>通俗理解：爬虫是一个模拟人类请求网站行为的程序。可以自动请求网页、并数据抓取 下来，然后使用一定的规则提取有价值的数据。</li>
-<li>专业介绍可参考：<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711?fr=aladdin" target="_blank" rel="noopener">百度百科</a><h3 id="什么是-http-和-https-协议"><a href="#什么是-http-和-https-协议" class="headerlink" title="什么是 http 和 https 协议"></a>什么是 http 和 https 协议</h3></li>
-<li>HTTP 协议：全称是 HyperText Transfer Protocol，中文意思是超文本传输协议， 是一种发布和接收 HTML 页面的方法。服务器端口号是 80 端口。</li>
-<li>HTTPS 协议：是 HTTP 协议的加密版本，在 HTTP 下加入了 SSL 层。（数据传输更加安 全）服务器端口号是 443 端口。<h3 id="在浏览器中发送一个-http-请求的过程"><a href="#在浏览器中发送一个-http-请求的过程" class="headerlink" title="在浏览器中发送一个 http 请求的过程"></a>在浏览器中发送一个 http 请求的过程</h3></li>
-</ul>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面的python爬虫（1-3）讲了怎么向服务器发送请求，获得网页的源代码，不过一个网页的源代码有很多部分我们都是用不上的，那用什么方法能快速获取到我们想要的数据呢？这个时候，网页解析就派上用场了，常用的解析方法有：XPath语句、beautifulsoup4库、re正则表达式，这里先来介绍第一种。</p>
+<h1 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h1><h2 id="什么是XPath"><a href="#什么是XPath" class="headerlink" title="什么是XPath"></a>什么是XPath</h2><p>xpath（XML Path Language）是一门在 XML 和 HTML 文档中查找信息的语言，可用来在 XML和 HTML 文档中对元素和属性进行遍历。简单点说，这玩意儿就是用来帮我们提取网页源代码中我们所需要的数据的，比如标签属性值、文本值、链接等等都能通过XPath语法提取。</p>
+<h2 id="XPath语法的开发工具（Chrome插件）"><a href="#XPath语法的开发工具（Chrome插件）" class="headerlink" title="XPath语法的开发工具（Chrome插件）"></a>XPath语法的开发工具（Chrome插件）</h2><p>我们想看XPath语法实时的效果，我觉得直接在浏览器里边写是最直观的方法了。谷歌浏览器的插件就帮我们解决了这个问题，插件名字叫“XPath Helper”，直接安装就行，安装步骤可以百度，教程一大把。<br>来看看使用，这里以豆瓣网为例子：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594126565193.jpg"><br>我先写一句做个例子（取电影汉密尔顿的豆瓣评分）：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594127192478.jpg"><br>匹配好之后，我们就可以把语句复制下来粘贴到代码中。</p>
+<h2 id="XPath语法详解"><a href="#XPath语法详解" class="headerlink" title="XPath语法详解"></a>XPath语法详解</h2><p>关于XPath的语法介绍有很多，这里简单罗列：</p>
+<h3 id="选取节点"><a href="#选取节点" class="headerlink" title="选取节点"></a>选取节点</h3><table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodename</td>
+<td align="center">选取此节点的所有子节点</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">从根节点选取</td>
+</tr>
+<tr>
+<td align="center">//</td>
+<td align="center">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">选取当前节点</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">选取当前节点的父节点</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">选取属性</td>
+</tr>
+</tbody></table>
+<h3 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h3><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点，被嵌在方括号中。在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：</p>
+<table>
+<thead>
+<tr>
+<th align="center">路径表达式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/bookstore/book[1]</td>
+<td align="center">选取 bookstore 下的第一个子元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[last()]</td>
+<td align="center">选取 bookstore 下的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td align="center">bookstore/book[position()&lt;3]</td>
+<td align="center">选取 bookstore 下前面两个子元素。</td>
+</tr>
+<tr>
+<td align="center">//book[@price]</td>
+<td align="center">选取拥有 price 属性的 book 元素</td>
+</tr>
+<tr>
+<td align="center">//book[@price=10]</td>
+<td align="center">选取所有属性 price 等于 10 的 book 元素</td>
+</tr>
+<tr>
+<td align="center">//div[contains(@id,’1234’)]</td>
+<td align="center">选取所以属性 id 中含有 1234 的 div 元素</td>
+</tr>
+</tbody></table>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><table>
+<thead>
+<tr>
+<th align="center">通配符</th>
+<th align="center">描述</th>
+<th align="center">示例</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">匹配任意节点</td>
+<td align="center">/bookstore/*</td>
+<td align="center">选取 bookstore 下的所有子元素。</td>
+</tr>
+<tr>
+<td align="center">@*</td>
+<td align="center">匹配节点中的任何属性</td>
+<td align="center">//book[@*]</td>
+<td align="center">选取所有带有属性的 book 元素。</td>
+</tr>
+</tbody></table>
+<h3 id="选取多个路径"><a href="#选取多个路径" class="headerlink" title="选取多个路径"></a>选取多个路径</h3><p>通过在路径表达式中使用“|”运算符，可以选取若干个路径。示例如下：<br>**//bookstore/book | //book/title**（选取所有 book 元素以及 book 元素下所有的 title 元素）</p>
+<h3 id="XPath运算符"><a href="#XPath运算符" class="headerlink" title="XPath运算符"></a>XPath运算符</h3><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">|</td>
+<td align="center">计算两个节点集</td>
+<td align="center">//book | //cd</td>
+<td align="center">返回所有拥有 book 和 cd 元素的节点集</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">加法</td>
+<td align="center">6 + 4</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">减法</td>
+<td align="center">6 - 4</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">乘法</td>
+<td align="center">6 * 4</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="center">div</td>
+<td align="center">除法</td>
+<td align="center">8 div 4</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">等于</td>
+<td align="center">price=9.80</td>
+<td align="center">如果 price 是 9.80，则返回 true。如果 price 是 9.90，则返回false。</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">不等于</td>
+<td align="center">price!=9.80</td>
+<td align="center">如果 price 是 9.90，则返回 true。如果 price 是 9.80，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+<td align="center">price&lt;9.80</td>
+<td align="center">如果price是 9.00，则返回 true。如果 price 是 9.90，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于或等于</td>
+<td align="center">price&lt;=9.80</td>
+<td align="center">如果 price 是 9.00，则返回 true。如果 price 是 9.90，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+<td align="center">price&gt;9.80</td>
+<td align="center">如果 price 是 9.90，则返回 true。如果 price 是 9.80，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于或等于</td>
+<td align="center">price&gt;=9.80</td>
+<td align="center">如果 price 是 9.90，则返回 true。如果 price 是 9.70，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">or</td>
+<td align="center">或</td>
+<td align="center">price=9.80 orprice=9.70</td>
+<td align="center">如果 price 是 9.80，则返回 true。如果 price 是 9.50，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">and</td>
+<td align="center">与</td>
+<td align="center">price&gt;9.00 andprice&lt;9.90</td>
+<td align="center">如果 price 是 9.80，则返回 true。如果 price 是 8.50，则返回 false。</td>
+</tr>
+<tr>
+<td align="center">mod</td>
+<td align="center">计算除法的余数</td>
+<td align="center">5 mod 2</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<h1 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h1><h2 id="什么是lxml"><a href="#什么是lxml" class="headerlink" title="什么是lxml"></a>什么是lxml</h2><p>lxml 是 一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据。lxml 和正则一样，也是用 C 实现的，是一款高性能的 Python HTML/XML 解析器，我们可以利用之前学习的 XPath 语法，来快速的定位特定元素以及节点信息。这里附上<a href="http://lxml.de/index.html" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="先来说一个坑"><a href="#先来说一个坑" class="headerlink" title="先来说一个坑"></a>先来说一个坑</h3><p>我们一般使用lxml库里的etree方法，我第一次使用lxml库的时候被坑的蛮惨，由于我装的是版本较新的lxml库（4.4.1），老版本的导入方法是<code>from lxml import etree</code>，嗯，果不其然报错了。然后就是去找答案，最后发现在比较新的版本里，etree被封装到lxml下的html库里边了，所以可以这样导入：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
+<h2 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h2><p>使用requests库和lxml库进行爬虫一般分为以下几个步骤：</p>
 <ol>
-<li>当用户在浏览器的地址栏中输入一个 URL 并按回车键之后，浏览器会向 HTTP 服务器 发送 HTTP 请求。HTTP 请求主要分为“Get”和“Post”两种方法。 </li>
-<li>当我们在浏览器输入 URL <a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com</a> 的时候，浏览器发送一个 Request 请 求去获取 <a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com</a> 的 html 文件，服务器把 Response 文件对象发送回给 浏览器。</li>
-<li>浏览器分析 Response 中的 HTML，发现其中引用了很多其他文件，比如 Images 文件， CSS 文件，JS 文件。 浏览器会自动再次发送 Request 去获取图片，CSS 文件，或者 JS 文件。 </li>
-<li>当所有的文件都下载成功后，网页会根据 HTML 语法结构，完整的显示出来了。<h3 id="url-详解"><a href="#url-详解" class="headerlink" title="url 详解"></a>url 详解</h3>URL 是 Uniform Resource Locator 的简写，统一资源定位符。一个 URL 由以下几部分组成： scheme://host:port/path/?query-string=xxx&amp;query-string=xxx#anchor </li>
+<li><p>导库，设置请求头，利用requests库向网页发送请求，并得到一个response对象</p>
+</li>
+<li><p>利用etree对response对象进行解析，得到一个lxml.etree._Element对象，该对象可以使用xpath语法进行提取信息</p>
+</li>
+<li><p>利用xpath语法对lxml.etree._Element对象进行信息提取</p>
+</li>
+<li><p>将提取的信息进行处理</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>这里利用requests库和lxml库来爬取豆瓣网经典的电影排名前10的电影信息：</p>
+</li>
+<li><p>导入相关模块：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
+</li>
+<li><p>设置一些参数</p>
+<pre class=" language-python"><code class="language-python">headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+ <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
+               <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
+<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#请求头</span>
+url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span><span class="token comment" spellcheck="true">#目标链接</span>
+movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#用于保存电影信息</span></code></pre>
+</li>
+<li><p>requests库请求</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 向指定页数发起请求，并返回resopnse对象</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>etree对response对象进行解析</p>
+<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+tables <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//table"</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>用xpath提取信息并保存</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> table <span class="token keyword">in</span> tables<span class="token punctuation">:</span>
+ detail_herf <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//a[@class="nbg"]/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ name <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//a[@class='nbg']/@title"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+ movie <span class="token operator">=</span><span class="token punctuation">{</span>
+     <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#详情链接</span>
+     <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#电影名</span>
+     <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#海报链接</span>
+     <span class="token string">"nums"</span><span class="token punctuation">:</span> nums<span class="token comment" spellcheck="true">#评分</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
+ movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
+<p>运行，结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594696787504.jpg"><br>最后，再贴一下完整代码：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 爬取豆瓣电影经典影片排名</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
+etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+ <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
+               <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
+<span class="token punctuation">}</span>
+url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span>
+movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+n <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment" spellcheck="true"># 向指定页数发起请求，并返回resopnse对象</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+tables <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//table"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> table <span class="token keyword">in</span> tables<span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#这个地方可以借助前面介绍的谷歌浏览器插件来检查匹配是否正确</span>
+ detail_herf <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//a[@class="nbg"]/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ name <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//a[@class='nbg']/@title"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+ nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+ movie <span class="token operator">=</span> <span class="token punctuation">{</span>
+     <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span>
+     <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
+     <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span>
+     <span class="token string">"nums"</span><span class="token punctuation">:</span> nums
+ <span class="token punctuation">}</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
+ movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
+<h1 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h1><p>嗯，总的看来，写个小爬虫其实是很简单的，xpath语法也很好理解，但仅掌握这些是不够的，无法写出很diao的爬虫，还有蛮多东西要学习！</p>
+</li>
 </ol>
-<ul>
-<li><strong>scheme</strong>：代表的是访问的协议，一般为 http 或者 https 以及 ftp 等。 </li>
-<li><strong>host</strong>：主机名，域名，比如 <a href="http://www.baidu.com./" target="_blank" rel="noopener">www.baidu.com。</a> </li>
-<li><strong>port</strong>：端口号。当你访问一个网站的时候，浏览器默认使用 80 端口。 </li>
-<li><strong>path</strong>：查找路径。比如：<a href="http://www.jianshu.com/trending/now%EF%BC%8C%E5%90%8E%E9%9D%A2%E7%9A%84" target="_blank" rel="noopener">www.jianshu.com/trending/now，后面的</a> trending/now 就是 path。 </li>
-<li><strong>query-string</strong>：查询字符串，比如：<a href="http://www.baidu.com/s?wd=python%EF%BC%8C%E5%90%8E%E9%9D%A2%E7%9A%84" target="_blank" rel="noopener">www.baidu.com/s?wd=python，后面的</a> wd=python 就是查询字符串。 </li>
-<li><strong>anchor</strong>：锚点，后台一般不用管，前端用来做页面定位的。(就相当于一个页面中有目 录，目录的跳转就是锚点的作用) 在浏览器中请求一个 url，浏览器会对这个 url 进行一个编码。除英文字母，数字和部分符号 外，其他的全部使用百分号+十六进制码值进行编码。<h3 id="常见请求方法"><a href="#常见请求方法" class="headerlink" title="常见请求方法"></a>常见请求方法</h3>在 Http 协议中，定义了八种请求方法。这里介绍两种常用的请求方法，分别是 get 请求和 post 请求。 </li>
-<li><strong>get 请求</strong>：一般情况下，只从服务器获取数据下来，并不会对服务器资源产生任何影响 的时候会使用 get 请求。 </li>
-<li><strong>post 请求</strong>：向服务器发送数据（登录）、上传文件等，会对服务器资源产生影响的时候 会使用 post 请求。 以上是在网站开发中常用的两种方法。并且一般情况下都会遵循使用的原则。但是有的 网站和服务器为了做反爬虫机制，也经常会不按常理出牌，有可能一个应该使用 get 方 法的请求就一定要改成 post 请求，这个要视情况而定。</li>
-<li>更多的请求，可以参考：<a href="https://www.runoob.com/http/http-methods.html" target="_blank" rel="noopener">菜鸟教程</a><h3 id="常见响应状态码"><a href="#常见响应状态码" class="headerlink" title="常见响应状态码"></a>常见响应状态码</h3></li>
-<li>200：请求正常，服务器正常的返回数据。 </li>
-<li>301：永久重定向。比如在访问 <a href="http://www.jingdong.com/" target="_blank" rel="noopener">www.jingdong.com</a> 的时候会重定向到 <a href="http://www.jd.com./" target="_blank" rel="noopener">www.jd.com。</a></li>
-<li>302：临时重定向。比如在访问一个需要登录的页面的时候，而此时没有登录，那么就 会重定向到登录页面。 </li>
-<li>400：请求的 url 在服务器上找不到。换句话说就是请求 url 错误。 </li>
-<li>403：服务器拒绝访问，权限不够。 </li>
-<li>500：服务器内部错误。可能是服务器出现 bug 了。<h3 id="请求头常见参数"><a href="#请求头常见参数" class="headerlink" title="请求头常见参数"></a>请求头常见参数</h3>在 http 协议中，向服务器发送一个请求，数据分为三部分，第一个是把数据放在 url 中，第 二个是把数据放在 body 中（在 post 请求中），第三个就是把数据放在 head 中。 这里介绍在网络爬虫中经常会用到的一些请求头参数： </li>
-<li><strong>User-Agent</strong>：浏览器名称。这个在网络爬虫中经常会被使用到。请求一个网页的时候， 服务器通过这个参数就可以知道这个请求是由哪种浏览器发送的。如果我们是通过爬虫 发送请求，那么我们的 User-Agent 就是 Python，这对于那些有反爬虫机制的网站来说， 可以轻易的判断你这个请求是爬虫。因此我们要经常设置这个值为一些浏览器的值，来 伪装我们的爬虫。 </li>
-<li><strong>Referer</strong>：表明当前这个请求是从哪个 url 过来的。这个一般也可以用来做反爬虫技术。 如果不是从指定页面过来的，那么就不做相关的响应。 </li>
-<li><strong>Cookie</strong>：http 协议是无状态的。也就是同一个人发送了两次请求，服务器没有能力知道 这两个请求是否来自同一个人。因此这时候就用 cookie 来做标识。一般如果想要做登 录后才能访问的网站，那么就需要发送 cookie 信息了。</li>
-</ul>
 
             </div>
             <hr/>
@@ -492,7 +731,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.gitee.io/2020/07/02/python-spyder-1/">http://ranchongzhi.gitee.io/2020/07/02/python-spyder-1/</a>
+                    <a href="http://ranchongzhi.gitee.io/python-spyder-4/">http://ranchongzhi.gitee.io/python-spyder-4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -970,74 +1209,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/02/python-spyder-2/">
+                <a href="/fisher/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="python爬虫（2）——urllib库">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Fisher线性判别+KNN分类">
                         
-                        <span class="card-title">python爬虫（2）——urllib库</span>
+                        <span class="card-title">Fisher线性判别+KNN分类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            python中著名的网络请求库——urllib库，本篇文章为学习urllib过程中的笔记与总结
+                            大三模式识别课程大作业~
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Reset Ran
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/16/numpy-2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="python学习笔记——numpy（2）">
-                        
-                        <span class="card-title">python学习笔记——numpy（2）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            继续来学习numpy~~~
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-16
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1055,6 +1245,59 @@
                     
                     <a href="/tags/numpy/">
                         <span class="chip bg-color">numpy</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
+                        <span class="chip bg-color">模式识别</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/python-spyder-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="python爬虫（3）——cookie与requests库">
+                        
+                        <span class="card-title">python爬虫（3）——cookie与requests库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文主要是学习cookie和python中另外一个网络请求库——requests库的记录
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Reset Ran
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
                     </a>
                     
                 </div>
@@ -1207,7 +1450,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             

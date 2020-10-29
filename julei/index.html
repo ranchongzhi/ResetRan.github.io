@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="利用hexo+Gitee搭建个人网站, Reset Ran&#39;s blog">
+    <meta name="keywords" content="常见聚类模型, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>利用hexo+Gitee搭建个人网站 | Reset Ran&#39;s blog</title>
+    <title>常见聚类模型 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">利用hexo+Gitee搭建个人网站</h1>
+                    <h1 class="description center-align post-title">常见聚类模型</h1>
                 </div>
             </div>
         </div>
@@ -389,12 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">博客搭建</span>
+                            <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                                <span class="chip bg-color">数模</span>
                             </a>
                         
                     </div>
@@ -409,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-21
+                    2020-03-27
                 </div>
                 
 
@@ -418,14 +414,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    4 分
                 </div>
                 
 
@@ -435,136 +431,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="为什么要搭建个人网站"><a href="#为什么要搭建个人网站" class="headerlink" title="为什么要搭建个人网站"></a>为什么要搭建个人网站</h2><p>个人网站用处有很多，可以写博客来记录学习过程中的各种事，不管是新知识还是踩坑记录，写完就丢在网站上，方便日后复习，也可以共享给他人，让其他人避免踩雷。</p>
-<p>当然也不仅限于技术性的文章，生活中有什么感想，都可以记录在博客中，记录一次出行、聊一聊美好的爱情，统统不在话下。</p>
-<p>个人感觉，搭建个人网站还有一个不错的好处，就是可以锻炼我们解决问题的能力，博客搭建肯定不是一帆风顺，会遇到各种各样的小问题，有很多细节需要自己去打磨，在打磨的过程中，咱们解决问题的能力总会有提升。如果你觉得很麻烦，也可以选择现有的技术交流平台写博客，比如csdn、博客园等。但是我个人感觉，使用这些平台相比起搭建个人网站就少了很多个性，功能比较局限，不像个人网站，可拓展性很高，比如可以加入外链播放器、天气挂件等等。</p>
-<p>所以，我还是推荐大家搭建一个属于自己的个人网站。</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1603013081576.jpg"></p>
-<h2 id="搭建方案选择"><a href="#搭建方案选择" class="headerlink" title="搭建方案选择"></a>搭建方案选择</h2><ul>
-<li>Hexo框架+GitHub  page、Gitee  page、coding  page（推荐选择）</li>
-<li>Gridea软件+GitHub  page、Gitee  page、coding  page</li>
-<li>其他框架：<a href="http://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a>，<a href="https://cn.wordpress.org/" target="_blank" rel="noopener">WordPress</a>。。。。。。</li>
+                <p>今天来写写数学建模中的聚类模型，还是分为几个版块来写</p>
+<h2 id="1-聚类模型简介"><a href="#1-聚类模型简介" class="headerlink" title="1.聚类模型简介"></a>1.聚类模型简介</h2><p>俗话说：“物以类聚，人以群分”，所谓的聚类，就是将样本划分为由类似的对象组成的多个类的过程。聚类之后，我们可以更加准确地在每个类中单独使用统计模型进行估计，分析或者预测；也可以研究不同类之间的差异。聚类算法常见的有<strong>K-means聚类算法，系统聚类算法，<a href="https://baike.baidu.com/item/DBSCAN/4864716?fr=aladdin" target="_blank" rel="noopener">DBSCAN</a>算法</strong></p>
+<h2 id="2-K-means聚类算法"><a href="#2-K-means聚类算法" class="headerlink" title="2.K-means聚类算法"></a>2.K-means聚类算法</h2><h4 id="a-算法流程："><a href="#a-算法流程：" class="headerlink" title="a.算法流程："></a>a.算法流程：</h4><ul>
+<li>指定需要划分的簇的个数，即K值（类的个数）；</li>
+<li>随机的选择K个数据对象作为初始的聚类中心；</li>
+<li>计算其余的各个数据对象到这K个聚类中心的距离，把数据对象划分到距离它最近的那个中心所在的簇中；</li>
+<li>调整新类并计算出新的聚类中心；</li>
+<li>循环第三和第四步，直到聚类中心不再发生变化，聚类结束。</li>
 </ul>
-<p>本文主要介绍第一种方案，第二种方案也可以选取，后边会做简单介绍。</p>
-<h2 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h2><ul>
-<li>如果使用hexo框架的话，需要提前安装Git和node.js，安装过程很简单，百度就有很多教程，这里顺便贴一下下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="noopener">Git下载地址</a>、<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">node.js下载地址</a>，安装好之后在cmd中输入<code>npm -v</code>和<code>node -v</code>，如果顺利打印出版本号，则说明node.js安装成功。回到桌面，单击鼠标右键，如果出现下图红框中的选项，则说明Git也安装成功了</li>
+<h4 id="b-算法评价与改进："><a href="#b-算法评价与改进：" class="headerlink" title="b.算法评价与改进："></a>b.算法评价与改进：</h4><ul>
+<li>优点：算法简单迅速，处理大量数据的时候，该算法效率较高；</li>
+<li>缺点：要求提前给出要分成的类数K；对初值、孤立点数据敏感；</li>
+<li>解决办法：使用K-means++算法可以解决K均值算法对初值和孤立数据敏感的问题；</li>
+<li>K-means++算法基本原则：选择初始聚类中心时要保证聚类中心之间的距离尽可能远；</li>
+<li>K-means++算法的实现：对原K-means算法的第一步进行优化，先随机选择一个聚类中心，然后计算各个数据点到这个聚类中心的距离，距离越远被选做聚类中心的概率越大，最后用轮盘法（依据概率大小抽选）来选取下一个聚类中心，然后重复这一操作，直至选出K个聚类中心。</li>
 </ul>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201017165530712.png"></p>
+<h4 id="c-举例实现"><a href="#c-举例实现" class="headerlink" title="c.举例实现"></a>c.举例实现</h4><p>在这我们使用<a href="https://baike.baidu.com/item/spss/2351375?fr=aladdin" target="_blank" rel="noopener">SPSS</a>软件来实现K均值聚类，SPSS默认使用K-means++算法：</p>
+<ol>
+<li>打开<a href="https://baike.baidu.com/item/spss/2351375?fr=aladdin" target="_blank" rel="noopener">SPSS</a>，导入要用于聚类的数据，我这里是直接选择的500组数据（数据是我2020美赛c题对评论文本进行情感提取得到的，分别为消极词得分、中性词得分、积极词得分、复合词得分）粘贴进去<br><img src="https://img-blog.csdnimg.cn/20200326190637565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>接下来操作如下：<br><img src="https://img-blog.csdnimg.cn/20200326191149603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>然后设置如下，设置完毕后点击<strong>确定</strong>，系统就开始聚类了：<br><img src="https://img-blog.csdnimg.cn/20200326192324788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>聚类结果：<br><img src="https://img-blog.csdnimg.cn/20200326192942116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200326192830192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h4 id="d-注意事项："><a href="#d-注意事项：" class="headerlink" title="d.注意事项："></a>d.注意事项：</h4><p>如果数据的量纲不一致，那么计算距离就没有意义了，我们得先将数据进行标准化，操作如下：<br><img src="https://img-blog.csdnimg.cn/20200326200856623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200326200915398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-系统（层次）聚类算法："><a href="#3-系统（层次）聚类算法：" class="headerlink" title="3.系统（层次）聚类算法："></a>3.系统（层次）聚类算法：</h2><h4 id="a-算法流程"><a href="#a-算法流程" class="headerlink" title="a.算法流程"></a>a.算法流程</h4><ul>
+<li>将每个对象看作一类，计算两两之间的最小距离；</li>
+<li>将距离最小的两个类合并成一个新类；</li>
+<li>重新计算新类与所有类之间的距离；</li>
+<li>重复二三两步，直到所有类最后合并成一类，聚类结束。</li>
+</ul>
+<h4 id="b-SPSS实现："><a href="#b-SPSS实现：" class="headerlink" title="b.SPSS实现："></a>b.<a href="https://baike.baidu.com/item/spss/2351375?fr=aladdin" target="_blank" rel="noopener">SPSS</a>实现：</h4><p><img src="https://img-blog.csdnimg.cn/20200326203721645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1ODU3ODAw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结果会得到一张谱系图，由于图片太长我就不展示了，根据谱系图我们可以自己决定将数据分为几类。</p>
+<h2 id="4-DBSCAN算法："><a href="#4-DBSCAN算法：" class="headerlink" title="4.DBSCAN算法："></a>4.<a href="https://baike.baidu.com/item/DBSCAN/4864716?fr=aladdin" target="_blank" rel="noopener">DBSCAN</a>算法：</h2><p>该算法是一种基于密度的聚类算法，聚类前不需要预先指定聚类的个数，生成簇的个数不定（由数据决定）。该算法利用基于密度的聚类的概念，即要求聚类空间中的一定区域内所包含对象（点或其他空间对象）的数目不小于某一给定阈值。该方法能在具有噪声的空间数据库中发现任意形状的簇，可将密度足够大的相邻区域连接，能有效处理异常数据。（说白了就是：挨我近的就是我的兄弟，我兄弟的兄弟，就是我的兄弟）</p>
+<h4 id="a-基本概念："><a href="#a-基本概念：" class="headerlink" title="a.基本概念："></a>a.基本概念：</h4><p>DBSCAN算法将数据分为以下三类：</p>
 <ul>
-<li><p>安装好之后还要安装hexo框架，具体步骤如下：</p>
-<ol>
-<li><p>找一个你想存放自己博客的位置，随便哪儿都行，新建一个文件夹，名字随便起，”myblogs”、”Blog_by_hexo”之类的，啥啥啥都行，自由发挥，这里以myblogs为例。</p>
-</li>
-<li><p>然后进入你刚才新建的文件夹，单机鼠标右键，选择<code>Git Bash Here</code>选项，然后在弹出的窗口中依次输入下面的命令：</p>
-<pre class=" language-bash"><code class="language-bash">//第一条   安装hexo的基础框架，如果很慢的话，可以考虑挂下梯子，或者换个源
-<span class="token function">npm</span> <span class="token function">install</span> -g hexo
-
-//第二条   初始化hexo框架 这个可能会比较慢
-hexo init
-
-//第三条 安装所需要的组件
-<span class="token function">npm</span> <span class="token function">install</span>
-
-//第四条 编译生成静态页面
-hexo g
-
-//第五条 启动本地服务
-hexo s</code></pre>
-</li>
-<li><p>上述指令执行完之后，会看到显示如下：</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018174735603.png"></p>
-<p>此时本地的博客框架就搭好了，在浏览器中打开上图中的网址即可看到如下界面</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/18313053-7deab09a58f4396a.png"></p>
-</li>
-</ol>
-</li>
+<li>核心点：在半径Eps内含有不少于MinPts数目的点；</li>
+<li>边界点：在半径Eps内点的数量小于MinPts，但是落在核心点的邻域内；</li>
+<li>噪音点：既不是核心点也不是边界点的点。</li>
 </ul>
-<h2 id="博客的部署"><a href="#博客的部署" class="headerlink" title="博客的部署"></a>博客的部署</h2><h3 id="为什么选择Gitee"><a href="#为什么选择Gitee" class="headerlink" title="为什么选择Gitee"></a>为什么选择Gitee</h3><p>博客肯定不能只丢在本地，我们得将它部署到GitHub上或者Gitee上，达到可多终端访问的目的。这里以部署到Gitee为例子，因为我用的梯子不是很稳定，怕到时候现场示范会垮掉，所以就用Gitee来做示范吧😂，况且它服务器在国内，访问速度快啊，国产版GitHub也挺好用的。进入正题：</p>
-<h3 id="建立代码托管仓库"><a href="#建立代码托管仓库" class="headerlink" title="建立代码托管仓库"></a>建立代码托管仓库</h3><ol>
-<li><p>首先进入码云的官网，注册一个账号，其他信息如实填写即可，注意这个个人空间地址，不要随便填，可以参考下图中的提示，自己精心想一个，想不出来就像我一样直接用名字的拼音吧哈哈哈，这个地址后续也可以修改的，大家想好了可以去个人设置里边进行修改。</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018180841209.png"></p>
-</li>
-<li><p>注册好之后，就登录进去，然后点击右上角头像左边的那个加号(对我知道你肯定看到了)，然后选择新建仓库，然后各项填写如下：</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018184919287.png"></p>
-<p>上图中归属和路径处显示不一致，嗯我猜是码云的问题😂，没关系，只要下边仓库地址处是一样的就行</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018185856107.png"></p>
-</li>
-<li><p>然后页面会自动跳转到刚才新建的仓库界面，选择<strong>服务</strong>选项，然后选择<code>Gitee pages</code>，如图：</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018190255742.png"></p>
-<p>然后在跳转到的页面中，勾选上<strong>强制使用Https</strong>选项，然后点击<strong>启动</strong></p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018190546294.png"></p>
-</li>
-<li><p>然后耐心的等它部署，部署完了之后可以点击他给出的网址进行访问了：</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201018191339605.png"></p>
-</li>
+<h4 id="b-优缺点："><a href="#b-优缺点：" class="headerlink" title="b.优缺点："></a>b.优缺点：</h4><p> <strong>1. 优点：</strong></p>
+<ul>
+<li>基于密度定义，能够处理任意形状和大小的簇；</li>
+<li>可在聚类的同时发现异常点；</li>
+<li>不需要指定要划分的簇的个数</li>
+</ul>
+<p> <strong>2.</strong> </p>
+<ul>
+<li>对于输入参数$\xi$和MinPts敏感，确定参数困难；</li>
+<li>在该算法中，变量$\xi$和MinPts是全局唯一的，当聚类的密度不均匀时，聚类距离相差很大时，聚类质量差；</li>
+<li>当数据量大时，计算密度单元的计算复杂度大</li>
+</ul>
+<h2 id="4-可视化："><a href="#4-可视化：" class="headerlink" title="4.可视化："></a>4.可视化：</h2><ol>
+<li>K-means聚类算法可视化，<a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/" target="_blank" rel="noopener">戳我</a></li>
+<li>DBSCAN算法可视化，<a href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/" target="_blank" rel="noopener">戳我</a></li>
 </ol>
-<h3 id="向仓库推送文件"><a href="#向仓库推送文件" class="headerlink" title="向仓库推送文件"></a>向仓库推送文件</h3><p>仓库那边整好了，现在再回到本地来，通过<code>Git Bash</code>向仓库进行文件推送，打开你创建好的存放博客的文件夹，我的是<code>myblogs</code>，现在里边应该有这些东西</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201020183210217.png" alt="" style="zoom:80%;" />
-
-<ol>
-<li><p>在编辑站点配置文件之前，我们还要安装一个插件，配合该插件我们才能使用<code>deploy</code>进行部署，插件名为<code> hexo-deployer-git</code>，在<code>myblogs</code>文件下打开<code>Git Bash</code>，输入命令<code>npm install hexo-deployer-git --save</code>即可安装。</p>
-</li>
-<li><p>安装好插件之后我们要生成SSH添加到Gitee，还是在<code>Git Bash</code>中操作：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"用户名"</span>
-// 设置提交文件时的用户名
-<span class="token function">git</span> config --global user.email <span class="token string">"邮箱"</span>
-// 设置提交文件时的邮箱
-
-//设置好之后，可用如下命令查看是否有误
-<span class="token function">git</span> config user.name
-<span class="token function">git</span> config user.email</code></pre>
-<p>只有如上设置，你推送文件的时候，Gitee才知道是谁推送的文件，然后来生成SSH，添加到Gitee</p>
-<pre class=" language-bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"邮箱"</span>
-
-// 如果想自定义ssh的名字，可以这样生成一个名为test的密钥
-ssh-keygen -t rsa -C <span class="token string">"邮箱"</span> -f ~/.ssh/test</code></pre>
-<p>执行之后，一路回车，出现如下界面就表示成功生成了SSH<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021152832960.png" alt=""  /></p>
-<p>然后打开上图中框出的<code>.ssh</code>文件夹，可以看到有两个文件夹，<code>id_rsa</code>和<code>id_rsa.pub</code>，前者是私有的，自个保存好就行，后者就是SSH公钥，用<code>notepad++</code>打开<code>id_rsa.pub</code>文件，将里边的内容全复制到剪贴板。（在这里推荐大家安装<code>notepad++</code>这款软件，体积很小，能打开的文件格式超级多，具体的安装没啥复杂的，大家可以百度。）</p>
-<p>紧接着来到Gitee的登陆界面，点击右上角头像，选择设置，在安全设置中选择<code>SSH公钥</code>，然后选择添加公钥，标题随便写一个，公钥部分就把你刚才复制的内容给贴进去，然后点击确定即可<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021155906876.png"></p>
-<p>添加好之后，可以使用命令<code>ssh -T git@gitee.com</code>来验证本机是否与Gitee服务器连接成功，出现下图则表示成功了</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021160453096.png" alt="" style="zoom:80%;" />
-</li>
-<li><p>前两步成功之后打开<code>_config.yml</code>，直接拉到最底下，找到<code>deploy</code>，这里就是我们设置推送到哪个仓库的地方。</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201020184957151.png"></p>
-<p>修改<code>deploy</code>选项如下：</p>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
-  <span class="token key atrule">repo</span><span class="token punctuation">:</span> git@gitee.com<span class="token punctuation">:</span>inspur<span class="token punctuation">-</span>club/inspur<span class="token punctuation">-</span>club.git
-  <span class="token key atrule">branch</span><span class="token punctuation">:</span> master
-//注意，冒号后边要有一个空格，这是yaml语法</code></pre>
-<p>填写repo的时候，有个小技巧，我们只需要选择克隆或下载仓库，选择<code>SSH</code>，将内容复制下来粘贴到repo选项后即可，如下图所示：</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021163002580.png" alt="" style="zoom:80%;" />
-</li>
-<li><p>修改好配置文件后，<code>ctrl+s</code>保存，然后就可以利用<code>Git Bash</code>向仓库推送文件啦，还是在<code>myblogs</code>文件夹下打开<code>Git Bash</code>，执行以下命令</p>
-<pre class=" language-bash"><code class="language-bash">// 清除缓存以及public文件夹，public文件夹里的东西就是真正被推送到仓库里的东西，每次修改配置文件后都要执行该命令
-hexo clean
-
-// 生成静态页面文件，每次clean后也要重新生成
-hexo g
-
-// 向仓库推送文件
-hexo d</code></pre>
-</li>
-</ol>
-<p>执行完如果出现如下界面则表示推送文件成功：</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021164439172.png" alt="" style="zoom:80%;" />
-
-<p>也可以去仓库刷新一下，如果多了很多文件，最近提交时间为刚刚，也可以说明推送文件成功：</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021164753537.png" alt="" style="zoom:80%;" />
-
-<h2 id="更新Gitee-pages"><a href="#更新Gitee-pages" class="headerlink" title="更新Gitee pages"></a>更新Gitee pages</h2><p>如果你是部署到GitHub或者coding上的话，请忽略这一步，它们俩会自动更新网站内容，只有Gitee pages需要手动更新：</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021165604810.png" alt="" style="zoom:80%;" />
-
-<p>更新完之后再次访问网站地址，如下：</p>
-<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/image-20201021170921703.png" alt="" style="zoom:80%;" />
-
-<p>如果你选购了Gitee pages pro，他是支持自动更新的，也可以忽略这一步，但白嫖党怎么能就此屈服，我找到了一点资料，大伙有兴趣可以去看看，<a href="https://cjh0613.com/20200511GiteePageAuto.html" target="_blank" rel="noopener">戳我查看</a>。</p>
-<p>其实我每次都是手动更新的，主要是因为我比较懒，没有经常写博客的习惯，啥时候兴致来了就写，所以每次都去点一下更新就我个人而言也还能接受😂😂😂。</p>
-<h2 id="如何写文章"><a href="#如何写文章" class="headerlink" title="如何写文章"></a>如何写文章</h2><p>写文章要用到<code>markdown</code>，这是一种轻量的标记型语言，语法超级简单，在这里就不细讲了，给大家推荐学习<code>markdown</code>的网站是<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>，这个网站有超级多其他教程，大家可以收藏，以后也许能用到。</p>
-<h2 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h2><p>嗯，到这基本上博客的搭建已经接近尾声了，你已经拥有属于自己的个人网站了。</p>
-<p>但其实这才刚刚开始，更重要的是丰富博客的内容，更改一些基本配置，就比如换个主题啊，给自己的网站取个名字、换个背景图等等。总之，还有很多细节需要不断去发现，不断去优化，如果你很注重细节，你会发现优化博客还是需要做蛮多事的。网上教程资源很多，希望大家善于利用。</p>
-<p>另外说一下，GitHub是支持绑定域名的，Gitee pages就不支持（坑爹啊），新域名(.top，.club，.xyz)一般不贵，我很推荐大家买一个域名，逼格瞬间上来了有木有？</p>
-<p>最后希望大家能在这次的分享中有所收获，回去了也可以用hexo+GitHub再搭一次，跟Gitee很类似，算是再练练手。</p>
+<h2 id="5-总结："><a href="#5-总结：" class="headerlink" title="5.总结："></a>5.总结：</h2><p>聚类算法在数学建模中应用比较广泛，这次2020美赛我们队伍还用到了系统聚类算法来对评论进行分类评级，这几种算法的优缺点都很明显，尽量根据实际情况来合理使用，效果会更好。</p>
 
             </div>
             <hr/>
@@ -590,7 +511,7 @@ hexo d</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.gitee.io/2020/10/21/built-blog-1/">http://ranchongzhi.gitee.io/2020/10/21/built-blog-1/</a>
+                    <a href="http://ranchongzhi.gitee.io/julei/">http://ranchongzhi.gitee.io/julei/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,12 +549,8 @@ hexo d</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">博客搭建</span>
+                                <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                                    <span class="chip bg-color">数模</span>
                                 </a>
                             
                         </div>
@@ -1064,80 +981,29 @@ hexo d</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2020/10/21/built-blog-1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="利用hexo+Gitee搭建个人网站">
-                        
-                        <span class="card-title">利用hexo+Gitee搭建个人网站</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            超详细！！！保姆级教程！
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Reset Ran
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/27/fisher/">
+                <a href="/numpy-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Fisher线性判别+KNN分类">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="python学习笔记——numpy（1）">
                         
-                        <span class="card-title">Fisher线性判别+KNN分类</span>
+                        <span class="card-title">python学习笔记——numpy（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大三模式识别课程大作业~
+                            学习python中著名的numpy库，第一部分
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1157,8 +1023,50 @@ hexo d</code></pre>
                         <span class="chip bg-color">numpy</span>
                     </a>
                     
-                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">模式识别</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/julei/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="常见聚类模型">
+                        
+                        <span class="card-title">常见聚类模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简单介绍一下常用的聚类算法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Reset Ran
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                        <span class="chip bg-color">数模</span>
                     </a>
                     
                 </div>
@@ -1311,7 +1219,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             

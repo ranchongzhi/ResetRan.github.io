@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python爬虫（4）——XPath语法和lxml, Reset Ran&#39;s blog">
+    <meta name="keywords" content="python爬虫（2）——urllib库, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python爬虫（4）——XPath语法和lxml | Reset Ran&#39;s blog</title>
+    <title>python爬虫（2）——urllib库 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python爬虫（4）——XPath语法和lxml</h1>
+                    <h1 class="description center-align post-title">python爬虫（2）——urllib库</h1>
                 </div>
             </div>
         </div>
@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-07
+                    2020-07-02
                 </div>
                 
 
@@ -418,14 +418,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    6 分
                 </div>
                 
 
@@ -435,277 +435,107 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面的python爬虫（1-3）讲了怎么向服务器发送请求，获得网页的源代码，不过一个网页的源代码有很多部分我们都是用不上的，那用什么方法能快速获取到我们想要的数据呢？这个时候，网页解析就派上用场了，常用的解析方法有：XPath语句、beautifulsoup4库、re正则表达式，这里先来介绍第一种。</p>
-<h1 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h1><h2 id="什么是XPath"><a href="#什么是XPath" class="headerlink" title="什么是XPath"></a>什么是XPath</h2><p>xpath（XML Path Language）是一门在 XML 和 HTML 文档中查找信息的语言，可用来在 XML和 HTML 文档中对元素和属性进行遍历。简单点说，这玩意儿就是用来帮我们提取网页源代码中我们所需要的数据的，比如标签属性值、文本值、链接等等都能通过XPath语法提取。</p>
-<h2 id="XPath语法的开发工具（Chrome插件）"><a href="#XPath语法的开发工具（Chrome插件）" class="headerlink" title="XPath语法的开发工具（Chrome插件）"></a>XPath语法的开发工具（Chrome插件）</h2><p>我们想看XPath语法实时的效果，我觉得直接在浏览器里边写是最直观的方法了。谷歌浏览器的插件就帮我们解决了这个问题，插件名字叫“XPath Helper”，直接安装就行，安装步骤可以百度，教程一大把。<br>来看看使用，这里以豆瓣网为例子：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594126565193.jpg"><br>我先写一句做个例子（取电影汉密尔顿的豆瓣评分）：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594127192478.jpg"><br>匹配好之后，我们就可以把语句复制下来粘贴到代码中。</p>
-<h2 id="XPath语法详解"><a href="#XPath语法详解" class="headerlink" title="XPath语法详解"></a>XPath语法详解</h2><p>关于XPath的语法介绍有很多，这里简单罗列：</p>
-<h3 id="选取节点"><a href="#选取节点" class="headerlink" title="选取节点"></a>选取节点</h3><table>
-<thead>
-<tr>
-<th align="center">表达式</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">nodename</td>
-<td align="center">选取此节点的所有子节点</td>
-</tr>
-<tr>
-<td align="center">/</td>
-<td align="center">从根节点选取</td>
-</tr>
-<tr>
-<td align="center">//</td>
-<td align="center">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</td>
-</tr>
-<tr>
-<td align="center">.</td>
-<td align="center">选取当前节点</td>
-</tr>
-<tr>
-<td align="center">..</td>
-<td align="center">选取当前节点的父节点</td>
-</tr>
-<tr>
-<td align="center">@</td>
-<td align="center">选取属性</td>
-</tr>
-</tbody></table>
-<h3 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h3><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点，被嵌在方括号中。在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：</p>
-<table>
-<thead>
-<tr>
-<th align="center">路径表达式</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">/bookstore/book[1]</td>
-<td align="center">选取 bookstore 下的第一个子元素</td>
-</tr>
-<tr>
-<td align="center">/bookstore/book[last()]</td>
-<td align="center">选取 bookstore 下的倒数第二个 book 元素。</td>
-</tr>
-<tr>
-<td align="center">bookstore/book[position()&lt;3]</td>
-<td align="center">选取 bookstore 下前面两个子元素。</td>
-</tr>
-<tr>
-<td align="center">//book[@price]</td>
-<td align="center">选取拥有 price 属性的 book 元素</td>
-</tr>
-<tr>
-<td align="center">//book[@price=10]</td>
-<td align="center">选取所有属性 price 等于 10 的 book 元素</td>
-</tr>
-<tr>
-<td align="center">//div[contains(@id,’1234’)]</td>
-<td align="center">选取所以属性 id 中含有 1234 的 div 元素</td>
-</tr>
-</tbody></table>
-<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><table>
-<thead>
-<tr>
-<th align="center">通配符</th>
-<th align="center">描述</th>
-<th align="center">示例</th>
-<th align="center">结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">*</td>
-<td align="center">匹配任意节点</td>
-<td align="center">/bookstore/*</td>
-<td align="center">选取 bookstore 下的所有子元素。</td>
-</tr>
-<tr>
-<td align="center">@*</td>
-<td align="center">匹配节点中的任何属性</td>
-<td align="center">//book[@*]</td>
-<td align="center">选取所有带有属性的 book 元素。</td>
-</tr>
-</tbody></table>
-<h3 id="选取多个路径"><a href="#选取多个路径" class="headerlink" title="选取多个路径"></a>选取多个路径</h3><p>通过在路径表达式中使用“|”运算符，可以选取若干个路径。示例如下：<br>**//bookstore/book | //book/title**（选取所有 book 元素以及 book 元素下所有的 title 元素）</p>
-<h3 id="XPath运算符"><a href="#XPath运算符" class="headerlink" title="XPath运算符"></a>XPath运算符</h3><table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">描述</th>
-<th align="center">实例</th>
-<th align="center">返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">|</td>
-<td align="center">计算两个节点集</td>
-<td align="center">//book | //cd</td>
-<td align="center">返回所有拥有 book 和 cd 元素的节点集</td>
-</tr>
-<tr>
-<td align="center">+</td>
-<td align="center">加法</td>
-<td align="center">6 + 4</td>
-<td align="center">10</td>
-</tr>
-<tr>
-<td align="center">-</td>
-<td align="center">减法</td>
-<td align="center">6 - 4</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td align="center">*</td>
-<td align="center">乘法</td>
-<td align="center">6 * 4</td>
-<td align="center">24</td>
-</tr>
-<tr>
-<td align="center">div</td>
-<td align="center">除法</td>
-<td align="center">8 div 4</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td align="center">=</td>
-<td align="center">等于</td>
-<td align="center">price=9.80</td>
-<td align="center">如果 price 是 9.80，则返回 true。如果 price 是 9.90，则返回false。</td>
-</tr>
-<tr>
-<td align="center">!=</td>
-<td align="center">不等于</td>
-<td align="center">price!=9.80</td>
-<td align="center">如果 price 是 9.90，则返回 true。如果 price 是 9.80，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">&lt;</td>
-<td align="center">小于</td>
-<td align="center">price&lt;9.80</td>
-<td align="center">如果price是 9.00，则返回 true。如果 price 是 9.90，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">&lt;=</td>
-<td align="center">小于或等于</td>
-<td align="center">price&lt;=9.80</td>
-<td align="center">如果 price 是 9.00，则返回 true。如果 price 是 9.90，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">&gt;</td>
-<td align="center">大于</td>
-<td align="center">price&gt;9.80</td>
-<td align="center">如果 price 是 9.90，则返回 true。如果 price 是 9.80，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">&gt;=</td>
-<td align="center">大于或等于</td>
-<td align="center">price&gt;=9.80</td>
-<td align="center">如果 price 是 9.90，则返回 true。如果 price 是 9.70，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">or</td>
-<td align="center">或</td>
-<td align="center">price=9.80 orprice=9.70</td>
-<td align="center">如果 price 是 9.80，则返回 true。如果 price 是 9.50，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">and</td>
-<td align="center">与</td>
-<td align="center">price&gt;9.00 andprice&lt;9.90</td>
-<td align="center">如果 price 是 9.80，则返回 true。如果 price 是 8.50，则返回 false。</td>
-</tr>
-<tr>
-<td align="center">mod</td>
-<td align="center">计算除法的余数</td>
-<td align="center">5 mod 2</td>
-<td align="center">1</td>
-</tr>
-</tbody></table>
-<h1 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h1><h2 id="什么是lxml"><a href="#什么是lxml" class="headerlink" title="什么是lxml"></a>什么是lxml</h2><p>lxml 是 一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据。lxml 和正则一样，也是用 C 实现的，是一款高性能的 Python HTML/XML 解析器，我们可以利用之前学习的 XPath 语法，来快速的定位特定元素以及节点信息。这里附上<a href="http://lxml.de/index.html" target="_blank" rel="noopener">官方文档</a></p>
-<h3 id="先来说一个坑"><a href="#先来说一个坑" class="headerlink" title="先来说一个坑"></a>先来说一个坑</h3><p>我们一般使用lxml库里的etree方法，我第一次使用lxml库的时候被坑的蛮惨，由于我装的是版本较新的lxml库（4.4.1），老版本的导入方法是<code>from lxml import etree</code>，嗯，果不其然报错了。然后就是去找答案，最后发现在比较新的版本里，etree被封装到lxml下的html库里边了，所以可以这样导入：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
-etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
-<h2 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h2><p>使用requests库和lxml库进行爬虫一般分为以下几个步骤：</p>
-<ol>
-<li><p>导库，设置请求头，利用requests库向网页发送请求，并得到一个response对象</p>
-</li>
-<li><p>利用etree对response对象进行解析，得到一个lxml.etree._Element对象，该对象可以使用xpath语法进行提取信息</p>
-</li>
-<li><p>利用xpath语法对lxml.etree._Element对象进行信息提取</p>
-</li>
-<li><p>将提取的信息进行处理</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>这里利用requests库和lxml库来爬取豆瓣网经典的电影排名前10的电影信息：</p>
-</li>
-<li><p>导入相关模块：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
-<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
-etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree</code></pre>
-</li>
-<li><p>设置一些参数</p>
-<pre class=" language-python"><code class="language-python">headers <span class="token operator">=</span> <span class="token punctuation">{</span>
- <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
-               <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
-<span class="token punctuation">}</span><span class="token comment" spellcheck="true">#请求头</span>
-url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span><span class="token comment" spellcheck="true">#目标链接</span>
-movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#用于保存电影信息</span></code></pre>
-</li>
-<li><p>requests库请求</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 向指定页数发起请求，并返回resopnse对象</span>
-response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span></code></pre>
-</li>
-<li><p>etree对response对象进行解析</p>
-<pre class=" language-python"><code class="language-python">html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-tables <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//table"</span><span class="token punctuation">)</span></code></pre>
-</li>
-<li><p>用xpath提取信息并保存</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> table <span class="token keyword">in</span> tables<span class="token punctuation">:</span>
- detail_herf <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//a[@class="nbg"]/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
- name <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//a[@class='nbg']/@title"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
- post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
- nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-
- movie <span class="token operator">=</span><span class="token punctuation">{</span>
-     <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#详情链接</span>
-     <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#电影名</span>
-     <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#海报链接</span>
-     <span class="token string">"nums"</span><span class="token punctuation">:</span> nums<span class="token comment" spellcheck="true">#评分</span>
- <span class="token punctuation">}</span>
- <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
- movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
-<p>运行，结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1594696787504.jpg"><br>最后，再贴一下完整代码：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 爬取豆瓣电影经典影片排名</span>
-<span class="token keyword">import</span> requests
-<span class="token keyword">from</span> lxml <span class="token keyword">import</span> html
-etree <span class="token operator">=</span> html<span class="token punctuation">.</span>etree
-headers <span class="token operator">=</span> <span class="token punctuation">{</span>
- <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "</span>
-               <span class="token string">"(KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36"</span>
-<span class="token punctuation">}</span>
-url <span class="token operator">=</span> <span class="token string">"https://movie.douban.com/chart"</span>
-movies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-n <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token comment" spellcheck="true"># 向指定页数发起请求，并返回resopnse对象</span>
-response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
-html <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-tables <span class="token operator">=</span> html<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//table"</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> table <span class="token keyword">in</span> tables<span class="token punctuation">:</span>
-<span class="token comment" spellcheck="true">#这个地方可以借助前面介绍的谷歌浏览器插件来检查匹配是否正确</span>
- detail_herf <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//a[@class="nbg"]/@href'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
- name <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//a[@class='nbg']/@title"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
- post_url <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//img/@src"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
- nums <span class="token operator">=</span> table<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">".//span[@class='rating_nums']/text()"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-
- movie <span class="token operator">=</span> <span class="token punctuation">{</span>
-     <span class="token string">"href"</span><span class="token punctuation">:</span> detail_herf<span class="token punctuation">,</span>
-     <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
-     <span class="token string">"post_url"</span><span class="token punctuation">:</span> post_url<span class="token punctuation">,</span>
-     <span class="token string">"nums"</span><span class="token punctuation">:</span> nums
- <span class="token punctuation">}</span>
- <span class="token keyword">print</span><span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
- movies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span></code></pre>
-<h1 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h1><p>嗯，总的看来，写个小爬虫其实是很简单的，xpath语法也很好理解，但仅掌握这些是不够的，无法写出很diao的爬虫，还有蛮多东西要学习！</p>
-</li>
+                <h2 id="urllib库简介"><a href="#urllib库简介" class="headerlink" title="urllib库简介"></a>urllib库简介</h2><p>urllib 库是 Python 中一个最基本的网络请求库。可以模拟浏览器的行为，向指定的服务器发 送一个请求，并可以保存服务器返回的数据。</p>
+<h2 id="urlopen函数"><a href="#urlopen函数" class="headerlink" title="urlopen函数"></a>urlopen函数</h2><p>在python3的<code>urllib</code>库中，所有和网络请求相关的方法，都被集成到<code>urllib.request</code>模块下了，该函数的使用格式如下：</p>
+<p><code>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)</code></p>
+<p>其中：</p>
+<p><code>cafile、capath、cadefault</code> 参数：用于实现可信任的 CA 证书的 HTTP 请求。（基本上很少用）</p>
+<p><code>context</code> 参数：实现 SSL 加密传输。（基本上很少用）</p>
+<p>所以我们一般关注前面几个参数就可以了：</p>
+<ul>
+<li>URL：所请求的URL</li>
+<li>data：请求的data，如果设置了这个参数，请求会变为post请求</li>
+<li>返回值：返回值是一个http.client.HTTPResponse对象，这是一个类文件句柄对象，它主要有以下几种方法：<ol>
+<li>read(size):返回指定字节的数目，默认为全部 </li>
+<li>readline()：返回一行 </li>
+<li>readlines()：用列表返回全部行 </li>
+<li>getcode()：返回状态码，<code>resp.getcode()</code>等价于 <code>resp.status</code> </li>
+<li>getheaders()：返回响应头</li>
 </ol>
+</li>
+</ul>
+<p>下面来看一个例子：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
+url<span class="token operator">=</span><span class="token string">"http://www.baidu.com"</span>
+resp<span class="token operator">=</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>运行上面的程序，就会打印出百度首页的html源代码，见下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685333801.png"></p>
+<h2 id="request-urlretrieve函数"><a href="#request-urlretrieve函数" class="headerlink" title="request.urlretrieve函数"></a>request.urlretrieve函数</h2><p>这个文件可以很方便的将网页上的文件保存到本地，就比如保存百度首页：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
+
+url<span class="token operator">=</span><span class="token string">"http://www.baidu.com"</span>
+request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">'baidu.html'</span><span class="token punctuation">)</span></code></pre>
+<p>运行代码后，就会在代码文件同目录下生成我们所命名的文件，如图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685309150.png"><br>同理，也可以用此方法下载图片，以下载一张王者荣耀韩信的图片为例：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request
+<span class="token comment" spellcheck="true">#图片链接只需在网页中鼠标右键选择复制图像链接即可</span>
+url<span class="token operator">=</span><span class="token string">"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1107967462,1249145194&amp;fm=26&amp;gp=0.jpg"</span>
+request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">"韩信.jpg"</span><span class="token punctuation">)</span></code></pre>
+<p>运行后，我们就能看到所下载的图片：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685278665.png"><br>打开看一下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593685038035.jpg"></p>
+<h2 id="parse-urlencode函数和parse-parse-qs函数"><a href="#parse-urlencode函数和parse-parse-qs函数" class="headerlink" title="parse.urlencode函数和parse.parse_qs函数"></a>parse.urlencode函数和parse.parse_qs函数</h2><p>用浏览器发送请求的时候，如果 url 中包含了中文或者其他特殊字符，那么浏览器会自动的给我们进行编码。而如果使用代码发送请求，那么就必须手动的进行编码，这时候就应该使用 urlencode 函数来实现。urlencode 可以把字典数据转换为 URL 编码的数据。示例代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
+dic1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'slogan'</span> <span class="token punctuation">:</span> <span class="token string">"Hello world"</span><span class="token punctuation">}</span>
+dic2<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>dic1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dic2<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+name<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span>BC<span class="token operator">%</span>A0<span class="token operator">%</span>E4<span class="token operator">%</span>B8<span class="token operator">%</span><span class="token number">89</span><span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token operator">&amp;</span>slogan<span class="token operator">=</span>Hello<span class="token operator">+</span>world</code></pre>
+<p>如果不经过编码，就用urlopen方法的话，会报错：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://www.baidu.com/s?wd=刘德华'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#报错如下：</span>
+UnicodeEncodeError<span class="token punctuation">:</span> <span class="token string">'ascii'</span> codec can't encode characters <span class="token keyword">in</span> position <span class="token number">30</span><span class="token operator">-</span><span class="token number">32</span><span class="token punctuation">:</span> ordinal <span class="token operator">not</span> <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span></code></pre>
+<p>编码之后就可以了：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+parms <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'wd'</span><span class="token punctuation">:</span><span class="token string">'刘德华'</span><span class="token punctuation">}</span>
+url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s'</span>
+query_string <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>parms<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>query_string<span class="token punctuation">)</span>
+url <span class="token operator">=</span> url<span class="token operator">+</span><span class="token string">'?'</span><span class="token operator">+</span>query_string
+resp <span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>getcode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+wd<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span><span class="token number">88</span><span class="token operator">%</span><span class="token number">98</span><span class="token operator">%</span>E5<span class="token operator">%</span>BE<span class="token operator">%</span>B7<span class="token operator">%</span>E5<span class="token operator">%</span><span class="token number">8D</span><span class="token operator">%</span><span class="token number">8E</span>
+<span class="token number">200</span></code></pre>
+<p>parse.parse_qs函数就是将编码后的数据再转变回来的函数：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
+dic1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token string">'age'</span> <span class="token punctuation">:</span> <span class="token string">'18'</span><span class="token punctuation">,</span><span class="token string">'slogan'</span> <span class="token punctuation">:</span> <span class="token string">"Hello world"</span><span class="token punctuation">}</span>
+dic2<span class="token operator">=</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>dic1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dic2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>parse<span class="token punctuation">.</span>parse_qs<span class="token punctuation">(</span>dic2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+name<span class="token operator">=</span><span class="token operator">%</span>E5<span class="token operator">%</span>BC<span class="token operator">%</span>A0<span class="token operator">%</span>E4<span class="token operator">%</span>B8<span class="token operator">%</span><span class="token number">89</span><span class="token operator">&amp;</span>age<span class="token operator">=</span><span class="token number">18</span><span class="token operator">&amp;</span>slogan<span class="token operator">=</span>Hello<span class="token operator">+</span>world
+<span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'18'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'slogan'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Hello world'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">#注意返回的数据类型</span></code></pre>
+<h2 id="parse-urlparse-和-parse-urlsplit-函数"><a href="#parse-urlparse-和-parse-urlsplit-函数" class="headerlink" title="parse.urlparse 和 parse.urlsplit 函数"></a>parse.urlparse 和 parse.urlsplit 函数</h2><p>有时候拿到一个 url，想要对这个 url 中的各个组成部分进行分割，那么这时候就可以使用<br>urlparse 或者是 urlsplit 来进行分割。示例代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s?username=zhiliao'</span>
+result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
+<p>结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593771183471.jpg"><br>从图中可以看出：urlparse 和 urlsplit 基本上是一模一样的。唯一不一样的地方是，urlparse 里面多了一个 params 属性，而 urlsplit 没有这个 params 属性。如果将上面代码的url换一下就能看出区别：</p>
+<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span>!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s;hello?wd=python&amp;username=abc#1'</span>
+result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
+<p>结果：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593773675938.jpg"><br>不过params属性很少用到，所以这两种方法基本可以视为相同</p>
+<h2 id="ProxyHandler-处理器（代理设置）"><a href="#ProxyHandler-处理器（代理设置）" class="headerlink" title="ProxyHandler 处理器（代理设置）"></a>ProxyHandler 处理器（代理设置）</h2><p>很多网站会检测某一段时间某个 IP 的访问次数(通过流量统计，系统日志等)，如果访问次数多的不像正常人，它会禁止这个 IP 的访问。所以我们可以设置一些代理服务器，每隔一段时间换一个代理，就算 IP 被禁止，依然可以换个 IP 继续爬取。urllib 中通过 ProxyHandler 来设置使用代理服务器，下面代码说明如何使用自定义 opener来使用代理：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib
+url <span class="token operator">=</span> <span class="token string">'http://httpbin.org/ip'</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">"Mozilla/5.0 (Macintosh; U; Mac OS X Mach-O; enUS; rv:2.0a) Gecko/20040614 Firefox/3.0.0 "</span><span class="token punctuation">}</span>
+req <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+
+resp <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>req<span class="token punctuation">,</span>timeout <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+handler <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'http'</span><span class="token punctuation">:</span><span class="token string">'163.204.240.95:9999'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+opener <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>handler<span class="token punctuation">)</span>
+resp <span class="token operator">=</span> opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>resp<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>运行结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593787948833.jpg"><br>可以看出，我们的向目标服务器发送请求的ip地址已经变了，这样就能有效防止目标服务器封我们ip而导致爬虫无法完整运行。</p>
+<blockquote>
+<p>ps:这个网址：<a href="http://httpbin.org/ip%EF%BC%8C%E8%83%BD%E5%B8%AE%E6%88%91%E4%BB%AC%E5%BF%AB%E9%80%9F%E6%9F%A5%E8%AF%A2%E6%88%91%E4%BB%AC%E7%9A%84ip%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E4%B8%8B%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%93%A6" target="_blank" rel="noopener">http://httpbin.org/ip，能帮我们快速查询我们的ip地址，可以保存下来使用哦</a><br>常见的代理获取可以点<a href="http://www.kuaidaili.com/" target="_blank" rel="noopener">这里</a>去看看，可以使用免费的代理，当然体验肯定没有付费的代理来得好。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>小总结一下，用urllib库基本上就可以写一些比较简单的爬虫了，但这里我们想象中的那种强大的爬虫还是有些差距，所以还需要继续学习呀！</p>
 
             </div>
             <hr/>
@@ -731,7 +561,7 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ranchongzhi.gitee.io/2020/07/07/python-spyder-4/">http://ranchongzhi.gitee.io/2020/07/07/python-spyder-4/</a>
+                    <a href="http://ranchongzhi.gitee.io/python-spyder-2/">http://ranchongzhi.gitee.io/python-spyder-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1209,24 +1039,24 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/27/fisher/">
+                <a href="/python-spyder-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Fisher线性判别+KNN分类">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="python爬虫（3）——cookie与requests库">
                         
-                        <span class="card-title">Fisher线性判别+KNN分类</span>
+                        <span class="card-title">python爬虫（3）——cookie与requests库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大三模式识别课程大作业~
+                            本文主要是学习cookie和python中另外一个网络请求库——requests库的记录
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
                         </span>
                         <span class="publish-author">
                             
@@ -1243,12 +1073,8 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/numpy/">
-                        <span class="chip bg-color">numpy</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">模式识别</span>
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
                     </a>
                     
                 </div>
@@ -1262,24 +1088,24 @@ tables <span class="token operator">=</span> html<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/05/python-spyder-3/">
+                <a href="/python-spyder-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="python爬虫（3）——cookie与requests库">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="python爬虫（1）——前置知识">
                         
-                        <span class="card-title">python爬虫（3）——cookie与requests库</span>
+                        <span class="card-title">python爬虫（1）——前置知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要是学习cookie和python中另外一个网络请求库——requests库的记录
+                            学习爬虫之前，先来了解一下爬虫的前置知识
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
                             </span>
                         <span class="publish-author">
                             
@@ -1450,7 +1276,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             
