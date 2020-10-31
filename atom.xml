@@ -71,7 +71,7 @@
     <link href="http://ranchongzhi.gitee.io/fisher/"/>
     <id>http://ranchongzhi.gitee.io/fisher/</id>
     <published>2020-09-27T04:37:43.000Z</published>
-    <updated>2020-10-21T11:36:48.106Z</updated>
+    <updated>2020-10-31T07:13:04.970Z</updated>
     
     
       
@@ -85,9 +85,9 @@
     
     
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
-    
     <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
     
     <category term="模式识别" scheme="http://ranchongzhi.gitee.io/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
@@ -98,7 +98,7 @@
     <link href="http://ranchongzhi.gitee.io/python-spyder-4/"/>
     <id>http://ranchongzhi.gitee.io/python-spyder-4/</id>
     <published>2020-07-07T12:17:26.000Z</published>
-    <updated>2020-10-18T13:28:04.464Z</updated>
+    <updated>2020-10-31T07:13:26.025Z</updated>
     
     
       
@@ -214,9 +214,9 @@
     
     
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
-    
     <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
     
   </entry>
   
@@ -239,9 +239,9 @@
     
     
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
-    
     <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
     
   </entry>
   
