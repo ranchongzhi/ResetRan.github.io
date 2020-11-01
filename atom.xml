@@ -6,7 +6,7 @@
   <link href="http://ranchongzhi.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://ranchongzhi.gitee.io/"/>
-  <updated>2020-10-29T13:04:50.648Z</updated>
+  <updated>2020-11-01T13:00:34.677Z</updated>
   <id>http://ranchongzhi.gitee.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>k-means and FCM</title>
+    <link href="http://ranchongzhi.gitee.io/k-means-fcm/"/>
+    <id>http://ranchongzhi.gitee.io/k-means-fcm/</id>
+    <published>2020-11-01T04:37:43.000Z</published>
+    <updated>2020-11-01T13:00:34.677Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;原理简介&quot;&gt;&lt;a href=&quot;#原理简介&quot; class=&quot;headerlink&quot; title=&quot;原理简介&quot;&gt;&lt;/a&gt;原理简介&lt;/h1&gt;&lt;h2 id=&quot;K-means&quot;&gt;&lt;a href=&quot;#K-means&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    
+    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    
+    <category term="模式识别" scheme="http://ranchongzhi.gitee.io/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>网站搭好之后怎么办</title>
