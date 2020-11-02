@@ -411,16 +411,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
+                                <span class="chip bg-color">模式识别</span>
+                            </a>
+                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
                             </a>
                         
                             <a href="/tags/numpy/">
                                 <span class="chip bg-color">numpy</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                                <span class="chip bg-color">模式识别</span>
                             </a>
                         
                     </div>
@@ -461,14 +461,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="原理简介"><a href="#原理简介" class="headerlink" title="原理简介"></a>原理简介</h1><h2 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h2><ol>
+                <h2 id="原理简介"><a href="#原理简介" class="headerlink" title="原理简介"></a>原理简介</h2><h3 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h3><ol>
 <li>指定需要划分的簇的个数，即K值（类的个数）</li>
 <li>随机的选择K个数据对象作为初始的聚类中心</li>
 <li>计算其余的各个数据对象到这K个聚类中心的距离，把数据对象划分到距离它最近的那个中心所在的簇中</li>
 <li>调整新类并计算出新的聚类中心</li>
 <li>循环第三和第四步，直到聚类中心不再发生变化，聚类结束</li>
 </ol>
-<h2 id="FCM"><a href="#FCM" class="headerlink" title="FCM"></a>FCM</h2><ol>
+<h3 id="FCM"><a href="#FCM" class="headerlink" title="FCM"></a>FCM</h3><ol>
 <li><p>指定需要划分的类别个数以及柔性参数的值，即c和$\alpha$</p>
 </li>
 <li><p>初始化隶属度矩阵，其中样本数据属于所有类别的隶属度之和应该为1</p>
@@ -485,7 +485,7 @@
 <p>$$<br>u_{ij}=\frac{1}{\sum_{k=1}^{c}(\frac{d_{ij}}{d_{ki}})^{\frac{2}{\alpha-1}}}<br>$$<br>其中$d_{ij}$表示样本$x_i$到聚类中心点$z_j$的欧式距离</p>
 </li>
 </ol>
-<h1 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h1><p>由于聚类属于无监督学习，用OA、AA等指标来评价聚类效果可能得不到理想的结果。故在本次作业中，使用<a href="https://baike.baidu.com/item/%E8%BD%AE%E5%BB%93%E7%B3%BB%E6%95%B0/17361607?fr=aladdin" target="_blank" rel="noopener">轮廓系数</a>作为聚类的评价指标。</p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>由于聚类属于无监督学习，用OA、AA等指标来评价聚类效果可能得不到理想的结果。故在本次作业中，使用<a href="https://baike.baidu.com/item/%E8%BD%AE%E5%BB%93%E7%B3%BB%E6%95%B0/17361607?fr=aladdin" target="_blank" rel="noopener">轮廓系数</a>作为聚类的评价指标。</p>
 <p>轮廓系数取值范围为$[-1,1]$，取值越接近1则说明聚类性能越好，相反，取值越接近-1则说明聚类性能越差，一个样本的轮廓系数计算公式如下：</p>
 <p>$$<br>s_i=\frac{b_i-a_i}{\max{a_i,b_i}}<br>$$<br>其中：</p>
 <ul>
@@ -496,9 +496,9 @@
 <p>同理当$b_i$小于$a_i$时，说明样本$x_i$跟同类的样本之间的平均距离大于其与其他类别样本之间的平均距离，令$\Delta_2=a_i-b_i$，$\Delta_2$越大，$s_i$就越接近-1，此时样本类间的紧密程度较低，类间的紧密程度甚至高于类内紧密程度，这时聚类效果就比较糟糕</p>
 <p>对于$m$个样本，样本整体的轮廓系数即为各个样本轮廓系数的平均值：</p>
 <p>$$<br>S=\frac{1}{m}\sum_{i=1}^{m}s_i<br>$$</p>
-<h1 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h1><p>由于两数据集中特征的量纲都相同，所以只需要消除量纲，将每个特征的数值除以该特征中的最大值即可，这样就将所有特征数值映射到了区间$[0,1]$内</p>
-<h1 id="类数的选择"><a href="#类数的选择" class="headerlink" title="类数的选择"></a>类数的选择</h1><p>因为我们知道sonar数据集和iris数据集对应的类别数分别为2、3。所以在聚类的过程中将k值和c值取成对应的类别即可</p>
-<h1 id="编程思路"><a href="#编程思路" class="headerlink" title="编程思路"></a>编程思路</h1><h2 id="K-means的实现"><a href="#K-means的实现" class="headerlink" title="K-means的实现"></a>K-means的实现</h2><h3 id="导入数据部分"><a href="#导入数据部分" class="headerlink" title="导入数据部分"></a>导入数据部分</h3><h4 id="iris数据集"><a href="#iris数据集" class="headerlink" title="iris数据集"></a>iris数据集</h4><p>直接从<code>sklearn</code>包中导入即可：</p>
+<h2 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h2><p>由于两数据集中特征的量纲都相同，所以只需要消除量纲，将每个特征的数值除以该特征中的最大值即可，这样就将所有特征数值映射到了区间$[0,1]$内</p>
+<h2 id="类数的选择"><a href="#类数的选择" class="headerlink" title="类数的选择"></a>类数的选择</h2><p>因为我们知道sonar数据集和iris数据集对应的类别数分别为2、3。所以在聚类的过程中将k值和c值取成对应的类别即可</p>
+<h2 id="编程思路"><a href="#编程思路" class="headerlink" title="编程思路"></a>编程思路</h2><h3 id="K-means的实现"><a href="#K-means的实现" class="headerlink" title="K-means的实现"></a>K-means的实现</h3><h4 id="导入数据部分"><a href="#导入数据部分" class="headerlink" title="导入数据部分"></a>导入数据部分</h4><h5 id="iris数据集"><a href="#iris数据集" class="headerlink" title="iris数据集"></a>iris数据集</h5><p>直接从<code>sklearn</code>包中导入即可：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
 
 <span class="token comment" spellcheck="true"># 读取数据</span>
@@ -507,7 +507,7 @@ data<span class="token operator">=</span>load_iris<span class="token punctuation
 target<span class="token operator">=</span>data<span class="token punctuation">.</span>target<span class="token punctuation">.</span>T
 <span class="token comment" spellcheck="true"># 样本数据</span>
 data<span class="token operator">=</span>data<span class="token punctuation">.</span>data</code></pre>
-<h4 id="sonar数据集"><a href="#sonar数据集" class="headerlink" title="sonar数据集"></a>sonar数据集</h4><p>从本地的sonar.xlsx导入：</p>
+<h5 id="sonar数据集"><a href="#sonar数据集" class="headerlink" title="sonar数据集"></a>sonar数据集</h5><p>从本地的sonar.xlsx导入：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> openpyxl <span class="token keyword">import</span> load_workbook
 
 <span class="token comment" spellcheck="true"># 导入数据</span>
@@ -533,7 +533,7 @@ data<span class="token operator">=</span>data<span class="token punctuation">.</
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             target<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span>
     <span class="token keyword">return</span> sonar<span class="token punctuation">,</span>target</code></pre>
-<h3 id="随机选择聚类中心"><a href="#随机选择聚类中心" class="headerlink" title="随机选择聚类中心"></a>随机选择聚类中心</h3><p>产生k个随机索引即可</p>
+<h4 id="随机选择聚类中心"><a href="#随机选择聚类中心" class="headerlink" title="随机选择聚类中心"></a>随机选择聚类中心</h4><p>产生k个随机索引即可</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 指定k-means中的k值</span>
     k<span class="token operator">=</span><span class="token number">2</span>
     <span class="token comment" spellcheck="true"># 随机选择k个聚类中心</span>
@@ -544,7 +544,7 @@ data<span class="token operator">=</span>data<span class="token punctuation">.</
     <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">:</span>
         center_points<span class="token punctuation">[</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">=</span>data<span class="token punctuation">[</span>flags<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
         j<span class="token operator">+=</span><span class="token number">1</span></code></pre>
-<h3 id="算法核心的实现"><a href="#算法核心的实现" class="headerlink" title="算法核心的实现"></a>算法核心的实现</h3><p>编写一个类，名称为<code>k-means</code>，它的属性以及方法如下：</p>
+<h4 id="算法核心的实现"><a href="#算法核心的实现" class="headerlink" title="算法核心的实现"></a>算法核心的实现</h4><p>编写一个类，名称为<code>k-means</code>，它的属性以及方法如下：</p>
 <p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/class.jpg"></p>
 <p>利用python实现的代码如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">## 创建一个k-means类</span>
@@ -584,7 +584,7 @@ data<span class="token operator">=</span>data<span class="token punctuation">.</
             <span class="token comment" spellcheck="true"># print(count.shape)</span>
             self<span class="token punctuation">.</span>center<span class="token punctuation">[</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>count<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># print(self.center)</span></code></pre>
-<h3 id="迭代更新部分"><a href="#迭代更新部分" class="headerlink" title="迭代更新部分"></a>迭代更新部分</h3><p>循环调用<code>k-means</code>类里的方法即可达到迭代更新的目的，终止条件：当此次的聚类中心点和上次的聚类中心点相比变化小于设定阈值时停止迭代</p>
+<h4 id="迭代更新部分"><a href="#迭代更新部分" class="headerlink" title="迭代更新部分"></a>迭代更新部分</h4><p>循环调用<code>k-means</code>类里的方法即可达到迭代更新的目的，终止条件：当此次的聚类中心点和上次的聚类中心点相比变化小于设定阈值时停止迭代</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 实例化一个K_means类</span>
 iris<span class="token operator">=</span> K_means<span class="token punctuation">(</span>data<span class="token punctuation">,</span> target<span class="token punctuation">,</span>center_points<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># print(iris.dis)</span>
@@ -605,14 +605,14 @@ i<span class="token operator">=</span><span class="token number">0</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"迭代第{}次"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"算法收敛，迭代终止"</span><span class="token punctuation">)</span></code></pre>
-<h3 id="评价聚类效果"><a href="#评价聚类效果" class="headerlink" title="评价聚类效果"></a>评价聚类效果</h3><p>利用sklearn包中的函数计算轮廓系数</p>
+<h4 id="评价聚类效果"><a href="#评价聚类效果" class="headerlink" title="评价聚类效果"></a>评价聚类效果</h4><p>利用sklearn包中的函数计算轮廓系数</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 
-<span class="token comment" spellcheck="true"># 计算轮廓系数来评价聚类效果</span>
+<span class="token comment" spellcheck="true">## 计算轮廓系数来评价聚类效果</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>metrics<span class="token punctuation">.</span>silhouette_score<span class="token punctuation">(</span>data<span class="token punctuation">,</span>\
     iris<span class="token punctuation">.</span>dis<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> metric<span class="token operator">=</span><span class="token string">'euclidean'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h2 id="FCM的实现"><a href="#FCM的实现" class="headerlink" title="FCM的实现"></a>FCM的实现</h2><h3 id="导入数据部分-1"><a href="#导入数据部分-1" class="headerlink" title="导入数据部分"></a>导入数据部分</h3><p>与K-means相同</p>
-<h3 id="随机初始化隶属度矩阵"><a href="#随机初始化隶属度矩阵" class="headerlink" title="随机初始化隶属度矩阵"></a>随机初始化隶属度矩阵</h3><pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token keyword">class</span>：FCM<span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5Cblog_pic<span class="token operator">%</span>5Cclass<span class="token operator">%</span>EF<span class="token operator">%</span>BC<span class="token operator">%</span>9AFCM<span class="token punctuation">.</span>jpg<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 指定FCM中的c值</span>
+<h3 id="FCM的实现"><a href="#FCM的实现" class="headerlink" title="FCM的实现"></a>FCM的实现</h3><h4 id="导入数据部分-1"><a href="#导入数据部分-1" class="headerlink" title="导入数据部分"></a>导入数据部分</h4><p>与K-means相同</p>
+<h4 id="随机初始化隶属度矩阵"><a href="#随机初始化隶属度矩阵" class="headerlink" title="随机初始化隶属度矩阵"></a>随机初始化隶属度矩阵</h4><pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token keyword">class</span>：FCM<span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5Cblog_pic<span class="token operator">%</span>5Cclass<span class="token operator">%</span>EF<span class="token operator">%</span>BC<span class="token operator">%</span>9AFCM<span class="token punctuation">.</span>jpg<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 指定FCM中的c值</span>
 c <span class="token operator">=</span> <span class="token number">3</span>
 <span class="token comment" spellcheck="true"># 随机初始化隶属度矩阵</span>
 U <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">[</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -622,7 +622,7 @@ U <span class="token operator">=</span> np<span class="token punctuation">.</spa
             U<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">-</span> np<span class="token punctuation">.</span>sum<span class="token punctuation">(</span>U<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 最后一列单独赋值</span>
     U<span class="token punctuation">[</span>i<span class="token punctuation">,</span> c <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> np<span class="token punctuation">.</span>sum<span class="token punctuation">(</span>U<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<h3 id="算法核心的实现-1"><a href="#算法核心的实现-1" class="headerlink" title="算法核心的实现"></a>算法核心的实现</h3><p>编写一个类，名称为<code>FCM</code>，它的属性以及方法如下：</p>
+<h4 id="算法核心的实现-1"><a href="#算法核心的实现-1" class="headerlink" title="算法核心的实现"></a>算法核心的实现</h4><p>编写一个类，名称为<code>FCM</code>，它的属性以及方法如下：</p>
 <p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/class%EF%BC%9AFCM.jpg"></p>
 <p>利用python实现的代码如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">FCM</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -682,7 +682,7 @@ U <span class="token operator">=</span> np<span class="token punctuation">.</spa
     <span class="token keyword">def</span> <span class="token function">compute_target</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>target<span class="token punctuation">[</span>i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>self<span class="token punctuation">.</span>U<span class="token punctuation">[</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<h3 id="迭代更新部分-1"><a href="#迭代更新部分-1" class="headerlink" title="迭代更新部分"></a>迭代更新部分</h3><p>循环调用<code>FCM</code>类里的方法即可达到迭代更新的目的，终止条件：当此次的聚类中心点和上次的聚类中心点相比变化小于设定阈值时停止迭代</p>
+<h4 id="迭代更新部分-1"><a href="#迭代更新部分-1" class="headerlink" title="迭代更新部分"></a>迭代更新部分</h4><p>循环调用<code>FCM</code>类里的方法即可达到迭代更新的目的，终止条件：当此次的聚类中心点和上次的聚类中心点相比变化小于设定阈值时停止迭代</p>
 <pre class=" language-python"><code class="language-python">iris <span class="token operator">=</span> FCM<span class="token punctuation">(</span>c<span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> data<span class="token punctuation">,</span> U<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># print(sonar.U)</span>
 <span class="token comment" spellcheck="true"># 保留更新前的中心点</span>
@@ -703,26 +703,26 @@ i <span class="token operator">=</span> <span class="token number">1</span>
     i<span class="token operator">+=</span><span class="token number">1</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"算法收敛，迭代终止"</span><span class="token punctuation">)</span></code></pre>
-<h3 id="评价聚类效果-1"><a href="#评价聚类效果-1" class="headerlink" title="评价聚类效果"></a>评价聚类效果</h3><p>与K-means相同</p>
+<h4 id="评价聚类效果-1"><a href="#评价聚类效果-1" class="headerlink" title="评价聚类效果"></a>评价聚类效果</h4><p>与K-means相同</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 
 <span class="token comment" spellcheck="true"># 计算轮廓系数来评价聚类效果</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>metrics<span class="token punctuation">.</span>silhouette_score<span class="token punctuation">(</span>data<span class="token punctuation">,</span>\
     iris<span class="token punctuation">.</span>target<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric<span class="token operator">=</span><span class="token string">'euclidean'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h1 id="结果展示与分析"><a href="#结果展示与分析" class="headerlink" title="结果展示与分析"></a>结果展示与分析</h1><h2 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h2><h3 id="K-means-1"><a href="#K-means-1" class="headerlink" title="K-means"></a>K-means</h3><h4 id="iris数据集-1"><a href="#iris数据集-1" class="headerlink" title="iris数据集"></a>iris数据集</h4><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-39-36.jpg"></p>
+<h2 id="结果展示与分析"><a href="#结果展示与分析" class="headerlink" title="结果展示与分析"></a>结果展示与分析</h2><h3 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h3><h4 id="K-means-1"><a href="#K-means-1" class="headerlink" title="K-means"></a>K-means</h4><h5 id="iris数据集-1"><a href="#iris数据集-1" class="headerlink" title="iris数据集"></a>iris数据集</h5><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-39-36.jpg"></p>
 <p>轮廓系数为0.519，聚类效果还可以</p>
-<h4 id="sonar数据集-1"><a href="#sonar数据集-1" class="headerlink" title="sonar数据集"></a>sonar数据集</h4><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-43-37.jpg"></p>
+<h5 id="sonar数据集-1"><a href="#sonar数据集-1" class="headerlink" title="sonar数据集"></a>sonar数据集</h5><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-43-37.jpg"></p>
 <p>轮廓系数为0.198，效果一般</p>
-<h3 id="FCM-1"><a href="#FCM-1" class="headerlink" title="FCM"></a>FCM</h3><h4 id="iris数据集-2"><a href="#iris数据集-2" class="headerlink" title="iris数据集"></a>iris数据集</h4><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-45-50.jpg"></p>
+<h4 id="FCM-1"><a href="#FCM-1" class="headerlink" title="FCM"></a>FCM</h4><h5 id="iris数据集-2"><a href="#iris数据集-2" class="headerlink" title="iris数据集"></a>iris数据集</h5><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-45-50.jpg"></p>
 <p>轮廓系数为0.527，与k-means效果相当</p>
-<h4 id="sonar数据集-2"><a href="#sonar数据集-2" class="headerlink" title="sonar数据集"></a>sonar数据集</h4><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-48-25.jpg"></p>
+<h5 id="sonar数据集-2"><a href="#sonar数据集-2" class="headerlink" title="sonar数据集"></a>sonar数据集</h5><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_15-48-25.jpg"></p>
 <p>轮廓系数为0.198，与k-means效果相当</p>
-<h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p>可以看出，在性能方面，k-means算法和FCM算法基本上差距不大；但在收敛速度上，k-means算法要略优于FCM算法，收敛速度慢，容易陷入局部最小是FCM算法的缺点，改进可以使用IFCM算法(直觉模糊c均值聚类)，它相较于FCM算法增加了新的参数——非隶属度$\gamma$和不确定度$\pi$，能更加细腻的刻画出客观世界的模糊性质。</p>
-<h1 id="拓展——k-means算法用于图像分割"><a href="#拓展——k-means算法用于图像分割" class="headerlink" title="拓展——k-means算法用于图像分割"></a>拓展——k-means算法用于图像分割</h1><h2 id="原理简介-1"><a href="#原理简介-1" class="headerlink" title="原理简介"></a>原理简介</h2><p>将一张RGB三通道的图像中的每一个像素点都视为一个样本，那么每个样本都对应有3个特征，分别为R、G、B的值，如果像素点属于同一区域，那么它们的特征值一定很相近，此时就可以利用聚类算法让特征值相近的像素点聚为一类，最后将不同类别的像素点用不同的颜色或者灰度值输出即可</p>
-<h2 id="样本展示"><a href="#样本展示" class="headerlink" title="样本展示"></a>样本展示</h2><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/3.bmp"></p>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><p>可以看出，在性能方面，k-means算法和FCM算法基本上差距不大；但在收敛速度上，k-means算法要略优于FCM算法，收敛速度慢，容易陷入局部最小是FCM算法的缺点，改进可以使用IFCM算法(直觉模糊c均值聚类)，它相较于FCM算法增加了新的参数——非隶属度$\gamma$和不确定度$\pi$，能更加细腻的刻画出客观世界的模糊性质。</p>
+<h2 id="拓展——k-means算法用于图像分割"><a href="#拓展——k-means算法用于图像分割" class="headerlink" title="拓展——k-means算法用于图像分割"></a>拓展——k-means算法用于图像分割</h2><h3 id="原理简介-1"><a href="#原理简介-1" class="headerlink" title="原理简介"></a>原理简介</h3><p>将一张RGB三通道的图像中的每一个像素点都视为一个样本，那么每个样本都对应有3个特征，分别为R、G、B的值，如果像素点属于同一区域，那么它们的特征值一定很相近，此时就可以利用聚类算法让特征值相近的像素点聚为一类，最后将不同类别的像素点用不同的颜色或者灰度值输出即可</p>
+<h3 id="样本展示"><a href="#样本展示" class="headerlink" title="样本展示"></a>样本展示</h3><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/3.bmp"></p>
 <p>在此处取聚类的k值为3，意思是将图片分割为3类，分别是天空、山坡和水面。</p>
-<h2 id="编程思路-1"><a href="#编程思路-1" class="headerlink" title="编程思路"></a>编程思路</h2><p>整体思路和前面的思路基本一致，只需要修改图像输入部分以及加上最后的结果图展示部分</p>
-<h3 id="图像输入"><a href="#图像输入" class="headerlink" title="图像输入"></a>图像输入</h3><p>利用<code>pillow</code>包中的<code>Imge</code>库将图片中的每一个像素点的rgb值都提取出来，成为一个行向量，然后将所有行向量拼接起来，变成一个样本矩阵。</p>
+<h3 id="编程思路-1"><a href="#编程思路-1" class="headerlink" title="编程思路"></a>编程思路</h3><p>整体思路和前面的思路基本一致，只需要修改图像输入部分以及加上最后的结果图展示部分</p>
+<h4 id="图像输入"><a href="#图像输入" class="headerlink" title="图像输入"></a>图像输入</h4><p>利用<code>pillow</code>包中的<code>Imge</code>库将图片中的每一个像素点的rgb值都提取出来，成为一个行向量，然后将所有行向量拼接起来，变成一个样本矩阵。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
 
 <span class="token comment" spellcheck="true"># 读取数据</span>
@@ -730,7 +730,7 @@ img<span class="token operator">=</span>Image<span class="token punctuation">.</
 lst<span class="token operator">=</span>list<span class="token punctuation">(</span>img<span class="token punctuation">.</span>getdata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># print(type(img.size))</span>
 data<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>lst<span class="token punctuation">)</span></code></pre>
-<h3 id="结果图展示部分"><a href="#结果图展示部分" class="headerlink" title="结果图展示部分"></a>结果图展示部分</h3><p>根据聚类得到的标签值(一个列向量)，先将它重组为一个和原图像尺寸一致的矩阵，再根据不同的类别给像素点赋上不同的RGB值，然后再根据RGB值输出图像即可</p>
+<h4 id="结果图展示部分"><a href="#结果图展示部分" class="headerlink" title="结果图展示部分"></a>结果图展示部分</h4><p>根据聚类得到的标签值(一个列向量)，先将它重组为一个和原图像尺寸一致的矩阵，再根据不同的类别给像素点赋上不同的RGB值，然后再根据RGB值输出图像即可</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
 
 <span class="token comment" spellcheck="true">## 输出分割后的图像</span>
@@ -751,12 +751,12 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
                 im<span class="token punctuation">.</span>putpixel<span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     im<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
     im<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'3-result.jpg'</span><span class="token punctuation">)</span></code></pre>
-<h2 id="结果展示-1"><a href="#结果展示-1" class="headerlink" title="结果展示"></a>结果展示</h2><p>首先来看一下轮廓系数</p>
+<h3 id="结果展示-1"><a href="#结果展示-1" class="headerlink" title="结果展示"></a>结果展示</h3><p>首先来看一下轮廓系数</p>
 <p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-01_17-51-49.jpg"></p>
 <p>轮廓系数为0.669，说明聚类的效果比较好，再来看看分割后的图像</p>
 <p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/3-result.jpg"></p>
 <p>可以看出，整体上图像分割的效果还不错，基本上将天空，山坡和水区分开来。</p>
-<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><h2 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h2><h3 id="iris"><a href="#iris" class="headerlink" title="iris"></a>iris</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><h3 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h3><h4 id="iris"><a href="#iris" class="headerlink" title="iris"></a>iris</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 <span class="token keyword">import</span> random
@@ -845,7 +845,7 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
     <span class="token comment" spellcheck="true"># print(iris.dis)</span>
     <span class="token comment" spellcheck="true"># 计算轮廓系数来评价聚类效果</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>metrics<span class="token punctuation">.</span>silhouette_score<span class="token punctuation">(</span>data<span class="token punctuation">,</span> iris<span class="token punctuation">.</span>dis<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> metric<span class="token operator">=</span><span class="token string">'euclidean'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h3 id="sonar"><a href="#sonar" class="headerlink" title="sonar"></a>sonar</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> openpyxl <span class="token keyword">import</span> load_workbook
+<h4 id="sonar"><a href="#sonar" class="headerlink" title="sonar"></a>sonar</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> openpyxl <span class="token keyword">import</span> load_workbook
 <span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">import</span> random
@@ -959,7 +959,7 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
     <span class="token comment" spellcheck="true"># 计算轮廓系数来评价聚类效果</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>metrics<span class="token punctuation">.</span>silhouette_score<span class="token punctuation">(</span>data<span class="token punctuation">,</span>\
         sonar<span class="token punctuation">.</span>dis<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> metric<span class="token operator">=</span><span class="token string">'euclidean'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h2 id="FCM-2"><a href="#FCM-2" class="headerlink" title="FCM"></a>FCM</h2><h3 id="iris-1"><a href="#iris-1" class="headerlink" title="iris"></a>iris</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
+<h3 id="FCM-2"><a href="#FCM-2" class="headerlink" title="FCM"></a>FCM</h3><h4 id="iris-1"><a href="#iris-1" class="headerlink" title="iris"></a>iris</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">import</span> random
@@ -1070,7 +1070,7 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
     <span class="token comment" spellcheck="true"># 计算轮廓系数来评价聚类效果</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>metrics<span class="token punctuation">.</span>silhouette_score\
           <span class="token punctuation">(</span>data<span class="token punctuation">,</span> iris<span class="token punctuation">.</span>target<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric<span class="token operator">=</span><span class="token string">'euclidean'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h3 id="sonar-1"><a href="#sonar-1" class="headerlink" title="sonar"></a>sonar</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> numpy<span class="token punctuation">.</span>ma<span class="token punctuation">.</span>core <span class="token keyword">import</span> argsort
+<h4 id="sonar-1"><a href="#sonar-1" class="headerlink" title="sonar"></a>sonar</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> numpy<span class="token punctuation">.</span>ma<span class="token punctuation">.</span>core <span class="token keyword">import</span> argsort
 <span class="token keyword">from</span> openpyxl <span class="token keyword">import</span> load_workbook
 <span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
@@ -1206,7 +1206,7 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
     <span class="token comment" spellcheck="true"># print(center)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>metrics<span class="token punctuation">.</span>silhouette_score<span class="token punctuation">(</span>data<span class="token punctuation">,</span> sonar<span class="token punctuation">.</span>target<span class="token punctuation">.</span>\
         reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metric<span class="token operator">=</span><span class="token string">'euclidean'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<h2 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<h3 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
 <span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics
 <span class="token keyword">import</span> random
@@ -1382,16 +1382,16 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
+                                    <span class="chip bg-color">模式识别</span>
+                                </a>
+                            
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
                                 <a href="/tags/numpy/">
                                     <span class="chip bg-color">numpy</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                                    <span class="chip bg-color">模式识别</span>
                                 </a>
                             
                         </div>
@@ -1857,16 +1857,16 @@ data<span class="token operator">=</span>np<span class="token punctuation">.</sp
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
+                        <span class="chip bg-color">模式识别</span>
+                    </a>
+                    
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
                     </a>
                     
                     <a href="/tags/numpy/">
                         <span class="chip bg-color">numpy</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">模式识别</span>
                     </a>
                     
                 </div>
