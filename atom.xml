@@ -3,11 +3,11 @@
   <title>Reset Ran&#39;s blog</title>
   
   <subtitle>在我遇见你以前，也拥有过完整的睡眠~</subtitle>
-  <link href="http://ranchongzhi.gitee.io/atom.xml" rel="self"/>
+  <link href="https://resetran.top/atom.xml" rel="self"/>
   
-  <link href="http://ranchongzhi.gitee.io/"/>
+  <link href="https://resetran.top/"/>
   <updated>2020-11-02T10:58:58.191Z</updated>
-  <id>http://ranchongzhi.gitee.io/</id>
+  <id>https://resetran.top/</id>
   
   <author>
     <name>Reset Ran</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>k-means and FCM</title>
-    <link href="http://ranchongzhi.gitee.io/k-means-fcm/"/>
-    <id>http://ranchongzhi.gitee.io/k-means-fcm/</id>
+    <link href="https://resetran.top/k-means-fcm/"/>
+    <id>https://resetran.top/k-means-fcm/</id>
     <published>2020-11-01T04:37:43.000Z</published>
     <updated>2020-11-02T10:58:58.191Z</updated>
     
@@ -35,18 +35,18 @@
     
     
     
-    <category term="模式识别" scheme="http://ranchongzhi.gitee.io/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
   <entry>
     <title>网站搭好之后怎么办</title>
-    <link href="http://ranchongzhi.gitee.io/built-blog-2/"/>
-    <id>http://ranchongzhi.gitee.io/built-blog-2/</id>
+    <link href="https://resetran.top/built-blog-2/"/>
+    <id>https://resetran.top/built-blog-2/</id>
     <published>2020-10-26T11:35:00.000Z</published>
     <updated>2020-10-29T13:04:50.648Z</updated>
     
@@ -62,16 +62,16 @@
     
     
     
-    <category term="hexo" scheme="http://ranchongzhi.gitee.io/tags/hexo/"/>
+    <category term="hexo" scheme="https://resetran.top/tags/hexo/"/>
     
-    <category term="博客搭建" scheme="http://ranchongzhi.gitee.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="https://resetran.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title>利用hexo+Gitee搭建个人网站</title>
-    <link href="http://ranchongzhi.gitee.io/built-blog-1/"/>
-    <id>http://ranchongzhi.gitee.io/built-blog-1/</id>
+    <link href="https://resetran.top/built-blog-1/"/>
+    <id>https://resetran.top/built-blog-1/</id>
     <published>2020-10-21T11:35:00.000Z</published>
     <updated>2020-10-21T13:31:34.306Z</updated>
     
@@ -87,16 +87,16 @@
     
     
     
-    <category term="hexo" scheme="http://ranchongzhi.gitee.io/tags/hexo/"/>
+    <category term="hexo" scheme="https://resetran.top/tags/hexo/"/>
     
-    <category term="博客搭建" scheme="http://ranchongzhi.gitee.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="https://resetran.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title>Fisher线性判别+KNN分类</title>
-    <link href="http://ranchongzhi.gitee.io/fisher/"/>
-    <id>http://ranchongzhi.gitee.io/fisher/</id>
+    <link href="https://resetran.top/fisher/"/>
+    <id>https://resetran.top/fisher/</id>
     <published>2020-09-27T04:37:43.000Z</published>
     <updated>2020-10-31T07:13:04.970Z</updated>
     
@@ -112,18 +112,18 @@
     
     
     
-    <category term="模式识别" scheme="http://ranchongzhi.gitee.io/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
   <entry>
     <title>python爬虫（4）——XPath语法和lxml</title>
-    <link href="http://ranchongzhi.gitee.io/python-spyder-4/"/>
-    <id>http://ranchongzhi.gitee.io/python-spyder-4/</id>
+    <link href="https://resetran.top/python-spyder-4/"/>
+    <id>https://resetran.top/python-spyder-4/</id>
     <published>2020-07-07T12:17:26.000Z</published>
     <updated>2020-10-31T07:13:26.025Z</updated>
     
@@ -139,16 +139,16 @@
     
     
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    <category term="爬虫" scheme="https://resetran.top/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>python爬虫（3）——cookie与requests库</title>
-    <link href="http://ranchongzhi.gitee.io/python-spyder-3/"/>
-    <id>http://ranchongzhi.gitee.io/python-spyder-3/</id>
+    <link href="https://resetran.top/python-spyder-3/"/>
+    <id>https://resetran.top/python-spyder-3/</id>
     <published>2020-07-05T03:50:25.000Z</published>
     <updated>2020-10-21T11:40:30.551Z</updated>
     
@@ -164,16 +164,16 @@
     
     
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    <category term="爬虫" scheme="https://resetran.top/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>python爬虫（2）——urllib库</title>
-    <link href="http://ranchongzhi.gitee.io/python-spyder-2/"/>
-    <id>http://ranchongzhi.gitee.io/python-spyder-2/</id>
+    <link href="https://resetran.top/python-spyder-2/"/>
+    <id>https://resetran.top/python-spyder-2/</id>
     <published>2020-07-02T10:15:26.000Z</published>
     <updated>2020-10-22T14:18:30.468Z</updated>
     
@@ -189,16 +189,16 @@
     
     
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    <category term="爬虫" scheme="https://resetran.top/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>python爬虫（1）——前置知识</title>
-    <link href="http://ranchongzhi.gitee.io/python-spyder-1/"/>
-    <id>http://ranchongzhi.gitee.io/python-spyder-1/</id>
+    <link href="https://resetran.top/python-spyder-1/"/>
+    <id>https://resetran.top/python-spyder-1/</id>
     <published>2020-07-02T08:35:41.000Z</published>
     <updated>2020-10-18T13:23:09.947Z</updated>
     
@@ -215,16 +215,16 @@
     
     
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="爬虫" scheme="http://ranchongzhi.gitee.io/tags/%E7%88%AC%E8%99%AB/"/>
+    <category term="爬虫" scheme="https://resetran.top/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>python学习笔记——numpy（2）</title>
-    <link href="http://ranchongzhi.gitee.io/numpy-2/"/>
-    <id>http://ranchongzhi.gitee.io/numpy-2/</id>
+    <link href="https://resetran.top/numpy-2/"/>
+    <id>https://resetran.top/numpy-2/</id>
     <published>2020-06-16T11:37:26.000Z</published>
     <updated>2020-10-18T13:17:16.988Z</updated>
     
@@ -241,18 +241,18 @@
     
     
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
     
   </entry>
   
   <entry>
     <title>python学习笔记——numpy（1）</title>
-    <link href="http://ranchongzhi.gitee.io/numpy-1/"/>
-    <id>http://ranchongzhi.gitee.io/numpy-1/</id>
+    <link href="https://resetran.top/numpy-1/"/>
+    <id>https://resetran.top/numpy-1/</id>
     <published>2020-06-14T12:50:20.000Z</published>
-    <updated>2020-10-18T13:16:33.461Z</updated>
+    <updated>2020-11-08T12:27:40.941Z</updated>
     
     
       
@@ -266,16 +266,16 @@
     
     
     
-    <category term="python" scheme="http://ranchongzhi.gitee.io/tags/python/"/>
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
-    <category term="numpy" scheme="http://ranchongzhi.gitee.io/tags/numpy/"/>
+    <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
     
   </entry>
   
   <entry>
     <title>常见聚类模型</title>
-    <link href="http://ranchongzhi.gitee.io/julei/"/>
-    <id>http://ranchongzhi.gitee.io/julei/</id>
+    <link href="https://resetran.top/julei/"/>
+    <id>https://resetran.top/julei/</id>
     <published>2020-03-27T04:37:43.000Z</published>
     <updated>2020-10-16T16:19:10.650Z</updated>
     
@@ -292,7 +292,7 @@
     
     
     
-    <category term="数模" scheme="http://ranchongzhi.gitee.io/tags/%E6%95%B0%E6%A8%A1/"/>
+    <category term="数模" scheme="https://resetran.top/tags/%E6%95%B0%E6%A8%A1/"/>
     
   </entry>
   
