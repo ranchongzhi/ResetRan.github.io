@@ -436,7 +436,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    796
+                    812
                 </div>
                 
 
@@ -460,77 +460,77 @@
 <span class="token operator">>></span><span class="token operator">></span> type<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
 <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'list'</span><span class="token operator">></span></code></pre>
 <p>其中name就是一个list，用len函数可以获取列表元素的个数：</p>
-<pre class=" language-py"><code class="language-py">>>> len(name)
-3</code></pre>
-<h2 id="1-索引操作"><a href="#1-索引操作" class="headerlink" title="1.索引操作"></a>1.索引操作</h2><pre class=" language-py"><code class="language-py">>>> name[1]#正向索引（左往右索引，从0开始）
-'Lucy'
->>> name[-1]#负向索引（右往左索引，从-1开始）
-'Jane'
->>> name[3]#正向索引越界
-Traceback (most recent call last):
-  File "<pyshell#6>", line 1, in <module>
-    name[3]
-IndexError: list index out of range
->>> name[-4]#负向索引越界
-Traceback (most recent call last):
-  File "<pyshell#8>", line 1, in <module>
-    name[-4]
-IndexError: list index out of range</code></pre>
-<h2 id="2-添加元素"><a href="#2-添加元素" class="headerlink" title="2.添加元素"></a>2.添加元素</h2><pre class=" language-py"><code class="language-py">#添加元素到列表末尾
->>> name.append('Bob')
->>> name
-['Mike', 'Lucy', 'Jane', 'Bob']
-#在列表中指定位置插入新元素
->>> name.insert(1,'Nike')#将新元素插入到列表中索引为1的元素之前
->>> name
-['Mike', 'Nike', 'Lucy', 'Jane', 'Bob']</code></pre>
-<h2 id="3-删除元素"><a href="#3-删除元素" class="headerlink" title="3.删除元素"></a>3.删除元素</h2><pre class=" language-py"><code class="language-py">#删除列表最后一个元素
->>> name.pop()
-'Bob'
->>> name
-['Mike', 'Nike', 'Lucy', 'Jane']
-#删除列表指定位置的元素
->>> name.pop(1)#删除列表中索引为1的元素
-'Nike'
->>> name
-['Mike', 'Lucy', 'Jane']</code></pre>
-<h2 id="4-元素的替换"><a href="#4-元素的替换" class="headerlink" title="4.元素的替换"></a>4.元素的替换</h2><pre class=" language-py"><code class="language-py">#直接采用索引赋值的方式即可
->>> name[1]='Peter'
->>> name
-['Mike', 'Peter', 'Jane']</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> len<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token number">3</span></code></pre>
+<h2 id="1-索引操作"><a href="#1-索引操作" class="headerlink" title="1.索引操作"></a>1.索引操作</h2><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#正向索引（左往右索引，从0开始）</span>
+<span class="token string">'Lucy'</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#负向索引（右往左索引，从-1开始）</span>
+<span class="token string">'Jane'</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#正向索引越界</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"&lt;pyshell#6>"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    name<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+IndexError<span class="token punctuation">:</span> list index out of range
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#负向索引越界</span>
+Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  File <span class="token string">"&lt;pyshell#8>"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+    name<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span>
+IndexError<span class="token punctuation">:</span> list index out of range</code></pre>
+<h2 id="2-添加元素"><a href="#2-添加元素" class="headerlink" title="2.添加元素"></a>2.添加元素</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#添加元素到列表末尾</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> name
+<span class="token punctuation">[</span><span class="token string">'Mike'</span><span class="token punctuation">,</span> <span class="token string">'Lucy'</span><span class="token punctuation">,</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> <span class="token string">'Bob'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#在列表中指定位置插入新元素</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Nike'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#将新元素插入到列表中索引为1的元素之前</span>
+<span class="token operator">>></span><span class="token operator">></span> name
+<span class="token punctuation">[</span><span class="token string">'Mike'</span><span class="token punctuation">,</span> <span class="token string">'Nike'</span><span class="token punctuation">,</span> <span class="token string">'Lucy'</span><span class="token punctuation">,</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> <span class="token string">'Bob'</span><span class="token punctuation">]</span></code></pre>
+<h2 id="3-删除元素"><a href="#3-删除元素" class="headerlink" title="3.删除元素"></a>3.删除元素</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#删除列表最后一个元素</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token string">'Bob'</span>
+<span class="token operator">>></span><span class="token operator">></span> name
+<span class="token punctuation">[</span><span class="token string">'Mike'</span><span class="token punctuation">,</span> <span class="token string">'Nike'</span><span class="token punctuation">,</span> <span class="token string">'Lucy'</span><span class="token punctuation">,</span> <span class="token string">'Jane'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#删除列表指定位置的元素</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#删除列表中索引为1的元素</span>
+<span class="token string">'Nike'</span>
+<span class="token operator">>></span><span class="token operator">></span> name
+<span class="token punctuation">[</span><span class="token string">'Mike'</span><span class="token punctuation">,</span> <span class="token string">'Lucy'</span><span class="token punctuation">,</span> <span class="token string">'Jane'</span><span class="token punctuation">]</span></code></pre>
+<h2 id="4-元素的替换"><a href="#4-元素的替换" class="headerlink" title="4.元素的替换"></a>4.元素的替换</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#直接采用索引赋值的方式即可</span>
+<span class="token operator">>></span><span class="token operator">></span> name<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'Peter'</span>
+<span class="token operator">>></span><span class="token operator">></span> name
+<span class="token punctuation">[</span><span class="token string">'Mike'</span><span class="token punctuation">,</span> <span class="token string">'Peter'</span><span class="token punctuation">,</span> <span class="token string">'Jane'</span><span class="token punctuation">]</span></code></pre>
 <h2 id="5-补充"><a href="#5-补充" class="headerlink" title="5.补充"></a>5.补充</h2><p>list的元素类型可以不同，如</p>
-<pre class=" language-py"><code class="language-py">>>> L = ['Apple', 123, True]</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> L <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">]</span></code></pre>
 <p>list的元素也可以是另外一个list，如</p>
-<pre class=" language-py"><code class="language-py">>>> s = ['python', 'java', ['asp', 'php'], 'scheme']
->>> len(s)
-4</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> s <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'python'</span><span class="token punctuation">,</span> <span class="token string">'java'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'asp'</span><span class="token punctuation">,</span> <span class="token string">'php'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'scheme'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token number">4</span></code></pre>
 <p> 要拿到<code>&#39;php&#39;</code>可以用<code>s[2][1]</code>，因此s可以看成是一个二维数组，类似的还有三维、四维……数组，不过很少用到。<br>如果一个list中一个元素也没有，就是一个空的list，它的长度为0：</p>
-<pre class=" language-py"><code class="language-py">>>> L = []
->>> len(L)
-0</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> L <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> len<span class="token punctuation">(</span>L<span class="token punctuation">)</span>
+<span class="token number">0</span></code></pre>
 <h1 id="二、元组（tuple）"><a href="#二、元组（tuple）" class="headerlink" title="二、元组（tuple）"></a>二、元组（tuple）</h1><p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改，比如同样是列出同学的名字：</p>
-<pre class=" language-py"><code class="language-py">>>> classmates = ('Michael', 'Bob', 'Tracy')</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> classmates <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'Michael'</span><span class="token punctuation">,</span> <span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'Tracy'</span><span class="token punctuation">)</span></code></pre>
 <p>现在，<code>classmates</code>这个<code>tuple</code>不能变了，它也没有<code>append()</code>，<code>insert()</code>这样的方法。其他获取元素的方法和list是一样的，也可以正常地使用<code>classmates[0]</code>，<code>classmates[-1]</code>，但不能赋值成另外的元素。<br>不可变的tuple可以使代码更安全。如果可能，能用tuple代替list就尽量用tuple。<br>tuple的陷阱：当你定义一个tuple时，在定义的时候，tuple的元素就必须被确定下来，比如：</p>
-<pre class=" language-py"><code class="language-py">>>> t = (1, 2)
->>> t
-(1, 2)
-#定义空元组
->>> t=()
->>> t
-()
-#定义只有一个元素的元组（要在元素后面加上逗号）
->>> tuple_1=(1)
->>> type(tuple_1)
-<class 'int'>
->>> tuple_2=(1,)
->>> type(tuple_2)
-<class 'tuple'></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> t
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#定义空元组</span>
+<span class="token operator">>></span><span class="token operator">></span> t<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> t
+<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#定义只有一个元素的元组（要在元素后面加上逗号）</span>
+<span class="token operator">>></span><span class="token operator">></span> tuple_1<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> type<span class="token punctuation">(</span>tuple_1<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> tuple_2<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> type<span class="token punctuation">(</span>tuple_2<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'tuple'</span><span class="token operator">></span></code></pre>
 <p>注意：元组里的元素如果有列表，那么该列表里的元素可以改变，因为此时元组里的元素其实是没有改变的，tuple指向的那个list还是那个list。所以，tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。即指向<code>&#39;a&#39;</code>，就不能改成指向<code>&#39;b&#39;</code>，指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！例子：</p>
-<pre class=" language-py"><code class="language-py">>>> t = ('a', 'b', ['A', 'B'])
->>> t[2][0] = 'X'
->>> t[2][1] = 'Y'
->>> t
-('a', 'b', ['X', 'Y'])</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> t<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'X'</span>
+<span class="token operator">>></span><span class="token operator">></span> t<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Y'</span>
+<span class="token operator">>></span><span class="token operator">></span> t
+<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'X'</span><span class="token punctuation">,</span> <span class="token string">'Y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>此时运行不报错，说明该元组是“可变的”</p>
 
             </div>

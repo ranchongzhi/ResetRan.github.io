@@ -456,81 +456,81 @@
                 <p>读写文件是最常见的IO操作。Python内置了读写文件的函数，用法和C是兼容的。</p>
 <p>在磁盘上读写文件的功能都是由操作系统提供的，现代操作系统不允许普通的程序直接操作磁盘，所以，读写文件就是请求操作系统打开一个文件对象（通常称为文件描述符），然后，通过操作系统提供的接口从这个文件对象中读取数据（读文件），或者把数据写入这个文件对象（写文件）。</p>
 <h2 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h2><p>要以读文件的模式打开一个文件对象，使用Python内置的open()函数，传入文件名和标示符要注意的是：文件使用完毕后必须关闭，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限的，例子如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1591280519170.jpg"><br>使用open语句读取文件内全部字符：</p>
-<pre class=" language-py"><code class="language-py">#读取txt文件
-f=open('1.txt','r')#r表示以只读方式打开文件
-print(f.read())#read方法读取所有字符
-f.close()
-#输出如下：
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#读取txt文件</span>
+f<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#r表示以只读方式打开文件</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#read方法读取所有字符</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
 python
 java
 c
-c++</code></pre>
+c<span class="token operator">+</span><span class="token operator">+</span></code></pre>
 <p>由于文件路径以及其他原因，open语句经常会报错<code>IOError</code>，报错之后<code>f.close()</code>就不会再被执行了，这是我们不想看到的，所以可以使用<code>try</code>语句改进上面的代码，如下：</p>
-<pre class=" language-py"><code class="language-py">try:
-    f=open('1.txt','r')
-    print(f.read())
-except:
-    if f:
-        f.close()
-###输出如下：
+<pre class=" language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    f<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">###输出如下：</span>
 python
 java
 c
-c++</code></pre>
+c<span class="token operator">+</span><span class="token operator">+</span></code></pre>
 <p>但这样又显得代码量较大，这与<a href="https://blog.csdn.net/Albert_1000/article/details/89494512" target="_blank" rel="noopener">python之禅</a>是相违背的，因此<code>with</code>语句就诞生了，该语句会在执行时自动帮我们调用<code>close</code>方法，改进后的代码如下：</p>
-<pre class=" language-py"><code class="language-py">with open('1.txt','r') as f:
-    print(f.read())
-###输出如下：
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">###输出如下：</span>
 python
 java
 c
-c++</code></pre>
+c<span class="token operator">+</span><span class="token operator">+</span></code></pre>
 <p>两行代码既稳定又简洁的读取了文件内容。</p>
 <p>调用<code>read()</code>会一次性读取文件的全部内容，如果文件有10G，内存就爆了，所以，要保险起见，可以反复调用<code>read(size)</code>方法，每次最多读取<code>size</code>个字节的内容。另外，调用<code>readline()</code>可以每次读取一行内容，调用<code>readlines()</code>一次读取所有内容并按行返回list。因此，可以根据需要决定怎么调用。例如还是读取刚才的文件：</p>
-<pre class=" language-py"><code class="language-py">with open('1.txt','r') as f:
-    print(f.readlines())
-#输出如下：
-['python\n', 'java\n', 'c\n', 'c++']</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
+<span class="token punctuation">[</span><span class="token string">'python\n'</span><span class="token punctuation">,</span> <span class="token string">'java\n'</span><span class="token punctuation">,</span> <span class="token string">'c\n'</span><span class="token punctuation">,</span> <span class="token string">'c++'</span><span class="token punctuation">]</span></code></pre>
 <h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><p>写入文件之前也需要先用<code>open</code>方法打开文件，例子如下：</p>
-<pre class=" language-py"><code class="language-py">with open('1.txt', 'r+') as f:#r+表示可读可写模式
-    print(f.read())
-    f.write('\ngo')
-print("写入后的文件：")
-with open('1.txt', 'r') as f:
-    print(f.read())
-#输出如下：
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span> <span class="token string">'r+'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#r+表示可读可写模式</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\ngo'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"写入后的文件："</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
 python
 java
 c
-c++
+c<span class="token operator">+</span><span class="token operator">+</span>
 写入后的文件：
 python
 java
 c
-c++
+c<span class="token operator">+</span><span class="token operator">+</span>
 go</code></pre>
 <p>可以看出，<code>r+</code>模式下写入字符，是直接在文本末尾添加字符的，而另外一种写入模式<code>w</code>与此不同：</p>
-<pre class=" language-py"><code class="language-py">with open('1.txt', 'r') as f:#r+表示可读可写模式
-    print(f.read())
-with open('1.txt','w') as f:
-    f.write('go')
-print("写入后的文件：")
-with open('1.txt', 'r') as f:
-    print(f.read())
-#输出如下：
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#r+表示可读可写模式</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'go'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"写入后的文件："</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出如下：</span>
 python
 java
 c
-c++
+c<span class="token operator">+</span><span class="token operator">+</span>
 写入后的文件：
 go</code></pre>
 <p>可以看出，<code>w</code>模式下写入会直接覆盖掉原有字符，相当于把原文件内容清空在写入新字符</p>
 <h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>读取文件和写入文件默认的编码都是<code>UTF-8</code>，如果被读文件不是以该方式编码的，那么读取出来的内容就会出现乱码的情况，这个时候只需要向<code>open</code>函数里传入一个<code>encoding</code>参数即可</p>
-<pre class=" language-py"><code class="language-py">with open('1.txt', 'r',encoding='gbk') as f:#r+表示可读可写模式
-    print(f.read())</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'gbk'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#r+表示可读可写模式</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>遇到有些编码不规范的文件，直接读取可能会报错，因为在文本文件中可能夹杂了一些非法编码的字符。遇到这种情况，<code>open()</code>函数还可以接收一个<code>errors</code>参数，表示如果遇到编码错误后如何处理。最简单的方式是直接忽略：</p>
-<pre class=" language-py"><code class="language-py">with open('1.txt', 'r',encoding='gbk',errors='ignore') as f:#r+表示可读可写模式
-    print(f.read())</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'gbk'</span><span class="token punctuation">,</span>errors<span class="token operator">=</span><span class="token string">'ignore'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#r+表示可读可写模式</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h2 id="最后附上所有文件读写模式表"><a href="#最后附上所有文件读写模式表" class="headerlink" title="最后附上所有文件读写模式表"></a>最后附上所有文件读写模式表</h2><table>
 <thead>
 <tr>
