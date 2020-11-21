@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>python学习笔记——pandas（1）</title>
+      <link href="pandas-1/"/>
+      <url>pandas-1/</url>
+      
+        <content type="html"><![CDATA[<p>如果利用python数据分析，基本上都会用到numpy和pandas这两货，前面学了一点numpy，现在慢慢写点pandas的学习笔记</p><h2 id="numpy和pandas有啥区别"><a href="#numpy和pandas有啥区别" class="headerlink" title="numpy和pandas有啥区别"></a>numpy和pandas有啥区别</h2><p>emmm。。。。以我现在这个初学者的角度来看，numpy处理的对象主要是数字，主要用于矩阵运算，底层是c，运算速度蛮不错；而pandas处理的内容可以是很多种，而且一个DataFrame里边还能有不同类型的元素，但运算方面就没有numpy那么猛了。其实我觉得二者不适合拿来对比，各有各的专长，至于我为什么要写，嗯是因为我想凑点字数😂😂。</p><h2 id="安装pandas"><a href="#安装pandas" class="headerlink" title="安装pandas"></a>安装pandas</h2><p>安装直接<code>pip install pandas</code>即可，已安装显示如下：</p><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-18_19-30-36.jpg"></p><p>还是可以用打印版本号的方法检查是否安装成功：</p><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd<span class="token operator">>></span><span class="token operator">></span> pd<span class="token punctuation">.</span>__version__<span class="token comment" spellcheck="true">## '0.25.1'</span></code></pre><h2 id="两个常用的类"><a href="#两个常用的类" class="headerlink" title="两个常用的类"></a>两个常用的类</h2><p>pandas里有两个常用的工具数据结构：Series和DataFrame。尽管他们并不能解决所有问题，但他们为大多数应用提供了一个有效、易用的基础。在这里先简单介绍一下，后续再做深入的剖析。</p><h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>Series是一种一维的数据对象，它包含了一个值序列（这里的值可以是很多种类型），并且包含了数据标签，称之为索引（index）。其实个人感觉可以参照字典来理解，感觉差不多。</p><h4 id="创建一个简单的Series类"><a href="#创建一个简单的Series类" class="headerlink" title="创建一个简单的Series类"></a>创建一个简单的Series类</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">>></span><span class="token operator">></span> obj<span class="token number">0</span>    <span class="token number">4</span><span class="token number">1</span>    <span class="token number">5</span><span class="token number">2</span>    <span class="token number">6</span><span class="token number">3</span>    <span class="token number">7</span>dtype<span class="token punctuation">:</span> int64</code></pre><p>可以看到出现了两列内容，左边那一列表示的就是index，右边是values，可以看出如果不指定的话，<code>pd.Series()</code>生成的索引（index）就是从0到N-1（N表示数据的长度）。可以通过调用values属性和index属性分别查看Series对象的内容和索引</p><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj<span class="token punctuation">.</span>valuesarray<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>int64<span class="token punctuation">)</span><span class="token operator">>></span><span class="token operator">></span> obj<span class="token punctuation">.</span>indexRangeIndex<span class="token punctuation">(</span>start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> stop<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre><p>这里的<code>RangeIndex(start=0, stop=4, step=1)</code>就有点类似于<code>range(0,4,1)</code></p><h4 id="创建一个索引序列"><a href="#创建一个索引序列" class="headerlink" title="创建一个索引序列"></a>创建一个索引序列</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">>></span><span class="token operator">></span> obj2a    <span class="token number">1</span>b    <span class="token number">2</span>c    <span class="token number">3</span>d    <span class="token number">4</span>dtype<span class="token punctuation">:</span> int64</code></pre><h4 id="通过字典来创建一个Series"><a href="#通过字典来创建一个Series" class="headerlink" title="通过字典来创建一个Series"></a>通过字典来创建一个Series</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> dic<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'Tom'</span><span class="token punctuation">:</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token string">'Lily'</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token string">'Mike'</span><span class="token punctuation">:</span><span class="token number">66</span><span class="token punctuation">}</span><span class="token operator">>></span><span class="token operator">></span> obj3<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>dic<span class="token punctuation">)</span><span class="token operator">>></span><span class="token operator">></span> obj3Tom     <span class="token number">90</span>Lily    <span class="token number">80</span>Mike    <span class="token number">66</span>dtype<span class="token punctuation">:</span> int64</code></pre><h4 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h4><p>选择数据时可以使用标签来进行索引，也可以对选择到的value值进行赋新值</p><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token number">1</span><span class="token comment" spellcheck="true">## 也可以索引多个值</span><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>a    <span class="token number">1</span>b    <span class="token number">2</span>d    <span class="token number">4</span>dtype<span class="token punctuation">:</span> int64<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">5</span><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token number">5</span></code></pre><h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> pandas </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>k-means and FCM</title>
       <link href="k-means-fcm/"/>
       <url>k-means-fcm/</url>
@@ -14,11 +35,11 @@
       
         <tags>
             
-            <tag> 模式识别 </tag>
-            
             <tag> python </tag>
             
             <tag> numpy </tag>
+            
+            <tag> 模式识别 </tag>
             
         </tags>
       
@@ -79,11 +100,11 @@
       
         <tags>
             
-            <tag> 模式识别 </tag>
-            
             <tag> python </tag>
             
             <tag> numpy </tag>
+            
+            <tag> 模式识别 </tag>
             
         </tags>
       

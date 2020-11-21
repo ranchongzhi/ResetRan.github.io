@@ -6,7 +6,7 @@
   <link href="https://resetran.top/atom.xml" rel="self"/>
   
   <link href="https://resetran.top/"/>
-  <updated>2020-11-02T10:58:58.191Z</updated>
+  <updated>2020-11-18T13:24:07.832Z</updated>
   <id>https://resetran.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python学习笔记——pandas（1）</title>
+    <link href="https://resetran.top/pandas-1/"/>
+    <id>https://resetran.top/pandas-1/</id>
+    <published>2020-11-18T12:50:20.000Z</published>
+    <updated>2020-11-18T13:24:07.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果利用python数据分析，基本上都会用到numpy和pandas这两货，前面学了一点numpy，现在慢慢写点pandas的学习笔记&lt;/p&gt;
+&lt;h2 id=&quot;numpy和pandas有啥区别&quot;&gt;&lt;a href=&quot;#numpy和pandas有啥区别&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
+    
+    <category term="pandas" scheme="https://resetran.top/tags/pandas/"/>
+    
+  </entry>
   
   <entry>
     <title>k-means and FCM</title>
@@ -35,11 +61,11 @@
     
     
     
-    <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
+    
+    <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
@@ -112,11 +138,11 @@
     
     
     
-    <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
+    
+    <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
