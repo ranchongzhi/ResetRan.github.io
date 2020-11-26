@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python学习笔记——pandas（1）, Reset Ran&#39;s blog">
+    <meta name="keywords" content="最小网络节点覆盖问题, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python学习笔记——pandas（1） | Reset Ran&#39;s blog</title>
+    <title>最小网络节点覆盖问题 | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/224.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/226.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python学习笔记——pandas（1）</h1>
+                    <h1 class="description center-align post-title">最小网络节点覆盖问题</h1>
                 </div>
             </div>
         </div>
@@ -415,8 +415,8 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/pandas/">
-                                <span class="chip bg-color">pandas</span>
+                            <a href="/tags/%E9%9B%AA%E5%A0%86%E5%8D%9A%E5%BC%88/">
+                                <span class="chip bg-color">雪堆博弈</span>
                             </a>
                         
                     </div>
@@ -431,7 +431,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-18
+                    2020-11-26
                 </div>
                 
 
@@ -440,14 +440,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -457,56 +457,153 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如果利用python数据分析，基本上都会用到numpy和pandas这两货，前面学了一点numpy，现在慢慢写点pandas的学习笔记</p>
-<h2 id="numpy和pandas有啥区别"><a href="#numpy和pandas有啥区别" class="headerlink" title="numpy和pandas有啥区别"></a>numpy和pandas有啥区别</h2><p>emmm。。。。以我现在这个初学者的角度来看，numpy处理的对象主要是数字，主要用于矩阵运算，底层是c，运算速度蛮不错；而pandas处理的内容可以是很多种，而且一个DataFrame里边还能有不同类型的元素，但运算方面就没有numpy那么猛了。其实我觉得二者不适合拿来对比，各有各的专长，至于我为什么要写，嗯是因为我想凑点字数😂😂。</p>
-<h2 id="安装pandas"><a href="#安装pandas" class="headerlink" title="安装pandas"></a>安装pandas</h2><p>安装直接<code>pip install pandas</code>即可，已安装显示如下：</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-18_19-30-36.jpg"></p>
-<p>还是可以用打印版本号的方法检查是否安装成功：</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token operator">>></span><span class="token operator">></span> pd<span class="token punctuation">.</span>__version__
-<span class="token comment" spellcheck="true">## '0.25.1'</span></code></pre>
-<h2 id="两个常用的类"><a href="#两个常用的类" class="headerlink" title="两个常用的类"></a>两个常用的类</h2><p>pandas里有两个常用的工具数据结构：Series和DataFrame。尽管他们并不能解决所有问题，但他们为大多数应用提供了一个有效、易用的基础。在这里先简单介绍一下，后续再做深入的剖析。</p>
-<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>Series是一种一维的数据对象，它包含了一个值序列（这里的值可以是很多种类型），并且包含了数据标签，称之为索引（index）。其实个人感觉可以参照字典来理解，感觉差不多。</p>
-<h4 id="创建一个简单的Series类"><a href="#创建一个简单的Series类" class="headerlink" title="创建一个简单的Series类"></a>创建一个简单的Series类</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj
-<span class="token number">0</span>    <span class="token number">4</span>
-<span class="token number">1</span>    <span class="token number">5</span>
-<span class="token number">2</span>    <span class="token number">6</span>
-<span class="token number">3</span>    <span class="token number">7</span>
-dtype<span class="token punctuation">:</span> int64</code></pre>
-<p>可以看到出现了两列内容，左边那一列表示的就是index，右边是values，可以看出如果不指定的话，<code>pd.Series()</code>生成的索引（index）就是从0到N-1（N表示数据的长度）。可以通过调用values属性和index属性分别查看Series对象的内容和索引</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj<span class="token punctuation">.</span>values
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>int64<span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj<span class="token punctuation">.</span>index
-RangeIndex<span class="token punctuation">(</span>start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> stop<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
-<p>这里的<code>RangeIndex(start=0, stop=4, step=1)</code>就有点类似于<code>range(0,4,1)</code></p>
-<h4 id="创建一个索引序列"><a href="#创建一个索引序列" class="headerlink" title="创建一个索引序列"></a>创建一个索引序列</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj2
-a    <span class="token number">1</span>
-b    <span class="token number">2</span>
-c    <span class="token number">3</span>
-d    <span class="token number">4</span>
-dtype<span class="token punctuation">:</span> int64</code></pre>
-<h4 id="通过字典来创建一个Series"><a href="#通过字典来创建一个Series" class="headerlink" title="通过字典来创建一个Series"></a>通过字典来创建一个Series</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> dic<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'Tom'</span><span class="token punctuation">:</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token string">'Lily'</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token string">'Mike'</span><span class="token punctuation">:</span><span class="token number">66</span><span class="token punctuation">}</span>
-<span class="token operator">>></span><span class="token operator">></span> obj3<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>dic<span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj3
-Tom     <span class="token number">90</span>
-Lily    <span class="token number">80</span>
-Mike    <span class="token number">66</span>
-dtype<span class="token punctuation">:</span> int64</code></pre>
-<h4 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h4><p>选择数据时可以使用标签来进行索引，也可以对选择到的value值进行赋新值</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span>
-<span class="token number">1</span>
-<span class="token comment" spellcheck="true">## 也可以索引多个值</span>
-<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-a    <span class="token number">1</span>
-b    <span class="token number">2</span>
-d    <span class="token number">4</span>
-dtype<span class="token punctuation">:</span> int64
-<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">5</span>
-<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span>
-<span class="token number">5</span></code></pre>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3>
+                <h2 id="题目简述"><a href="#题目简述" class="headerlink" title="题目简述"></a>题目简述</h2><p>证明：当雪堆博弈满足$r&lt;\frac{1}{k_{max}}$时，网络博弈的纳什均衡中的采样合作策略的节点构成极小节点覆盖。（作业：自己编写程序验证这个结论，网络可自定，节点数目不少于20）</p>
+<h2 id="问题背景简述"><a href="#问题背景简述" class="headerlink" title="问题背景简述"></a>问题背景简述</h2><h3 id="雪堆博弈"><a href="#雪堆博弈" class="headerlink" title="雪堆博弈"></a>雪堆博弈</h3><p>在一个风雪交加的夜晚，两人相向而来，被一个雪堆所阻，假设铲除这个雪堆使道路通畅需要的代价为c，如果道路通畅则带给每个人的好处量化为<code>b</code>。如果两人一齐动手铲雪，则他们的收益为<code>R=b-c/2</code>；如果只有一人铲雪，虽然两个人都可以回家，但是背叛者逃避了劳动，它的收益为<code>T=b</code>，而合作者的收益为<code>S=b-c</code>；如果两人都选择不合作，两人都被雪堆挡住而无法回家，他们的收益都为<code>P=0</code>。这里假设收益参数满足下面的条件：<code>T&gt;R&gt;S&gt;P</code>。</p>
+<h3 id="纳什均衡"><a href="#纳什均衡" class="headerlink" title="纳什均衡"></a>纳什均衡</h3><p>在博弈论中，如果每个参与者都选择了自己的策略，并且没有玩家可以透过改变策略而其他参与者保持不变而获益，那么当前的策略选择的集合及其相应的结果构成了纳什均衡。即若$\displaystyle p_{i} (s)=max_{r_{i}}[p_i(s;r_i)]$，则称<em>s</em>为纳什均衡点，其中：$p_i$为参与者i的收获（payoff），$s_{i}$代表所有参与者之策略，$r_{i}$代表参与者i的一种可能策略，$(s;r_i)$指参与者i单方面改变策略为$r_i$。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>python=3.7.4</p>
+<p>Windows10</p>
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><ol>
+<li>给每个节点的初始状态随机设置为<code>C</code>或者<code>D</code></li>
+<li>依次计算每个节点采用<code>C</code>行为和<code>D</code>行为的收益，通过改变策略使收益最大</li>
+<li>重复步骤2直到每个节点的状态信息不再发生变化</li>
+</ol>
+<p>采取不同策略时，收益表如下：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-25_16-19-02.png"></p>
+<h2 id="迭代流程图"><a href="#迭代流程图" class="headerlink" title="迭代流程图"></a>迭代流程图</h2><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/%E6%B5%81%E7%A8%8B.png"></p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>本次实验选取的网络结构如下：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/graph_1.png" style="zoom:200%;" />
+
+<p>运行之后，结果如下：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-26_16-41-14.png"></p>
+<p>其中第一列表示节点序号，第二列表示节点当前的策略，第三列表示执行当前策略的收益值，最后一行表示总的收益。结果图像如下：</p>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/graph_2.png" style="zoom:200%;" />
+
+<p>其中红色表示策略D，蓝色表示策略C</p>
+<p>多次实验后，我们发现每一次网络满足纳什均衡的策略组合都能满足最小节点覆盖。雪堆博弈模型在实现的方面较很多网络算法更为简单，且一定能够搜索到极小节点覆盖，具有很强的实用性。同时，作为博弈论模型，反映出个体在博弈中寻求最大利益的属性，使得整个群体在数次迭代后趋向于一个对整体较为有利的情况，也就是每条边两端都有至少有一个C节点使得该边得以通行，使得整个群体得到最大的利益。</p>
+<h2 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> random
+
+<span class="token comment" spellcheck="true"># 收益矩阵</span>
+r<span class="token operator">=</span><span class="token number">0.02</span>
+interest<span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token string">'C'</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">'C'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>r<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'D'</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">'C'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span>r<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">-</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 结点数据结构</span>
+<span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>state<span class="token operator">=</span><span class="token string">'C'</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>state<span class="token operator">=</span><span class="token string">'D'</span>
+        self<span class="token punctuation">.</span>value<span class="token operator">=</span><span class="token number">0</span>
+        self<span class="token punctuation">.</span>all_value<span class="token operator">=</span><span class="token number">0</span>
+        self<span class="token punctuation">.</span>neighbour_number<span class="token operator">=</span><span class="token number">0</span>
+        self<span class="token punctuation">.</span>nb<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">pass</span>
+    <span class="token keyword">pass</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Network</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>numbers<span class="token operator">=</span>n
+        self<span class="token punctuation">.</span>nodes<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>edges<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>generateNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 生成n个结点</span>
+    <span class="token keyword">def</span> <span class="token function">generateNode</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            tmp_node <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>nodes<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp_node<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">addEgde</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>es<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> e <span class="token keyword">in</span> es<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>edges<span class="token punctuation">.</span>append<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 保存结点的邻居</span>
+    <span class="token keyword">def</span> <span class="token function">saveNb</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> self<span class="token punctuation">.</span>edges<span class="token punctuation">:</span>
+            a<span class="token punctuation">.</span>nb<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">.</span>index<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            b<span class="token punctuation">.</span>nb<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">.</span>index<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>neighbour_number<span class="token operator">=</span>len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nb<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 计算每个结点的平均收益</span>
+    <span class="token keyword">def</span> <span class="token function">calValue</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>all_value<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> self<span class="token punctuation">.</span>edges<span class="token punctuation">:</span>
+            a<span class="token punctuation">.</span>all_value<span class="token operator">+=</span>interest<span class="token punctuation">[</span>a<span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            b<span class="token punctuation">.</span>all_value<span class="token operator">+=</span>interest<span class="token punctuation">[</span>a<span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token operator">=</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>all_value<span class="token operator">/</span>self<span class="token punctuation">.</span>nodes\
+                <span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>neighbour_number
+    <span class="token comment" spellcheck="true"># 最优邻居法更新状态</span>
+    <span class="token keyword">def</span> <span class="token function">updateState</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            max_value<span class="token operator">=</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>value
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>neighbour_number<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nb<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token operator">></span>\
+                    max_value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>state<span class="token operator">=</span>self<span class="token punctuation">.</span>nodes\
+                        <span class="token punctuation">[</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nb<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>state
+                    max_value<span class="token operator">=</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nb<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value
+    <span class="token comment" spellcheck="true"># 计算单个结点的收益</span>
+    <span class="token keyword">def</span> <span class="token function">getReward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        all_value<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> s <span class="token keyword">in</span>  self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>nb<span class="token punctuation">:</span>
+            all_value<span class="token operator">+=</span>interest<span class="token punctuation">[</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span>self<span class="token punctuation">.</span>nodes\
+                <span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        value <span class="token operator">=</span> all_value <span class="token operator">/</span> self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>neighbour_number
+        <span class="token keyword">return</span> value
+    <span class="token comment" spellcheck="true"># 获得总收益</span>
+    <span class="token keyword">def</span> <span class="token function">getAllReward</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>reward <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> self<span class="token punctuation">.</span>edges<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>reward<span class="token operator">+=</span>sum<span class="token punctuation">(</span>interest<span class="token punctuation">[</span>a<span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">.</span>state<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>reward
+
+    <span class="token keyword">def</span> <span class="token function">outputState</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'----------------'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>numbers<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d:%c %f '</span> <span class="token operator">%</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span>self<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>state<span class="token punctuation">,</span>self<span class="token punctuation">.</span>nodes\
+                <span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>reward<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'----------------'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">designNet2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    net<span class="token operator">=</span>Network<span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span>
+    edge_list<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+               <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+               <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+               <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+               <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+               <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">17</span><span class="token punctuation">)</span>
+                <span class="token punctuation">]</span>
+
+    net<span class="token punctuation">.</span>addEgde<span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">{</span>net<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> net<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> edge_list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> net    
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>    
+    mynet<span class="token operator">=</span>designNet2<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(mynet.edges)</span>
+    mynet<span class="token punctuation">.</span>saveNb<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    max_reward<span class="token operator">=</span><span class="token number">0</span>
+
+    i1<span class="token operator">=</span><span class="token number">0</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        reward<span class="token operator">=</span>mynet<span class="token punctuation">.</span>getAllReward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>max_reward<span class="token operator">==</span>reward<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            i1<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i1<span class="token operator">==</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                mynet<span class="token punctuation">.</span>calValue<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                mynet<span class="token punctuation">.</span>outputState<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span>
+        <span class="token keyword">elif</span><span class="token punctuation">(</span>reward<span class="token operator">></span>max_reward<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            i1<span class="token operator">=</span><span class="token number">0</span>
+            max_reward<span class="token operator">=</span>reward
+        mynet<span class="token punctuation">.</span>updateState<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
             </div>
             <hr/>
 
@@ -531,7 +628,7 @@ dtype<span class="token punctuation">:</span> int64
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://resetran.top/pandas-1/">https://resetran.top/pandas-1/</a>
+                    <a href="https://resetran.top/snowdrift-game/">https://resetran.top/snowdrift-game/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,8 +670,8 @@ dtype<span class="token punctuation">:</span> int64
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/pandas/">
-                                    <span class="chip bg-color">pandas</span>
+                                <a href="/tags/%E9%9B%AA%E5%A0%86%E5%8D%9A%E5%BC%88/">
+                                    <span class="chip bg-color">雪堆博弈</span>
                                 </a>
                             
                         </div>
@@ -1005,9 +1102,59 @@ dtype<span class="token punctuation">:</span> int64
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/snowdrift-game/">
+                    <div class="card-image">
+                        
+                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/226.jpg" class="responsive-img" alt="最小网络节点覆盖问题">
+                        
+                        <span class="card-title">最小网络节点覆盖问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            智能控制导论雪堆博弈模型大作业
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Reset Ran
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%AA%E5%A0%86%E5%8D%9A%E5%BC%88/">
+                        <span class="chip bg-color">雪堆博弈</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/community-detection/">
                     <div class="card-image">
@@ -1024,9 +1171,9 @@ dtype<span class="token punctuation">:</span> int64
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1044,58 +1191,6 @@ dtype<span class="token punctuation">:</span> int64
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/k-means-fcm/">
-                    <div class="card-image">
-                        
-                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/220.jpg" class="responsive-img" alt="k-means and FCM">
-                        
-                        <span class="card-title">k-means and FCM</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            模式识别第二个大作业，利用聚类算法简单实现了下图像分割
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Reset Ran
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/numpy/">
-                        <span class="chip bg-color">numpy</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">模式识别</span>
                     </a>
                     
                 </div>
@@ -1233,6 +1328,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
