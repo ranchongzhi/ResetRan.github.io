@@ -6,7 +6,7 @@
   <link href="https://resetran.top/atom.xml" rel="self"/>
   
   <link href="https://resetran.top/"/>
-  <updated>2020-11-29T05:52:17.436Z</updated>
+  <updated>2021-01-06T15:12:06.296Z</updated>
   <id>https://resetran.top/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>支撑向量机（SVM）</title>
+    <link href="https://resetran.top/svm/"/>
+    <id>https://resetran.top/svm/</id>
+    <published>2021-01-06T12:50:20.000Z</published>
+    <updated>2021-01-06T15:12:06.296Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SVM算法概述&quot;&gt;&lt;a href=&quot;#SVM算法概述&quot; class=&quot;headerlink&quot; title=&quot;SVM算法概述&quot;&gt;&lt;/a&gt;SVM算法概述&lt;/h2&gt;&lt;p&gt;SVM（Support Vector Mac）又称为支持向量机，是一种二分类的模型。它在解决</summary>
+        
+      
+    
+    
+    
+    
+    <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
+    
+    <category term="svm" scheme="https://resetran.top/tags/svm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>最小网络节点覆盖问题</title>
     <link href="https://resetran.top/snowdrift-game/"/>
     <id>https://resetran.top/snowdrift-game/</id>
     <published>2020-11-26T12:50:20.000Z</published>
-    <updated>2020-11-29T05:52:17.436Z</updated>
+    <updated>2020-12-13T13:44:08.278Z</updated>
     
     
       
@@ -48,7 +75,7 @@
     <link href="https://resetran.top/community-detection/"/>
     <id>https://resetran.top/community-detection/</id>
     <published>2020-11-24T12:50:20.000Z</published>
-    <updated>2020-12-06T10:42:01.089Z</updated>
+    <updated>2021-01-06T14:27:56.412Z</updated>
     
     
       
@@ -75,7 +102,7 @@
     <link href="https://resetran.top/pid/"/>
     <id>https://resetran.top/pid/</id>
     <published>2020-11-20T12:50:20.000Z</published>
-    <updated>2020-11-26T14:37:55.012Z</updated>
+    <updated>2021-01-03T13:22:25.230Z</updated>
     
     
       
@@ -102,7 +129,7 @@
     <link href="https://resetran.top/pandas-1/"/>
     <id>https://resetran.top/pandas-1/</id>
     <published>2020-11-18T12:50:20.000Z</published>
-    <updated>2020-11-18T13:24:07.832Z</updated>
+    <updated>2020-12-07T10:02:02.437Z</updated>
     
     
       

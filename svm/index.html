@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python学习笔记——pandas（1）, Reset Ran&#39;s blog">
+    <meta name="keywords" content="支撑向量机（SVM）, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python学习笔记——pandas（1） | Reset Ran&#39;s blog</title>
+    <title>支撑向量机（SVM） | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/224.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/227.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python学习笔记——pandas（1）</h1>
+                    <h1 class="description center-align post-title">支撑向量机（SVM）</h1>
                 </div>
             </div>
         </div>
@@ -411,12 +411,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+                                <span class="chip bg-color">大作业</span>
+                            </a>
+                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/pandas/">
-                                <span class="chip bg-color">pandas</span>
+                            <a href="/tags/svm/">
+                                <span class="chip bg-color">svm</span>
                             </a>
                         
                     </div>
@@ -431,7 +435,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-18
+                    2021-01-06
                 </div>
                 
 
@@ -440,14 +444,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -457,56 +461,177 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如果利用python数据分析，基本上都会用到numpy和pandas这两货，前面学了一点numpy，现在慢慢写点pandas的学习笔记</p>
-<h2 id="numpy和pandas有啥区别"><a href="#numpy和pandas有啥区别" class="headerlink" title="numpy和pandas有啥区别"></a>numpy和pandas有啥区别</h2><p>emmm。。。。以我现在这个初学者的角度来看，numpy处理的对象主要是数字，主要用于矩阵运算，底层是c，运算速度蛮不错；而pandas处理的内容可以是很多种，而且一个DataFrame里边还能有不同类型的元素，但运算方面就没有numpy那么猛了。其实我觉得二者不适合拿来对比，各有各的专长，至于我为什么要写，嗯是因为我想凑点字数😂😂。</p>
-<h2 id="安装pandas"><a href="#安装pandas" class="headerlink" title="安装pandas"></a>安装pandas</h2><p>安装直接<code>pip install pandas</code>即可，已安装显示如下：</p>
-<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2020-11-18_19-30-36.jpg"></p>
-<p>还是可以用打印版本号的方法检查是否安装成功：</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token operator">>></span><span class="token operator">></span> pd<span class="token punctuation">.</span>__version__
-<span class="token comment" spellcheck="true">## '0.25.1'</span></code></pre>
-<h2 id="两个常用的类"><a href="#两个常用的类" class="headerlink" title="两个常用的类"></a>两个常用的类</h2><p>pandas里有两个常用的工具数据结构：Series和DataFrame。尽管他们并不能解决所有问题，但他们为大多数应用提供了一个有效、易用的基础。在这里先简单介绍一下，后续再做深入的剖析。</p>
-<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>Series是一种一维的数据对象，它包含了一个值序列（这里的值可以是很多种类型），并且包含了数据标签，称之为索引（index）。其实个人感觉可以参照字典来理解，感觉差不多。</p>
-<h4 id="创建一个简单的Series类"><a href="#创建一个简单的Series类" class="headerlink" title="创建一个简单的Series类"></a>创建一个简单的Series类</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj
-<span class="token number">0</span>    <span class="token number">4</span>
-<span class="token number">1</span>    <span class="token number">5</span>
-<span class="token number">2</span>    <span class="token number">6</span>
-<span class="token number">3</span>    <span class="token number">7</span>
-dtype<span class="token punctuation">:</span> int64</code></pre>
-<p>可以看到出现了两列内容，左边那一列表示的就是index，右边是values，可以看出如果不指定的话，<code>pd.Series()</code>生成的索引（index）就是从0到N-1（N表示数据的长度）。可以通过调用values属性和index属性分别查看Series对象的内容和索引</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj<span class="token punctuation">.</span>values
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>int64<span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj<span class="token punctuation">.</span>index
-RangeIndex<span class="token punctuation">(</span>start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> stop<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> step<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
-<p>这里的<code>RangeIndex(start=0, stop=4, step=1)</code>就有点类似于<code>range(0,4,1)</code></p>
-<h4 id="创建一个索引序列"><a href="#创建一个索引序列" class="headerlink" title="创建一个索引序列"></a>创建一个索引序列</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj2
-a    <span class="token number">1</span>
-b    <span class="token number">2</span>
-c    <span class="token number">3</span>
-d    <span class="token number">4</span>
-dtype<span class="token punctuation">:</span> int64</code></pre>
-<h4 id="通过字典来创建一个Series"><a href="#通过字典来创建一个Series" class="headerlink" title="通过字典来创建一个Series"></a>通过字典来创建一个Series</h4><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> dic<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'Tom'</span><span class="token punctuation">:</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token string">'Lily'</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token string">'Mike'</span><span class="token punctuation">:</span><span class="token number">66</span><span class="token punctuation">}</span>
-<span class="token operator">>></span><span class="token operator">></span> obj3<span class="token operator">=</span>pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span>dic<span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> obj3
-Tom     <span class="token number">90</span>
-Lily    <span class="token number">80</span>
-Mike    <span class="token number">66</span>
-dtype<span class="token punctuation">:</span> int64</code></pre>
-<h4 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h4><p>选择数据时可以使用标签来进行索引，也可以对选择到的value值进行赋新值</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span>
-<span class="token number">1</span>
-<span class="token comment" spellcheck="true">## 也可以索引多个值</span>
-<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-a    <span class="token number">1</span>
-b    <span class="token number">2</span>
-d    <span class="token number">4</span>
-dtype<span class="token punctuation">:</span> int64
-<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">5</span>
-<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span>
-<span class="token number">5</span></code></pre>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3>
+                <h2 id="SVM算法概述"><a href="#SVM算法概述" class="headerlink" title="SVM算法概述"></a>SVM算法概述</h2><p>SVM（Support Vector Mac）又称为支持向量机，是一种二分类的模型。它在解决 小样本、非线性及高维模式识别问题中表现出许多特有的优势，并能够推广应用到函数 拟合等问题。</p>
+<p> 支持向量机可以分为线性核非线性两大类。其主要思想为找到空间中的一个能够将 所有数据样本划开的超平面，并且使得本集中所有数据到这个超平面的距离最短。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="最大间隔分离超平面"><a href="#最大间隔分离超平面" class="headerlink" title="最大间隔分离超平面"></a>最大间隔分离超平面</h3><p>支持向量机的目标是求解一个超平面，使得超平面和离超平面较近的点之间的间距 更大。在二维空间中，可以理解为，希望寻找到这样的直线，使得距离这条直线最近的 点到这条直线的距离最短。在高维空间中这样的直线称之为超平面，因为当维数大于三 的时候我们已经无法想象出这个平面的具体样子。那些距离这个超平面最近的点就是所 谓支持向量。</p>
+<p>最大几何间隔分离超平面的求解可以表示为下面的带约束最优化问题：</p>
+
+$$
+\begin{align}
+\max _{w, b} \frac{\widehat{\gamma}}{\|w\|} \\
+\text {s.t.   y}_{i}\left[\left (\frac{w}{\|w\|} \right)^{T} x_{i}+\frac{b}{\|w\|}\right], i & = 1,2, \ldots m
+\end{align}
+$$
+
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20201222160348.png"></p>
+<h3 id="寻找最大间隔"><a href="#寻找最大间隔" class="headerlink" title="寻找最大间隔"></a>寻找最大间隔</h3><h4 id="点到超平面的距离公式："><a href="#点到超平面的距离公式：" class="headerlink" title="点到超平面的距离公式："></a>点到超平面的距离公式：</h4><p>$$<br>d=\frac{|w_1 \times x_1+w_2 \times x_2+\ldots w_n \times x_n+b \mid}{\sqrt{w_1^{2}+w_2^{2}+\ldots+w_n^{2}}}=\frac{\left|W^{T} \times X+b\right|}{|W|}<br>$$</p>
+<h4 id="最大间隔的优化模型目标函数："><a href="#最大间隔的优化模型目标函数：" class="headerlink" title="最大间隔的优化模型目标函数："></a>最大间隔的优化模型目标函数：</h4>
+$$
+\arg \max _{w, b}\left\{\min \left(y\left(w^{T} x+b\right)\right) \times \frac{1}{\|w\|}\right\}
+$$
+
+<p>可等价替换为：<br>$$<br>\min \frac{1}{2 \times |w|^2}<br>$$</p>
+<h4 id="寻找松弛变量："><a href="#寻找松弛变量：" class="headerlink" title="寻找松弛变量："></a>寻找松弛变量：</h4><p> 引入一个松弛变量$\zeta$来允许一些数据可以处于分隔面错误的一侧。 这时完整的模型变为：</p>
+
+$$
+\begin{array}{l} 
+  \min \frac{1}{2}\|w\|^{2}+C \sum_{i = 1}^{N} \zeta\\ 
+  s.t.\left\{\begin{matrix} 
+  \zeta \geq 0, i = 1,2 \ldots n \\ 
+  y_i\left(w^{T} x_i+b\right) \geq 1-\zeta_{i}, i = 1,2 \ldots n 
+\end{matrix}\right.    
+\end{array} 
+$$
+
+<h4 id="核函数："><a href="#核函数：" class="headerlink" title="核函数："></a>核函数：</h4><p>当数据不是线性可分时，通过一个非线性变换将输入空间映射到一个特征空 间，使得在输入空间中的超曲面模型对应于特征空间H中的超平面模型，从而通过特 征空间H中求解线性支持向量机就可以分类。 下面是一些常用核函数表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">核函数名称</th>
+<th align="center">核函数表达式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">线性核</td>
+<td align="center">$K(x,y)=x^Ty$</td>
+</tr>
+<tr>
+<td align="center">多项式核</td>
+<td align="center">$K(x,y)=(ax^Ty+c)^d$</td>
+</tr>
+<tr>
+<td align="center">高斯核</td>
+<td align="center">$K(x,y)=exp(-\frac{|x-y|^2}{2{\sigma}^2})$</td>
+</tr>
+<tr>
+<td align="center">指数核</td>
+<td align="center">$K(x,y)=exp(-\frac{|x-y|}{2{\sigma}^2})$</td>
+</tr>
+<tr>
+<td align="center">拉普拉斯核</td>
+<td align="center">$K(x,y)=exp(-\frac{\|x-y\|}{{\sigma}})$</td>
+</tr>
+<tr>
+<td align="center">Sigmoid核</td>
+<td align="center">$K(x,y)=\tanh(ax^Ty+c)$</td>
+</tr>
+</tbody></table>
+<h2 id="数据集介绍"><a href="#数据集介绍" class="headerlink" title="数据集介绍"></a>数据集介绍</h2><p>本次实验选取的数据集是<code>YaleB</code>人脸数据集，它一共有15类，每一类有11个样本，每个样本是<code>80*80</code>的灰度图</p>
+<h2 id="任务简介"><a href="#任务简介" class="headerlink" title="任务简介"></a>任务简介</h2><p>使用三种核函数（高斯核、线性核、多项式核）在<code>YaleB</code>数据集上验证SVM算法</p>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><h4 id="图片读取"><a href="#图片读取" class="headerlink" title="图片读取"></a>图片读取</h4><p>将图片全部读取转化为矩阵，并且缩放成<code>40*40</code>大小的矩阵，最后将该矩阵拉成一个<code>1*1600</code>的向量，表示一个样本，然后将所有样本拼接成一个<code>165*1600</code>的矩阵，作为输入矩阵。</p>
+<h4 id="构建标签"><a href="#构建标签" class="headerlink" title="构建标签"></a>构建标签</h4><p>直接利用文件夹名，去掉<code>f</code>即可构建标签，标签即为<code>1~15</code>这15个数字，最后的标签组成一个列向量，并返回</p>
+<h4 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h4><p>对于样本矩阵中的每一个样本，将其数字减去均值再除以方差，进行标准化</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>数据预处理的代码如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> cv2
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> sklearn <span class="token keyword">import</span> preprocessing
+
+
+<span class="token keyword">def</span> <span class="token function">process</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    faces <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 数据以及标签</span>
+    data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+        label <span class="token operator">=</span> int<span class="token punctuation">(</span>face<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        pic_names <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>path<span class="token punctuation">,</span> face<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> pic <span class="token keyword">in</span> pic_names<span class="token punctuation">:</span>
+            temp <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>path<span class="token punctuation">,</span> face<span class="token punctuation">,</span> pic<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 缩小图像进行降维</span>
+            temp <span class="token operator">=</span> cv2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>temp<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+            labels<span class="token punctuation">.</span>append<span class="token punctuation">(</span>label<span class="token punctuation">)</span>
+
+    data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>len<span class="token punctuation">(</span>labels<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    data <span class="token operator">=</span> preprocessing<span class="token punctuation">.</span>scale<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(data)</span>
+
+    labels <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(data.shape)</span>
+
+    <span class="token comment" spellcheck="true"># 展示单张读取的图片</span>
+    <span class="token comment" spellcheck="true"># plt.imshow(temp, cmap='gray')</span>
+    <span class="token comment" spellcheck="true"># plt.show()</span>
+    <span class="token keyword">return</span> data<span class="token punctuation">,</span> labels</code></pre>
+<h3 id="划分训练集测试集"><a href="#划分训练集测试集" class="headerlink" title="划分训练集测试集"></a>划分训练集测试集</h3><p>此次用到的划分函数还是跟之前一样，使用<code>train_test_split</code>函数进行划分，测试集的比例为0.25</p>
+<h3 id="构建分类器并训练"><a href="#构建分类器并训练" class="headerlink" title="构建分类器并训练"></a>构建分类器并训练</h3><p>本次实验分别选取了高斯核以及多项式核进行SVM分类器的构建，其中：</p>
+<ul>
+<li>高斯核：需要调整的参数为$\gamma$以及$C$（$C$为惩罚项）</li>
+<li>多项式核：需要调整的参数是$degree$（多项式的阶数）和$C$（$C$为惩罚项）</li>
+</ul>
+<h3 id="分类结果展示"><a href="#分类结果展示" class="headerlink" title="分类结果展示"></a>分类结果展示</h3><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20201222204703.jpg"></p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> process_data <span class="token keyword">as</span> pd
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+<span class="token keyword">import</span> random
+<span class="token keyword">from</span> sklearn <span class="token keyword">import</span> svm
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> classification_report
+
+<span class="token comment" spellcheck="true"># 划分训练集、测试集的函数</span>
+<span class="token keyword">def</span> <span class="token function">train_test</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> target<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    train_data<span class="token punctuation">,</span> test_data<span class="token punctuation">,</span> train_target<span class="token punctuation">,</span> test_target <span class="token operator">=</span> \
+        train_test_split<span class="token punctuation">(</span>data<span class="token punctuation">,</span> target<span class="token punctuation">,</span> test_size<span class="token operator">=</span><span class="token number">0.25</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span>num<span class="token punctuation">,</span> shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> train_data<span class="token punctuation">,</span> test_data<span class="token punctuation">,</span> train_target<span class="token punctuation">,</span> test_target
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 数据预处理部分</span>
+    path <span class="token operator">=</span> <span class="token string">"./YALE"</span>
+    data<span class="token punctuation">,</span> labels <span class="token operator">=</span> pd<span class="token punctuation">.</span>process<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(data.shape)</span>
+
+    <span class="token comment" spellcheck="true"># 产生随机种子</span>
+    <span class="token comment" spellcheck="true"># nums=random.sample(range(0,10000),100)</span>
+    train_data<span class="token punctuation">,</span> test_data<span class="token punctuation">,</span> train_labels<span class="token punctuation">,</span> test_labels <span class="token operator">=</span>train_test<span class="token punctuation">(</span>data<span class="token punctuation">,</span>labels<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 构建svm分类器</span>
+    <span class="token comment" spellcheck="true">## 线性核</span>
+    <span class="token comment" spellcheck="true"># clf_linear = svm.SVC(decision_function_shape="ovo", kernel="linear", C=10)</span>
+    <span class="token comment" spellcheck="true">## 高斯核</span>
+    clf_rbf <span class="token operator">=</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>decision_function_shape<span class="token operator">=</span><span class="token string">"ovr"</span><span class="token punctuation">,</span> kernel<span class="token operator">=</span><span class="token string">"rbf"</span><span class="token punctuation">,</span> gamma<span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span> C<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">## 多项式核</span>
+    clf_ploy <span class="token operator">=</span> svm<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>decision_function_shape<span class="token operator">=</span><span class="token string">"ovr"</span><span class="token punctuation">,</span> kernel<span class="token operator">=</span><span class="token string">"poly"</span><span class="token punctuation">,</span> gamma<span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span> degree<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> C<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#拟合训练集</span>
+    <span class="token comment" spellcheck="true"># clf_linear.fit(train_data, train_labels)</span>
+    clf_rbf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_data<span class="token punctuation">,</span> train_labels<span class="token punctuation">)</span>
+    clf_ploy<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_data<span class="token punctuation">,</span> train_labels<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># linear_pred_labels = clf_linear.predict(test_data)</span>
+    rbf_pred_labels <span class="token operator">=</span> clf_rbf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>test_data<span class="token punctuation">)</span>
+    ploy_pred_labels <span class="token operator">=</span> clf_ploy<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>test_data<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(linear_pred_labels)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"实际标签：\n"</span><span class="token punctuation">,</span>test_labels<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"高斯核预测的标签：\n"</span><span class="token punctuation">,</span>rbf_pred_labels<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"多项式核预测的实际标签：\n"</span><span class="token punctuation">,</span>ploy_pred_labels<span class="token punctuation">)</span>
+
+
+    <span class="token comment" spellcheck="true"># 计算分类准确率</span>
+    <span class="token comment" spellcheck="true"># acc_linear = sum(linear_pred_labels==test_labels)/len(test_labels)</span>
+    <span class="token comment" spellcheck="true"># print('linear kernel: The accuracy is', acc_linear)</span>
+    acc_rbf <span class="token operator">=</span> sum<span class="token punctuation">(</span>rbf_pred_labels<span class="token operator">==</span>test_labels<span class="token punctuation">)</span><span class="token operator">/</span>len<span class="token punctuation">(</span>test_labels<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'rbf kernel: The accuracy is {:.2f}%'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>acc_rbf<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    acc_ploy <span class="token operator">=</span> sum<span class="token punctuation">(</span>ploy_pred_labels<span class="token operator">==</span>test_labels<span class="token punctuation">)</span><span class="token operator">/</span>len<span class="token punctuation">(</span>test_labels<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'ploy kernel: The accuracy is {:.2f}%'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>acc_ploy<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p>可以看出，SVM的性能还是很不错的，测试准确率都达到了90%以上，但在调参数的过程中，我发现高斯核对参数十分敏感，有时参数改动很小对结果的影响也挺大。</p>
+<p>手动调参有时候效率比较低下，本人觉得可以利用定步长（步长越小精度越高）二维（对应两个参数）搜索法，来探究两个参数取何值时分类效果最好</p>
+
             </div>
             <hr/>
 
@@ -531,7 +656,7 @@ dtype<span class="token punctuation">:</span> int64
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://resetran.top/pandas-1/">https://resetran.top/pandas-1/</a>
+                    <a href="https://resetran.top/svm/">https://resetran.top/svm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -569,12 +694,16 @@ dtype<span class="token punctuation">:</span> int64
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+                                    <span class="chip bg-color">大作业</span>
+                                </a>
+                            
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/pandas/">
-                                    <span class="chip bg-color">pandas</span>
+                                <a href="/tags/svm/">
+                                    <span class="chip bg-color">svm</span>
                                 </a>
                             
                         </div>
@@ -1005,28 +1134,29 @@ dtype<span class="token punctuation">:</span> int64
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/pid/">
+                <a href="/svm/">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/227.jpg" class="responsive-img" alt="专家控制系统">
+                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/227.jpg" class="responsive-img" alt="支撑向量机（SVM）">
                         
-                        <span class="card-title">专家控制系统</span>
+                        <span class="card-title">支撑向量机（SVM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            专家控制pid和传统pid
+                            模式识别最后一个大作业
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1035,6 +1165,7 @@ dtype<span class="token punctuation">:</span> int64
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1046,8 +1177,8 @@ dtype<span class="token punctuation">:</span> int64
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/PID/">
-                        <span class="chip bg-color">PID</span>
+                    <a href="/tags/svm/">
+                        <span class="chip bg-color">svm</span>
                     </a>
                     
                 </div>
@@ -1061,23 +1192,23 @@ dtype<span class="token punctuation">:</span> int64
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/k-means-fcm/">
+                <a href="/snowdrift-game/">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/220.jpg" class="responsive-img" alt="k-means and FCM">
+                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/226.jpg" class="responsive-img" alt="最小网络节点覆盖问题">
                         
-                        <span class="card-title">k-means and FCM</span>
+                        <span class="card-title">最小网络节点覆盖问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            模式识别第二个大作业，利用聚类算法简单实现了下图像分割
+                            智能控制导论雪堆博弈模型大作业
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
                             </span>
                         <span class="publish-author">
                             
@@ -1098,12 +1229,8 @@ dtype<span class="token punctuation">:</span> int64
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/numpy/">
-                        <span class="chip bg-color">numpy</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">模式识别</span>
+                    <a href="/tags/%E9%9B%AA%E5%A0%86%E5%8D%9A%E5%BC%88/">
+                        <span class="chip bg-color">雪堆博弈</span>
                     </a>
                     
                 </div>
@@ -1241,6 +1368,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
