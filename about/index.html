@@ -560,6 +560,11 @@
 
 
 
+<div class="statis">
+    <span class="count"><a href="/categories">3</a></span>
+    <span class="name">分类</span>
+</div>
+
 
 
 <div class="statis">
@@ -584,6 +589,11 @@
 </div>
 
 
+
+<div class="statis">
+    <span class="count"><a href="/categories">3</a></span>
+    <span class="name">分类</span>
+</div>
 
 
 
@@ -722,7 +732,7 @@
     let postsOption = {
         title: {
             text: '文章发布统计图',
-            top: -5,
+            top: 0,
             x: 'center'
         },
         tooltip: {
@@ -769,7 +779,7 @@
     let categoriesOption = {
         title: {
             text: '文章分类统计图',
-            top: -4,
+            top: 0,
             x: 'center'
         },
         tooltip: {
@@ -782,7 +792,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [],
+                data: [{"name":"折腾","value":2},{"name":"大作业","value":6},{"name":"学习笔记","value":10}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -799,7 +809,7 @@
     let tagsOption = {
         title: {
             text: 'TOP10 标签统计图',
-            top: -5,
+            top: 0,
             x: 'center'
         },
         tooltip: {},
@@ -949,20 +959,6 @@
             
             
             
-            
-            
-            <a href="/tags/numpy/">
-                <span class="chip center-align waves-effect waves-light chip-default">numpy</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
-                <span class="chip center-align waves-effect waves-light chip-default">模式识别</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
                 <span class="chip center-align waves-effect waves-light chip-default">大作业</span>
             </a>
@@ -975,8 +971,22 @@
             
             
             
+            
+            
             <a href="/tags/%E6%95%B0%E6%A8%A1/">
                 <span class="chip center-align waves-effect waves-light chip-default">数模</span>
+            </a>
+            
+            
+            
+            <a href="/tags/numpy/">
+                <span class="chip center-align waves-effect waves-light chip-default">numpy</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">
+                <span class="chip center-align waves-effect waves-light chip-default">模式识别</span>
             </a>
             
             

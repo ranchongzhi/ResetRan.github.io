@@ -6,7 +6,7 @@
   <link href="https://resetran.top/atom.xml" rel="self"/>
   
   <link href="https://resetran.top/"/>
-  <updated>2021-01-15T13:28:39.466Z</updated>
+  <updated>2021-01-15T14:45:23.439Z</updated>
   <id>https://resetran.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://resetran.top/svm/"/>
     <id>https://resetran.top/svm/</id>
     <published>2021-01-06T12:50:20.000Z</published>
-    <updated>2021-01-15T13:28:39.466Z</updated>
+    <updated>2021-01-15T14:45:23.439Z</updated>
     
     
       
@@ -34,10 +34,12 @@
     
     
     
+    <category term="大作业" scheme="https://resetran.top/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="svm" scheme="https://resetran.top/tags/svm/"/>
     
@@ -48,7 +50,7 @@
     <link href="https://resetran.top/snowdrift-game/"/>
     <id>https://resetran.top/snowdrift-game/</id>
     <published>2020-11-26T12:50:20.000Z</published>
-    <updated>2021-01-15T13:28:35.494Z</updated>
+    <updated>2021-01-15T14:45:16.618Z</updated>
     
     
       
@@ -61,10 +63,12 @@
     
     
     
+    <category term="大作业" scheme="https://resetran.top/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="雪堆博弈" scheme="https://resetran.top/tags/%E9%9B%AA%E5%A0%86%E5%8D%9A%E5%BC%88/"/>
     
@@ -75,7 +79,7 @@
     <link href="https://resetran.top/community-detection/"/>
     <id>https://resetran.top/community-detection/</id>
     <published>2020-11-24T12:50:20.000Z</published>
-    <updated>2021-01-15T13:27:26.567Z</updated>
+    <updated>2021-01-15T14:43:21.784Z</updated>
     
     
       
@@ -88,12 +92,14 @@
     
     
     
+    <category term="大作业" scheme="https://resetran.top/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
     <category term="社区发现" scheme="https://resetran.top/tags/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0/"/>
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
   </entry>
   
@@ -102,7 +108,7 @@
     <link href="https://resetran.top/pid/"/>
     <id>https://resetran.top/pid/</id>
     <published>2020-11-20T12:50:20.000Z</published>
-    <updated>2021-01-15T13:27:56.259Z</updated>
+    <updated>2021-01-15T14:44:37.995Z</updated>
     
     
       
@@ -115,10 +121,12 @@
     
     
     
+    <category term="大作业" scheme="https://resetran.top/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="PID" scheme="https://resetran.top/tags/PID/"/>
     
@@ -129,7 +137,7 @@
     <link href="https://resetran.top/pandas-1/"/>
     <id>https://resetran.top/pandas-1/</id>
     <published>2020-11-18T12:50:20.000Z</published>
-    <updated>2021-01-15T13:27:51.494Z</updated>
+    <updated>2021-01-15T14:44:32.083Z</updated>
     
     
       
@@ -143,6 +151,8 @@
     
     
     
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
@@ -155,7 +165,7 @@
     <link href="https://resetran.top/k-means-fcm/"/>
     <id>https://resetran.top/k-means-fcm/</id>
     <published>2020-11-01T04:37:43.000Z</published>
-    <updated>2021-01-15T13:27:38.669Z</updated>
+    <updated>2021-01-15T14:43:33.992Z</updated>
     
     
       
@@ -168,14 +178,16 @@
     
     
     
+    <category term="大作业" scheme="https://resetran.top/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+    <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
     
     <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-    <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
   </entry>
   
@@ -184,7 +196,7 @@
     <link href="https://resetran.top/built-blog-2/"/>
     <id>https://resetran.top/built-blog-2/</id>
     <published>2020-10-26T11:35:00.000Z</published>
-    <updated>2021-01-15T13:27:17.806Z</updated>
+    <updated>2021-01-15T14:42:54.921Z</updated>
     
     
       
@@ -196,6 +208,8 @@
       
     
     
+    
+    <category term="折腾" scheme="https://resetran.top/categories/%E6%8A%98%E8%85%BE/"/>
     
     
     <category term="hexo" scheme="https://resetran.top/tags/hexo/"/>
@@ -209,7 +223,7 @@
     <link href="https://resetran.top/built-blog-1/"/>
     <id>https://resetran.top/built-blog-1/</id>
     <published>2020-10-21T11:35:00.000Z</published>
-    <updated>2021-01-15T13:35:10.037Z</updated>
+    <updated>2021-01-15T14:42:38.151Z</updated>
     
     
       
@@ -221,6 +235,8 @@
       
     
     
+    
+    <category term="折腾" scheme="https://resetran.top/categories/%E6%8A%98%E8%85%BE/"/>
     
     
     <category term="hexo" scheme="https://resetran.top/tags/hexo/"/>
@@ -234,7 +250,7 @@
     <link href="https://resetran.top/fisher/"/>
     <id>https://resetran.top/fisher/</id>
     <published>2020-09-27T04:37:43.000Z</published>
-    <updated>2021-01-15T13:27:30.717Z</updated>
+    <updated>2021-01-15T14:43:25.486Z</updated>
     
     
       
@@ -247,14 +263,16 @@
     
     
     
+    <category term="大作业" scheme="https://resetran.top/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+    <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
     
     <category term="模式识别" scheme="https://resetran.top/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/"/>
-    
-    <category term="大作业" scheme="https://resetran.top/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/"/>
     
   </entry>
   
@@ -263,7 +281,7 @@
     <link href="https://resetran.top/python-spyder-4/"/>
     <id>https://resetran.top/python-spyder-4/</id>
     <published>2020-07-07T12:17:26.000Z</published>
-    <updated>2021-01-15T13:28:12.150Z</updated>
+    <updated>2021-01-15T14:45:00.879Z</updated>
     
     
       
@@ -275,6 +293,8 @@
       
     
     
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
@@ -288,7 +308,7 @@
     <link href="https://resetran.top/python-spyder-3/"/>
     <id>https://resetran.top/python-spyder-3/</id>
     <published>2020-07-05T03:50:25.000Z</published>
-    <updated>2021-01-15T13:28:07.356Z</updated>
+    <updated>2021-01-15T14:44:57.003Z</updated>
     
     
       
@@ -300,6 +320,8 @@
       
     
     
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
@@ -313,7 +335,7 @@
     <link href="https://resetran.top/python-spyder-2/"/>
     <id>https://resetran.top/python-spyder-2/</id>
     <published>2020-07-02T10:15:26.000Z</published>
-    <updated>2021-01-15T13:28:03.312Z</updated>
+    <updated>2021-01-15T14:44:52.795Z</updated>
     
     
       
@@ -325,6 +347,8 @@
       
     
     
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
@@ -338,7 +362,7 @@
     <link href="https://resetran.top/python-spyder-1/"/>
     <id>https://resetran.top/python-spyder-1/</id>
     <published>2020-07-02T08:35:41.000Z</published>
-    <updated>2021-01-15T13:27:59.625Z</updated>
+    <updated>2021-01-15T14:44:48.335Z</updated>
     
     
       
@@ -352,6 +376,8 @@
     
     
     
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
@@ -364,7 +390,7 @@
     <link href="https://resetran.top/numpy-2/"/>
     <id>https://resetran.top/numpy-2/</id>
     <published>2020-06-16T11:37:26.000Z</published>
-    <updated>2021-01-15T13:27:47.151Z</updated>
+    <updated>2021-01-15T14:44:28.601Z</updated>
     
     
       
@@ -378,6 +404,8 @@
     
     
     
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
@@ -390,7 +418,7 @@
     <link href="https://resetran.top/numpy-1/"/>
     <id>https://resetran.top/numpy-1/</id>
     <published>2020-06-14T12:50:20.000Z</published>
-    <updated>2021-01-15T13:27:42.901Z</updated>
+    <updated>2021-01-15T14:44:19.652Z</updated>
     
     
       
@@ -402,6 +430,8 @@
       
     
     
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
@@ -415,7 +445,7 @@
     <link href="https://resetran.top/python-io/"/>
     <id>https://resetran.top/python-io/</id>
     <published>2020-06-04T13:14:12.000Z</published>
-    <updated>2021-01-15T13:28:30.929Z</updated>
+    <updated>2021-01-15T14:45:11.512Z</updated>
     
     
       
@@ -429,6 +459,8 @@
     
     
     
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
@@ -439,7 +471,7 @@
     <link href="https://resetran.top/python-2/"/>
     <id>https://resetran.top/python-2/</id>
     <published>2020-04-14T10:25:06.000Z</published>
-    <updated>2021-01-15T13:28:25.590Z</updated>
+    <updated>2021-01-15T14:45:07.992Z</updated>
     
     
       
@@ -452,6 +484,8 @@
     
     
     
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
@@ -462,7 +496,7 @@
     <link href="https://resetran.top/python-1/"/>
     <id>https://resetran.top/python-1/</id>
     <published>2020-04-13T09:14:32.000Z</published>
-    <updated>2021-01-15T13:28:21.597Z</updated>
+    <updated>2021-01-15T14:45:04.415Z</updated>
     
     
       
@@ -474,6 +508,8 @@
       
     
     
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
     <category term="python" scheme="https://resetran.top/tags/python/"/>
