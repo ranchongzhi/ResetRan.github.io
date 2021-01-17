@@ -676,14 +676,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    952
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -742,6 +742,48 @@ dtype<span class="token punctuation">:</span> int64
 <span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">5</span>
 <span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span>
 <span class="token number">5</span></code></pre>
+<h4 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h4><p><code>Series</code> 操作与 <code>ndarray</code> 类似，还支持索引切片，从这点上看，它又类似于一个多维数组</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">##可以跟ndarray一样切片</span>
+<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+a    <span class="token number">1</span>
+b    <span class="token number">2</span>
+dtype<span class="token punctuation">:</span> int64
+<span class="token comment" spellcheck="true">##也可以用index的内容来切片</span>
+<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">:</span><span class="token string">'c'</span><span class="token punctuation">]</span>
+a    <span class="token number">1</span>
+b    <span class="token number">2</span>
+c    <span class="token number">3</span>
+dtype<span class="token punctuation">:</span> int64</code></pre>
+<p>可以看出，用index进行切片的话，是默认保留了<code>&#39;c&#39;:3</code>这一组值的，而像<code>Numpy</code>数组一样切片时，是没有保留<code>&#39;c&#39;:3</code>的</p>
+<h4 id="跟numpy函数的交互"><a href="#跟numpy函数的交互" class="headerlink" title="跟numpy函数的交互"></a>跟numpy函数的交互</h4><p><code>Series</code>支持大多数 <code>NumPy</code> 函数，还能将其自身的<code>values</code>转化成<code>ndarray</code>或者<code>array</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">##对valuas进行平方运算</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>power<span class="token punctuation">(</span>obj2<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+a     <span class="token number">1</span>
+b     <span class="token number">4</span>
+c     <span class="token number">9</span>
+d    <span class="token number">16</span>
+dtype<span class="token punctuation">:</span> int64
+<span class="token comment" spellcheck="true">##对valuas进行相加运算</span>
+<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token operator">+</span>obj2
+a    <span class="token number">2</span>
+b    <span class="token number">4</span>
+c    <span class="token number">6</span>
+d    <span class="token number">8</span>
+dtype<span class="token punctuation">:</span> int64
+<span class="token comment" spellcheck="true">##将values转化成array</span>
+<span class="token operator">>></span><span class="token operator">></span> obj_np<span class="token operator">=</span>obj2<span class="token punctuation">.</span>to_numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> obj_np
+array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>int64<span class="token punctuation">)</span></code></pre>
+<p>总之，<code>Series</code>支持大多数 <code>NumPy </code>多维数组的方法。<code>Series</code> 和多维数组的主要区别在于， <code>Series</code> 之间的操作会自动基于标签对齐数据，来看下面这个例子：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">##将obj2的后三个数与前三个数进行相加</span>
+<span class="token operator">>></span><span class="token operator">></span> obj2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">+</span>obj2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+a    NaN
+b    <span class="token number">4.0</span>
+c    <span class="token number">6.0</span>
+d    NaN
+dtype<span class="token punctuation">:</span> float64</code></pre>
+<p>看到这里，就更能理解==<strong>自动基于标签对齐数据</strong>==这句话了</p>
 <h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3>
             </div>
             <hr/>
@@ -1519,7 +1561,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.3k</span>&nbsp;字
+                class="white-color">42.6k</span>&nbsp;字
             
             
             

@@ -770,7 +770,7 @@ result2 <span class="token operator">=</span> parse<span class="token punctuatio
 <span class="token keyword">print</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span></code></pre>
 <p>结果如下图：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1593771183471.jpg"><br>从图中可以看出：urlparse 和 urlsplit 基本上是一模一样的。唯一不一样的地方是，urlparse 里面多了一个 params 属性，而 urlsplit 没有这个 params 属性。如果将上面代码的url换一下就能看出区别：</p>
-<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span>!<span class="token punctuation">[</span><span class="token number">1593773675938</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5CGridea<span class="token operator">%</span>5Cpost<span class="token operator">-</span>images<span class="token operator">%</span><span class="token number">5C1593773675938.</span>jpg<span class="token punctuation">)</span><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> urllib <span class="token keyword">import</span> request<span class="token punctuation">,</span>parse
 url <span class="token operator">=</span> <span class="token string">'http://www.baidu.com/s;hello?wd=python&amp;username=abc#1'</span>
 result1 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlsplit<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
 result2 <span class="token operator">=</span> parse<span class="token punctuation">.</span>urlparse<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
@@ -1559,7 +1559,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.3k</span>&nbsp;字
+                class="white-color">42.6k</span>&nbsp;字
             
             
             
