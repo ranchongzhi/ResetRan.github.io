@@ -257,7 +257,7 @@
     }
 
     .github-corner svg {
-        color: #f062a7;
+        color: #86B6D2;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -917,7 +917,9 @@
 </style>
 
 <script>
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 

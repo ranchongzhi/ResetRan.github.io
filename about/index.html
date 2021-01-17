@@ -257,7 +257,7 @@
     }
 
     .github-corner svg {
-        color: #f062a7;
+        color: #86B6D2;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -552,7 +552,9 @@
 
 
     <script>
-        $('.bg-cover').css('background-image', 'url(/medias/banner/3.jpg)');
+        // 每天切换 banner 图.  Switch banner image every day.
+        var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+        $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
     </script>
     
 
@@ -974,24 +976,6 @@
             
             
             
-            <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
-                <span class="chip center-align waves-effect waves-light chip-default">大作业</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0/">
-                <span class="chip center-align waves-effect waves-light chip-default">社区发现</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E6%A8%A1/">
-                <span class="chip center-align waves-effect waves-light chip-default">数模</span>
-            </a>
-            
             
             
             <a href="/tags/numpy/">
@@ -1006,20 +990,38 @@
             
             
             
+            <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+                <span class="chip center-align waves-effect waves-light chip-default">大作业</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%A4%BE%E5%8C%BA%E5%8F%91%E7%8E%B0/">
+                <span class="chip center-align waves-effect waves-light chip-default">社区发现</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                <span class="chip center-align waves-effect waves-light chip-default">数模</span>
+            </a>
+            
+            
+            
             <a href="/tags/pandas/">
                 <span class="chip center-align waves-effect waves-light chip-default">pandas</span>
             </a>
             
             
             
-            <a href="/tags/PID/">
-                <span class="chip center-align waves-effect waves-light chip-default">PID</span>
+            <a href="/tags/%E7%88%AC%E8%99%AB/">
+                <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
             </a>
             
             
             
-            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
+            <a href="/tags/PID/">
+                <span class="chip center-align waves-effect waves-light chip-default">PID</span>
             </a>
             
             
