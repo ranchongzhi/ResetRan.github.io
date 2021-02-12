@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="numpy学习笔记（1）, Reset Ran&#39;s blog">
+    <meta name="keywords" content="pandas学习笔记（2）, Reset Ran&#39;s blog">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>numpy学习笔记（1） | Reset Ran&#39;s blog</title>
+    <title>pandas学习笔记（2） | Reset Ran&#39;s blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ranchongzhi/ranchongzhi.github.io/libs/awesome/css/all.css">
@@ -516,12 +516,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">numpy学习笔记（1）</h1>
+                    <h1 class="description center-align post-title">pandas学习笔记（2）</h1>
                 </div>
             </div>
         </div>
@@ -642,8 +642,8 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/numpy/">
-                                <span class="chip bg-color">numpy</span>
+                            <a href="/tags/pandas/">
+                                <span class="chip bg-color">pandas</span>
                             </a>
                         
                     </div>
@@ -667,7 +667,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-14
+                    2021-01-25
                 </div>
                 
 
@@ -676,14 +676,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    652
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    2 分
                 </div>
                 
 
@@ -693,193 +693,101 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>学过python的人应该都接触过<a href="https://baike.baidu.com/item/numpy/5678437?fr=aladdin" target="_blank" rel="noopener"><strong>numpy</strong></a>这个有名的第三方库，它是一个支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。</p>
-<h2 id="1-安装numpy"><a href="#1-安装numpy" class="headerlink" title="1.安装numpy"></a>1.安装numpy</h2><p>安装方法有两种：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>pandas最强大的功能感觉就是对Excel表格进行操作了，下面记录一些基本的操作，此次读取的表格名为<code>test.xlsx</code>，内容如下：</p>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210211185957.png"></p>
+<h2 id="读取表格"><a href="#读取表格" class="headerlink" title="读取表格"></a>读取表格</h2><p>读取<code>.xlsx</code>文件使用<code>read_excel</code>函数即可，读取<code>.csv</code>文件使用<code>read_csv</code>即可</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'test.xlsx'</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210202195858.png" style="zoom:80%;" />
+
+<p>可以看出默认的index就是0，1，2，…，如果想让科目名字作为index，修改<code>index_col</code>属性即可</p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'test.xlsx'</span><span class="token punctuation">,</span> index_col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210202201836.png" style="zoom:80%;" />
+
+<h2 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h2><p>使用head和tail方法可以分别查看表格的前5条数据和后5条数据</p>
+<pre class=" language-python"><code class="language-python">df<span class="token operator">=</span>pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'test.xlsx'</span><span class="token punctuation">,</span> index_col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210202204700.png" style="zoom:80%;" />
+
+<p>使用describe方法可以对表格中的数据进行简单的描述性统计，默认是以每一列为一个数据项</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210203112818.png" style="zoom:80%;" />
+
+<p>如果要考察每一门科目的描述性统计，可以先将Dataframe转置，再调用describe方法即可</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>T<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210203113418.png" style="zoom:80%;" />
+
+<p>删去某一行，或者某几行：</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'数学'</span><span class="token punctuation">,</span> <span class="token string">'语文'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210211173046.png"></p>
+<p>查看形状，跟numpy里边一样查看shape属性即可：</p>
+<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span>Snipaste_2021<span class="token number">-02</span><span class="token operator">-</span>11_17<span class="token number">-53</span><span class="token operator">-</span><span class="token number">52</span><span class="token punctuation">]</span><span class="token punctuation">(</span>E<span class="token punctuation">:</span><span class="token operator">%</span>5Cblog_pic<span class="token operator">%</span>5CSnipaste_2021<span class="token number">-02</span><span class="token operator">-</span>11_17<span class="token number">-53</span><span class="token operator">-</span><span class="token number">52.</span>png<span class="token punctuation">)</span>df<span class="token punctuation">.</span>shape
+<span class="token comment" spellcheck="true"># 输出：(7,5)</span></code></pre>
+<p>对dataframe按照index排序</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>T<span class="token punctuation">.</span>sort_index<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210211174204.png" style="zoom: 80%;" />
+
+<p>对dataframe按照指定列的值排序：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># by参数指定列名</span>
+<span class="token comment" spellcheck="true">## 降序排序</span>
+df<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by <span class="token operator">=</span> <span class="token string">'Mike'</span><span class="token punctuation">,</span>ascending <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">## 升序排序</span>
+df<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by <span class="token operator">=</span> <span class="token string">'Mike'</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210211175408.png" style="zoom:80%;" />
+
+<p>生成新的一列：</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'Dark ♂'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+df</code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210211182806.png" style="zoom:80%;" />
+
+<p>然后要啥值，直接选取元素进行赋值即可</p>
+<h2 id="导出Dataframe"><a href="#导出Dataframe" class="headerlink" title="导出Dataframe"></a>导出Dataframe</h2><h3 id="简单的导出"><a href="#简单的导出" class="headerlink" title="简单的导出"></a>简单的导出</h3><p>直接使用<code>.to_excel()</code>即可，该方法的参数如下：</p>
+<pre class=" language-python"><code class="language-python">df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>
+    excel_writer<span class="token punctuation">,</span>
+    sheet_name<span class="token operator">=</span><span class="token string">'Sheet1'</span><span class="token punctuation">,</span>
+    na_rep<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span>
+    float_format<span class="token operator">=</span>None<span class="token punctuation">,</span>
+    columns<span class="token operator">=</span>None<span class="token punctuation">,</span>
+    header<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    index_label<span class="token operator">=</span>None<span class="token punctuation">,</span>
+    startrow<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+    startcol<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+    engine<span class="token operator">=</span>None<span class="token punctuation">,</span>
+    merge_cells<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    encoding<span class="token operator">=</span>None<span class="token punctuation">,</span>
+    inf_rep<span class="token operator">=</span><span class="token string">'inf'</span><span class="token punctuation">,</span>
+    verbose<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    freeze_panes<span class="token operator">=</span>None<span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+<p>常用的参数有这几个：</p>
 <ul>
-<li>pip安装：直接在命令行里键入<code>pip install numpy</code>即可，如果遇到安装速度过慢的情况，可以考虑到清华镜像源下载安装。</li>
-<li>conda安装，在anaconda powershell里输入<code>conda install numpy</code>,速度慢也可以换源。<br>我这里已经安装好了，显示如下：<br><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/1592147524509.jpg"><br>打开idle验证一下安装是否成功：<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>__version__<span class="token comment" spellcheck="true">#打印版本信息</span>
-<span class="token string">'1.16.5'</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#生成值全为1的数组</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-正确生成了数组，说明numpy安装成功<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2. 基础操作"></a>2. 基础操作</h2></li>
+<li>excel_writer：如果是只写入一个Sheet，那么这里传入你要保存的路径即可；如果是要写入多个Sheet，那么要传入一个构造好的writer，后面会有栗子</li>
+<li>sheet_name：指定写入Sheet的名字</li>
+<li>na_rep：用于替换空数据的字符串，默认为’’</li>
+<li>float_format：设置浮点数的格式（几位小数点）</li>
+<li>columns：要写入的列</li>
+<li>header：是否保存列名，默认为True，即为保存</li>
+<li>index：是否保存索引，默认为True，即为保存</li>
+<li>index_label：索引的列标签名</li>
 </ul>
-<h3 id="2-1通过维度创建数组"><a href="#2-1通过维度创建数组" class="headerlink" title="2.1通过维度创建数组"></a>2.1通过维度创建数组</h3><p>先看由指定维度来创建数组的方法：</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> a<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#创建一维数组</span>
-<span class="token operator">>></span><span class="token operator">></span> a
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>）
-<span class="token operator">>></span><span class="token operator">></span> b<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#创建二维数组，高维度同理</span>
-<span class="token operator">>></span><span class="token operator">></span> b
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#生成指定维度的值全为0的数组</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">##生成指定维度的值全为1的数组</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>empty<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#生成指定维度的值为随机数的数组</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>empty_like<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#生成和b数组同维度的值为随机数的数组</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>在实际操作中，通过生成a，b数组的方式来创建高维度数组时会显得很麻烦，所以一般使用<code>np.ones</code>或<code>np.zeros</code>来生成指定维度的数组，然后对其中的元素进行修改。</p>
-<h3 id="2-2通过数值范围创建数组"><a href="#2-2通过数值范围创建数组" class="headerlink" title="2.2通过数值范围创建数组"></a>2.2通过数值范围创建数组</h3><h4 id="2-2-1等差数列"><a href="#2-2-1等差数列" class="headerlink" title="2.2.1等差数列"></a>2.2.1等差数列</h4><p>有时候，我们需要通过数值范围来创建数组，比如现在需要一个从1到100的公差为2的等差数列，通过前面的方法也可以创建（先生成指定维度的0数组，再利用循环进行赋值），这样会显得比较繁琐，可以使用<code>arange</code>函数：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#以生成1到20的公差为2的等差数列为例</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">,</span>  <span class="token number">7</span><span class="token punctuation">,</span>  <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>start<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>stop<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>step<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#详细写法</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">,</span>  <span class="token number">7</span><span class="token punctuation">,</span>  <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">,</span>  <span class="token number">7</span><span class="token punctuation">,</span>  <span class="token number">8</span><span class="token punctuation">,</span>  <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span>
-       <span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p><code>arange</code>函数中需要三个参数，依次是起始点、终止点和步长，可以看出：即使步长设置为1，输出的数组也是不包括终止点的，所以<code>arange</code>函数的输入可以看做一个左闭右开区间，如果想要包括终止点，可以让终止点增大一个步长。</p>
-<p>除了<code>arange</code>函数，还有一个<code>linspace</code>函数也可以生成等差数列：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#以生成1到10的公差为1的等差数列为例</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">7</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">8</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">9</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span>start<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>stop<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span>num<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#详细写法</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">7</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">8</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">9</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span>endpoint<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span> <span class="token punctuation">,</span> <span class="token number">1.9</span><span class="token punctuation">,</span> <span class="token number">2.8</span><span class="token punctuation">,</span> <span class="token number">3.7</span><span class="token punctuation">,</span> <span class="token number">4.6</span><span class="token punctuation">,</span> <span class="token number">5.5</span><span class="token punctuation">,</span> <span class="token number">6.4</span><span class="token punctuation">,</span> <span class="token number">7.3</span><span class="token punctuation">,</span> <span class="token number">8.2</span><span class="token punctuation">,</span> <span class="token number">9.1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p><code>linspace</code>函数中需要至少三个参数，依次为起始点、终止点和要生成的等间距点的数量，还有一个可选参数<code>endpoint</code>，它的默认值为<code>True</code>，表示默认包括终止点，此时可将输入理解为一个闭区间，将其设置为<code>False</code>后，输入又变成了一个左闭右开区间。</p>
-<h4 id="2-2-2等比数列"><a href="#2-2-2等比数列" class="headerlink" title="2.2.2等比数列"></a>2.2.2等比数列</h4><p><code>numpy</code>同样有函数来创建满足需要的等比数列，函数名字叫<code>logspace</code>，该函数有<code>start</code>、<code>stop</code>、<code>num</code>、<code>endpoint</code>、<code>base</code>五个参数，</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">start</td>
-<td align="center">表示所生成数列的起始值为${base}^{start}$</td>
-</tr>
-<tr>
-<td align="center">stop</td>
-<td align="center">表示所生成数列的终止值为$base^{stop}$</td>
-</tr>
-<tr>
-<td align="center">num</td>
-<td align="center">要生成的等步长的样本数量，默认为50</td>
-</tr>
-<tr>
-<td align="center">endpoint</td>
-<td align="center">该值为 True 时，数列中中包含$base^{stop}$ 值，反之不包含，默认是True。</td>
-</tr>
-<tr>
-<td align="center">base</td>
-<td align="center">对数 log 的底数，默认值为10</td>
-</tr>
-</tbody></table>
-<p>实例如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#生成1到10000的等差数列</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>logspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.e+00</span><span class="token punctuation">,</span> <span class="token number">1.e+01</span><span class="token punctuation">,</span> <span class="token number">1.e+02</span><span class="token punctuation">,</span> <span class="token number">1.e+03</span><span class="token punctuation">,</span> <span class="token number">1.e+04</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>logspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span>endpoint<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.00000000e+00</span><span class="token punctuation">,</span> <span class="token number">6.30957344e+00</span><span class="token punctuation">,</span> <span class="token number">3.98107171e+01</span><span class="token punctuation">,</span> <span class="token number">2.51188643e+02</span><span class="token punctuation">,</span>
-       <span class="token number">1.58489319e+03</span><span class="token punctuation">]</span>
-<span class="token comment" spellcheck="true">#生成1到128的等差数列</span>
-<span class="token operator">>></span><span class="token operator">></span> np<span class="token punctuation">.</span>logspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span>base<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span>  <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span>   <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">,</span>   <span class="token number">4</span><span class="token punctuation">.</span><span class="token punctuation">,</span>   <span class="token number">8</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">16</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">32</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">64</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<h3 id="2-3数据类型"><a href="#2-3数据类型" class="headerlink" title="2.3数据类型"></a>2.3数据类型</h3><p>在上述的各种函数中，其实都还有一个参数，名字为<code>dtype</code>，它可以用来指定数组中元素的类型，举一个例子：</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> c<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> c
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> c<span class="token punctuation">.</span>dtype
-dtype<span class="token punctuation">(</span><span class="token string">'int32'</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> d<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dtype<span class="token operator">=</span><span class="token string">'float32'</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> d
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>float32<span class="token punctuation">)</span></code></pre>
-<p>这里再附上numpy里的数据类型表（转载于<a href="https://www.runoob.com/numpy/numpy-dtype.html" target="_blank" rel="noopener">菜鸟教程</a>）：</p>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">bool_</td>
-<td align="center">布尔型数据类型（True 或者 False）</td>
-</tr>
-<tr>
-<td align="center">int_</td>
-<td align="center">默认的整数类型（类似于 C 语言中的 long，int32 或 int64）</td>
-</tr>
-<tr>
-<td align="center">intc</td>
-<td align="center">与 C 的 int 类型一样，一般是 int32 或 int 64</td>
-</tr>
-<tr>
-<td align="center">intp</td>
-<td align="center">用于索引的整数类型（类似于 C 的 ssize_t，一般情况下仍然是 int32 或 int64）</td>
-</tr>
-<tr>
-<td align="center">int8</td>
-<td align="center">字节（-128 to 127）</td>
-</tr>
-<tr>
-<td align="center">int16</td>
-<td align="center">整数（-32768 to 32767）</td>
-</tr>
-<tr>
-<td align="center">int32</td>
-<td align="center">整数（-2147483648 to 2147483647）</td>
-</tr>
-<tr>
-<td align="center">int64</td>
-<td align="center">整数（-9223372036854775808 to 9223372036854775807）</td>
-</tr>
-<tr>
-<td align="center">uint8</td>
-<td align="center">无符号整数（0 to 255）</td>
-</tr>
-<tr>
-<td align="center">uint16</td>
-<td align="center">无符号整数（0 to 65535）</td>
-</tr>
-<tr>
-<td align="center">uint32</td>
-<td align="center">无符号整数（0 to 4294967295）</td>
-</tr>
-<tr>
-<td align="center">uint64</td>
-<td align="center">无符号整数（0 to 18446744073709551615）</td>
-</tr>
-<tr>
-<td align="center">float_</td>
-<td align="center">float64 类型的简写</td>
-</tr>
-<tr>
-<td align="center">float16</td>
-<td align="center">半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</td>
-</tr>
-<tr>
-<td align="center">float32</td>
-<td align="center">单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</td>
-</tr>
-<tr>
-<td align="center">float64</td>
-<td align="center">双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</td>
-</tr>
-<tr>
-<td align="center">complex_</td>
-<td align="center">complex128 类型的简写，即 128 位复数</td>
-</tr>
-<tr>
-<td align="center">complex64</td>
-<td align="center">复数，表示双 32 位浮点数（实数部分和虚数部分）</td>
-</tr>
-<tr>
-<td align="center">complex128</td>
-<td align="center">复数，表示双 64 位浮点数（实数部分和虚数部分）</td>
-</tr>
-</tbody></table>
+<h3 id="一次性导出多个Sheet"><a href="#一次性导出多个Sheet" class="headerlink" title="一次性导出多个Sheet"></a>一次性导出多个Sheet</h3><pre class=" language-python"><code class="language-python">path <span class="token operator">=</span> <span class="token string">'result.xlsx'</span>
+writer <span class="token operator">=</span> pd<span class="token punctuation">.</span>ExcelWriter<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span>sheet_name<span class="token operator">=</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span>sheet_name<span class="token operator">=</span><span class="token string">'2'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span>writer<span class="token punctuation">,</span>sheet_name<span class="token operator">=</span><span class="token string">'3'</span><span class="token punctuation">)</span>
+writer<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/20210211184826.png" style="zoom: 50%;" />
+
+<h3 id="其他导出形式"><a href="#其他导出形式" class="headerlink" title="其他导出形式"></a>其他导出形式</h3><ul>
+<li><code>df.to_csv</code>：导出为csv文件</li>
+<li><code>df.to_json</code>：导出为json文件</li>
+<li><code>df.to_html</code>：导出为html文件</li>
+<li><code>df.to_clipboard</code>：导出dataframe到剪贴板，相当于<code>ctrl+c</code></li>
+<li><code>df.to_latex</code>：导出为latex代码</li>
+<li><code>df.to_sql</code>：导出为SQL</li>
+</ul>
+<p>更多详细教程，可以去<a href="https://www.pypandas.cn/docs/" target="_blank" rel="noopener">官方文档</a>查看</p>
 
             </div>
             <hr/>
@@ -905,7 +813,7 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://resetran.top/numpy-1/">https://resetran.top/numpy-1/</a>
+                    <a href="https://resetran.top/pandas-2/">https://resetran.top/pandas-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -947,8 +855,8 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/numpy/">
-                                    <span class="chip bg-color">numpy</span>
+                                <a href="/tags/pandas/">
+                                    <span class="chip bg-color">pandas</span>
                                 </a>
                             
                         </div>
@@ -1402,23 +1310,23 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/numpy-2/">
+                <a href="/rs-notes/">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/8.jpg" class="responsive-img" alt="numpy学习笔记（2）">
+                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/20.jpg" class="responsive-img" alt="推荐系统入门学习笔记">
                         
-                        <span class="card-title">numpy学习笔记（2）</span>
+                        <span class="card-title">推荐系统入门学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            继续来学习numpy~~~
+                            入门学习推荐系统的笔记
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
                         </span>
                         <span class="publish-author">
                             
@@ -1435,12 +1343,8 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/numpy/">
-                        <span class="chip bg-color">numpy</span>
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">推荐系统</span>
                     </a>
                     
                 </div>
@@ -1454,30 +1358,30 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/python-io/">
+                <a href="/svm/">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/17.jpg" class="responsive-img" alt="python学习笔记——文件读写">
+                        <img src="https://gitee.com/ranchongzhi/covers/raw/master/cover_imgs/19.jpg" class="responsive-img" alt="支撑向量机（SVM）">
                         
-                        <span class="card-title">python学习笔记——文件读写</span>
+                        <span class="card-title">支撑向量机（SVM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习python做的又一篇垃圾笔记~
+                            模式识别最后一个大作业
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="post-category">
+                                    大作业
                                 </a>
                             
                             
@@ -1489,6 +1393,14 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+                        <span class="chip bg-color">大作业</span>
+                    </a>
+                    
+                    <a href="/tags/svm/">
+                        <span class="chip bg-color">svm</span>
                     </a>
                     
                 </div>
