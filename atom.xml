@@ -6,7 +6,7 @@
   <link href="https://resetran.top/atom.xml" rel="self"/>
   
   <link href="https://resetran.top/"/>
-  <updated>2021-02-12T00:39:57.058Z</updated>
+  <updated>2021-06-24T09:07:39.452Z</updated>
   <id>https://resetran.top/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://resetran.top/hello-world/"/>
+    <id>https://resetran.top/hello-world/</id>
+    <published>2021-06-24T09:07:39.452Z</published>
+    <updated>2021-06-24T09:07:39.452Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch使用模板</title>
+    <link href="https://resetran.top/pytorch-template/"/>
+    <id>https://resetran.top/pytorch-template/</id>
+    <published>2021-04-14T12:50:20.000Z</published>
+    <updated>2021-04-14T06:37:06.592Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="python" scheme="https://resetran.top/tags/python/"/>
+    
+    <category term="pytorch" scheme="https://resetran.top/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL常用命令</title>
+    <link href="https://resetran.top/mysql/"/>
+    <id>https://resetran.top/mysql/</id>
+    <published>2021-03-18T12:50:20.000Z</published>
+    <updated>2021-04-14T06:34:06.587Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="数据库" scheme="https://resetran.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>推荐系统入门学习笔记</title>
@@ -248,7 +321,7 @@
     <link href="https://resetran.top/built-blog-2/"/>
     <id>https://resetran.top/built-blog-2/</id>
     <published>2020-10-26T11:35:00.000Z</published>
-    <updated>2021-01-15T14:42:54.921Z</updated>
+    <updated>2021-05-03T03:43:18.991Z</updated>
     
     
       
@@ -489,82 +562,6 @@
     <category term="python" scheme="https://resetran.top/tags/python/"/>
     
     <category term="numpy" scheme="https://resetran.top/tags/numpy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python学习笔记——文件读写</title>
-    <link href="https://resetran.top/python-io/"/>
-    <id>https://resetran.top/python-io/</id>
-    <published>2020-06-04T13:14:12.000Z</published>
-    <updated>2021-01-15T14:45:11.512Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;读写文件是最常见的IO操作。Python内置了读写文件的函数，用法和C是兼容的。&lt;/p&gt;
-&lt;p&gt;在磁盘上读写文件的功能都是由操作系统提供的，现代操作系统不允许普通的程序直接操作磁盘，所以，读写文件就是请求操作系统打开一个文件对象（通常称为文件描述符），然后，通过操作系统提供</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python学习笔记——集合（set）与字典（dict）</title>
-    <link href="https://resetran.top/python-2/"/>
-    <id>https://resetran.top/python-2/</id>
-    <published>2020-04-14T10:25:06.000Z</published>
-    <updated>2021-01-15T14:45:07.992Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、字典（dict）&quot;&gt;&lt;a href=&quot;#一、字典（dict）&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python学习笔记——列表（list）和元组（tuple）</title>
-    <link href="https://resetran.top/python-1/"/>
-    <id>https://resetran.top/python-1/</id>
-    <published>2020-04-13T09:14:32.000Z</published>
-    <updated>2021-01-15T14:45:04.415Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、列表（list）&quot;&gt;&lt;a href=&quot;#一、列表（list）&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://resetran.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="python" scheme="https://resetran.top/tags/python/"/>
     
   </entry>
   
