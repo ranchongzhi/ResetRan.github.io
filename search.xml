@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>一键配置c++环境</title>
+      <link href="autovscenv-wpf/"/>
+      <url>autovscenv-wpf/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>用过vscode写过c++的童鞋应该都知道，在vscode上边配置c++环境有贼多的坑，先要下载<code>MinGW</code>编译器，但是下载速度可能很慢。还要配置环境变量、修改配置文件等等，在网上照着一篇教程配置，还很有可能配置不成功。由于我最近新换电脑，要重新配置c++环境，在网上找教程时，找到一个好东西。</p><p>它是一个软件，运行后点击几下，再重启电脑就配置好c++环境了，懒人福利！</p><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>使用该软件配置环境的前提条件如下：</p><ul><li>安装了vscode</li><li>在vscode里边安装了<code>code runner</code>和<code>C/C++</code>插件</li></ul><h2 id="软件详情"><a href="#软件详情" class="headerlink" title="软件详情"></a>软件详情</h2><p>下载地址后附，下载好后运行<code>AutoVsCEnv_WPF.exe</code>，即可看到如下界面：</p><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2021-07-13_09-18-04.png"></p><p>点击<code>开始</code>，软件会让你先选择<code>MinGW</code>存放的位置：</p><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2021-07-13_09-23-32.png"></p><p>选择好之后点击<code>下一步</code>，软件会让你选择c++项目文件夹，以后的c++代码都得存放在这个文件夹下</p><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2021-07-13_09-35-51.png"></p><p>选择好之后，点击下一步等待安装即可</p><p>安装完成之后重启电脑，然后用vscode打开项目文件夹，你会发现有一个<code>test.cpp</code>文件，通过快捷键<code>CTRL+F5</code>进行调试，如果出现如下界面，那么就表示配置成功了：</p><p><img src="https://gitee.com/ranchongzhi/blog_images/raw/master/img/Snipaste_2021-07-13_09-47-23.png"></p><p>然后就可以愉快的写代码（bug）了</p><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><p>下载链接：<a href="https://blog.csdn.net/qq_41523096/article/details/104628484" target="_blank" rel="noopener"> https://github.com/SDchao/AutoVsCEnv_WPF/releases/latest</a></p><p>如果有问题可以去仓库的issue看看：<a href="https://github.com/SDchao/AutoVsCEnv_WPF/issues" target="_blank" rel="noopener">Issues · SDchao/AutoVsCEnv_WPF (github.com)</a></p><p>如果无法下载，可以在下方评论，我看到后会私发给你。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 折腾 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>右键菜单新建md文件</title>
       <link href="right-click-new-md/"/>
       <url>right-click-new-md/</url>
@@ -19,6 +44,8 @@
       
       
         <tags>
+            
+            <tag> 小技巧 </tag>
             
             <tag> markdown </tag>
             
@@ -149,9 +176,9 @@
       
         <tags>
             
-            <tag> 大作业 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 大作业 </tag>
             
             <tag> svm </tag>
             
@@ -178,9 +205,9 @@
       
         <tags>
             
-            <tag> 大作业 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 大作业 </tag>
             
             <tag> 雪堆博弈 </tag>
             
@@ -207,11 +234,11 @@
       
         <tags>
             
+            <tag> python </tag>
+            
             <tag> 大作业 </tag>
             
             <tag> 社区发现 </tag>
-            
-            <tag> python </tag>
             
         </tags>
       
@@ -236,9 +263,9 @@
       
         <tags>
             
-            <tag> 大作业 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 大作业 </tag>
             
             <tag> PID </tag>
             
@@ -292,13 +319,13 @@
       
         <tags>
             
-            <tag> 大作业 </tag>
+            <tag> 模式识别 </tag>
             
             <tag> python </tag>
             
             <tag> numpy </tag>
             
-            <tag> 模式识别 </tag>
+            <tag> 大作业 </tag>
             
         </tags>
       
@@ -377,13 +404,13 @@
       
         <tags>
             
-            <tag> 大作业 </tag>
+            <tag> 模式识别 </tag>
             
             <tag> python </tag>
             
             <tag> numpy </tag>
             
-            <tag> 模式识别 </tag>
+            <tag> 大作业 </tag>
             
         </tags>
       
