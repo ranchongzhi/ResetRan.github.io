@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Vue CLI+Electron踩坑记录</title>
+      <link href="vuecli-electron/"/>
+      <url>vuecli-electron/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于毕设可能要写界面，所以之前一直在琢磨用啥写（其实我啥也不会），写界面有很多种</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 折腾 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> electron </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一键配置c++环境</title>
       <link href="autovscenv-wpf/"/>
       <url>autovscenv-wpf/</url>
